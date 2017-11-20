@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+#contents{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+form{
+    width: 700px;
+    margin: 0 auto;
+}
+
+h1{
+    font-size: 30px;
+    margin: 0 0 50px 0;
+}
+
+#name{
+    width: 700px;
+    margin: 0 0 50px 0;
+}
+
+#name h2{
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+#name h3{
+    margin: 0 0 10px 0;
+}
+
+#sex{
+    width: 700px;
+    margin: 0 0 50px 0;
+}
+
+#sex h2{
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+.select_sex{
+    width: 350px;
+    height: 50px;
+    float: left;
+}
+
+#birth{
+    width: 700px;
+    margin: 0 0 50px 0;
+}
+
+#birth h2{
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+#tel{
+    width: 700px;
+    margin: 0 0 50px 0;
+}
+
+#tel h2{
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+#tel h3{
+    margin: 0 0 10px 0;
+}
+
+#address{
+    width: 700px;
+    margin: 0 0 50px 0;
+}
+
+#address h2{
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+#address h3{
+    margin: 0 0 10px 0;
+}
+
+#mail{
+    width: 700px;
+    margin: 0 0 50px 0;
+}
+
+#mail h2{
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+#mail h3{
+    margin: 0 0 10px 0;
+}
+
+#pass{
+    width: 700px;
+    margin: 0 0 50px 0;
+}
+
+#pass h2{
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+#pass h3{
+    margin: 0 0 10px 0;
+}
+
+.select_pay{
+    width: 350px;
+    height: 50px;
+    float: left;
+}
+
+form .txt_box{
+    width: 700px;
+    height: 50px;
+    margin: 0 0 20px 0;
+}
+
+#next_area{
+    width: 700px;
+    margin: 0 0 50px 0;
+}
+
+#next_area h2{
+    font-size: 20px;
+    margin: 0 0 20px 0;
+}
+
+#next_area{
+    text-align: center;
+}
+
+#next{
+    width: 500px;
+    height: 50px;
+    font-size: 20px;
+    margin: 0 0 20px 0;
+}

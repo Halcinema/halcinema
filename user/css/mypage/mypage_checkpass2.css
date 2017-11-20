@@ -1,0 +1,15 @@
+﻿@charset "UTF-8";
+
+#checkpass form #pass {
+	margin-left: 90px;
+	margin-top: 40px;
+	width: 260px;
+	height: 30px;
+	padding-left: 0px;
+	margin-right: 10px;
+}
+#checkpass form #msg {
+	margin-bottom: -20px;
+	color: #FF0004;
+	margin-top: 5px;
+}

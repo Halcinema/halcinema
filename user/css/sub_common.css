@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin-top: auto;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: auto;
+	padding: 0;
+}
+/*clearfix*/
+.clearfix::after {
+	content: " ";
+	display: block;
+	height: 0;
+	clear: both;
+}
+.page_name{
+	width:500px;
+	font-size:x-large;
+	padding:5px;
+	margin:20px 0;
+    padding: 10px;
+	border-bottom:3px #000 solid;
+	
+}.contents_name{
+	font-size:large;
+	padding:10px;
+	margin:20px 0;
+	border-bottom:1px #000 solid;
+    font-weight: bold;
+    text-align: center;
+
+	background: #ffffff; /* Old browsers */
+
+	background: -moz-linear-gradient(270deg, #fff 0%, rgba(0,0,255,0.1) 90%, rgba(0,0,255,0.2) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(270deg, #fff 0%, rgba(0,0,255,0.1) 90%, rgba(0,0,255,0.2) 100%); /* Chrome10-25,Safari5.1-6 */
+    background:linear-gradient(270deg, #fff 0%, rgba(0,0,255,0.1) 90%, rgba(0,0,255,0.2) 100%);    
+
+
+}.info_name{
+    font-size: 1.5em;
+    color: cornflowerblue;
+    border-bottom: 3px solid cornflowerblue;
+    padding: 5px;
+    margin-bottom: 5px;
+}.movie_name{
+	font-size:x-large;
+	padding:5px;
+	margin:10px;
+}.movie_contents{
+	font-size:x-large;
+	margin:0 10px 10px 10px;
+}section{
+	width:1000px;
+	background-color:#fff;
+	margin:0 auto;
+	border-radius:10px;
+    line-height: 25px;
+}#wrapper{
+	width:1100px;
+	padding:0 25px;
+	background-color:#fff;
+	margin:0 auto;
+}
+
+/*
+-webkit-
+-moz-
+-ms-
+-o-
+*/

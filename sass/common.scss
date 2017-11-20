@@ -1,0 +1,172 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+
+ /* 共通のスタイル */
+ html, body, div, span, applet, object, iframe,
+ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+ a, abbr, acronym, address, big, cite, code,
+ del, dfn, em, font, img, ins, kbd, q, s, samp,
+ small, strike, strong, sub, sup, tt, var,
+ b, u, i, center,
+ dl, dt, dd, ol, ul, li,
+ fieldset, form, label, legend,
+ table, caption, tbody, tfoot, thead, tr, th, td {
+ 	font-family: 'Tsukushi A Round Gothic'; font-weight: normal;
+ 	color:#808080;
+ }
+ *, *:before, *:after {
+    box-sizing: border-box;
+ }
+ /*ヘッダーの色：#B4DAED*/
+
+ #wrapper{
+ 	width: 100%;
+ }
+
+ #main{
+ 	width: calc(100% - 300px);
+ 	float: right;
+ 	margin: 50px auto;
+ 	padding:50px;
+ }
+ input{
+ 	font-size: 1.1em;
+ 	color: #545454;
+ }
+ input[type="text"]{
+     width: 400px;
+     height: 30px;
+     padding: 0 30px 0 10px;
+     border: solid 1px #808080;
+     border-radius: 3px;
+     box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
+ }
+
+ input[type="text"]:focus {
+     border:solid 1px crimson;
+ }
+
+ input[type="email"]{
+     width: 400px;
+     height: 30px;
+     padding: 0 30px 0 10px;
+     border: solid 1px #808080;
+     border-radius: 3px;
+     box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
+ }
+
+ input[type="email"]:focus {
+     border:solid 1px crimson;
+ }
+
+ input[type="password"]{
+     width: 400px;
+     height: 30px;
+     padding: 0 30px 0 10px;
+     border: solid 1px #808080;
+     border-radius: 3px;
+     box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
+ }
+
+ input[type="password"]:focus {
+     border:solid 1px crimson;
+ }
+
+ input[type="number"]{
+     width: 400px;
+     height: 30px;
+     padding: 0 30px 0 10px;
+     border: solid 1px #808080;
+     border-radius: 3px;
+     box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
+ }
+
+ input[type="number"]:focus {
+     border:solid 1px crimson;
+ }
+
+ input[type="tel"]{
+     width: 400px;
+     height: 30px;
+     padding: 0 30px 0 10px;
+     border: solid 1px #808080;
+     border-radius: 3px;
+     box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
+ }
+
+ input[type="tel"]:focus {
+     border:solid 1px crimson;
+ }
+
+ input[type="date"]{
+     width: 400px;
+     height: 30px;
+     padding: 0 30px 0 10px;
+     border: solid 1px #808080;
+     border-radius: 3px;
+     box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
+ }
+
+ input[type="date"]:focus {
+     border:solid 1px crimson;
+ }
+
+ input[type="time"]{
+     width: 400px;
+     height: 30px;
+     padding: 0 30px 0 10px;
+     border: solid 1px #808080;
+     border-radius: 3px;
+     box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
+ }
+
+ input[type="time"]:focus {
+     border:solid 1px crimson;
+ }
+
+ input[type="datetime"]{
+     width: 400px;
+     height: 30px;
+     padding: 0 30px 0 10px;
+     border: solid 1px #808080;
+     border-radius: 3px;
+     box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
+ }
+
+ input[type="datetime"]:focus {
+     border:solid 1px crimson;
+ }
+
+ select{
+     width: 400px;
+     height: 30px;
+     padding: 0 30px 0 10px;
+     border: solid 1px #808080;
+     border-radius: 3px;
+     box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
+ }
+
+ select:focus {
+     border:solid 1px crimson;
+ }
+
+ input[type="submit"]{
+     width: 400px;
+     height: 30px;
+     padding: 0 30px 0 10px;
+     border: solid 1px crimson;
+     border-radius: 3px;
+     background-color: #FFFFFF;
+     color: crimson;
+     box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
+
+ 	transition: bacground-color 0.5s linear, color 0.5s linear;
+ }
+
+ input[type="submit"]:hover {
+     background-color: crimson;
+     color: #FFFFFF;
+ }

@@ -1,0 +1,28 @@
+﻿@charset "UTF-8";
+
+#wrapper #contents #checkpass {
+	margin-left: 32%;
+	margin-top: 70px;
+	border: thin solid #808080;
+	width: 500px;
+	margin-bottom: 20px;
+}
+#checkpass form p {
+	margin-left: 30px;
+	margin-top: 40px;
+}
+#checkpass form #pass {
+	margin-left: 90px;
+	margin-top: 40px;
+	width: 260px;
+	height: 30px;
+	padding-left: 0px;
+	margin-right: 10px;
+}
+
+#checkpass form #txtsubmit {
+	margin-bottom: 55px;
+	height: 30px;
+	width: 50px;
+	font-size: 15px;
+}

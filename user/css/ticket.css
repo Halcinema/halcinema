@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+
+
+
+#ticket_box li{
+    height: 250px;
+    padding: 10px;
+    border-radius: 10px;
+
+    box-shadow:0px 0px 2px 2px rgba(0,0,0,0.5);
+	background: #ffffff; /* Old browsers */
+
+	background: -moz-linear-gradient(180deg, #fff 0%, rgba(0,0,0,0.05) 80%, rgba(0,0,0,0.2) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(180deg, #fff 0%, rgba(0,0,0,0.05) 80%, rgba(0,0,0,0.2) 100%); /* Chrome10-25,Safari5.1-6 */
+    background:linear-gradient(180deg, #fff 0%, rgba(0,0,0,0.05) 80%, rgba(0,0,0,0.2) 100%);
+
+}
+#ticket_box img{
+    float: left;
+}#ticket_info{   
+    float: left;
+    width: 600px;
+    margin: 0 10px;
+}
+
+.sale_info{
+	border: 5px rgba(255,0,0,0.5) solid;
+	width: 700px;
+	padding: 10px;
+	margin: 0 auto;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+ 	margin-bottom: 10px;
+}.ticket_box{
+	padding: 50px;
+}.ticket_left {
+	float: left;
+	width: 120px;
+	height: 120px;
+	line-height: 100px;
+	color: #fff;
+	text-align: center;
+	background: #000000;
+	margin: 0 20px 0 0;
+	padding: 10px;
+	font-size:small;
+
+}.ticket_right {
+	float: left;
+}body table tr td{
+	border-bottom: 1px solid #CCC;
+    
+}.ticket_list{
+	list-style-type: none;
+}.m{
+	padding:5px 0;
+	width: 150px;
+	padding-right:25px;
+}.a{
+	padding:5px;
+	width: 500px;
+	padding-right:25px;    
+}.y{
+	padding:5px;
+	width: 75px;
+	text-align: right;
+}

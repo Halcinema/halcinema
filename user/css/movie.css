@@ -1,0 +1,85 @@
+@charset "utf-8";
+#movie_contents{
+	width:1000px;
+}#button{
+	padding:10px;
+	margin-bottom:10px;
+	width:1000px;
+	height:30px;
+}.movie_block{
+	padding: 10px;
+	width: 1000px;
+	height: 180px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+	margin-bottom: 10px;
+
+	border: 3px solid rgba(0,0,0,0.25);
+
+
+//	background: -moz-linear-gradient(270deg, #fff 0%, rgba(0,0,0,0.05) 80%, rgba(0,0,0,0.1) 100%); /* FF3.6-15 */
+//	background: -webkit-linear-gradient(270deg, #fff 0%, rgba(0,0,0,0.05) 80%, rgba(0,0,0,0.1) 100%); /* Chrome10-25,Safari5.1-6 */
+//  background:linear-gradient(270deg, #fff 0%, rgba(0,0,0,0.05) 80%, rgba(0,0,0,0.1) 100%);
+
+	-webkit-box-shadow: 3px 3px 3px rgba(0,0,255,0.1);
+	-moz-box-shadow: 3px 3px 3px rgba(0,0,255,0.1);
+	-ms-box-shadow: 3px 3px 3px rgba(0,0,255,0.1);
+	-o-box-shadow: 3px 3px 3px rgba(0,0,255,0.1);
+	/*boxに影をつける*/
+	box-shadow: 3px 3px 3px rgba(0,0,255,0.1);
+    box-sizing:border-box;
+}.movie_block:hover{
+	color:#0000ff;
+	border: 3px solid rgba(0,0,255,0.5);
+	box-shadow: 3px 3px 3px 3px rgba(0,0,255,0.1);
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(180deg, #fff 0%, rgba(0,0,0,0.1) 80%, rgba(0,0,0,0.2) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(180deg, #fff 0%, rgba(0,0,0,0.1) 80%, rgba(0,0,0,0.2) 100%); /* Chrome10-25,Safari5.1-6 */
+	background:linear-gradient(180deg, #fff 0%, rgba(0,0,0,0.1) 80%, rgba(0,0,0,0.2) 100%);
+
+}.movie_gazou{
+	width: 200px;
+	float: left;
+}.movie_text{
+	width: 600px;
+	float: left;
+}a{
+	color:#000000;
+}.info_movie{
+	width: 600px;
+	list-style-type: none;
+	margin: 10px;
+	font-size:small;
+    line-height: 12px;
+}.info_left{
+	text-align:center;
+	padding:5px;
+	margin:2.5px;
+	height:20px;
+	width: 100px;
+	background-color: aqua;
+	float: left;
+
+}.info_right{
+	padding:5px;
+	margin:2.5px;
+	height:20px;
+	width: 475px;
+	float: right;
+	text-align:left;
+}.detail_button{
+	padding: 5px;
+	color: #FFF;
+	background-color: #000;
+	float: right;
+}.change{
+	margin: 5px;
+	padding: 5px;
+	color: #FFF;
+	background-color: #000;
+}.change:hover{
+	opacity: 0.5;
+}

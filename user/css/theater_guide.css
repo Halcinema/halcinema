@@ -1,0 +1,53 @@
+@charset "utf-8";
+#about_theater{
+	width:1000px;
+	height:350px;
+	border: 1px #000 solid;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+}#theater{
+	margin: 25px;
+	width: 600px;
+	float: left;
+}#setumei{
+	padding: 25px 0 50px 0;
+	width: 300px;
+	float: left;
+}#theater_map{
+	width: 1000px;
+	padding: 25px;
+	border: 1px #000 solid;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+}#spec{
+}.sc{
+	width: 150px;
+	padding:10px;
+}.s{
+	width: 160px;
+	padding:10px;
+}.c{
+	width: 120px;
+	padding:10px;
+}.v{
+	width: 120px;
+	padding:10px;
+}.m{
+	width: 100px;
+	padding:10px;
+}table{
+	border-collapse: collapse;
+	border-spacing: 0;
+}table td{
+	border-bottom: 1px #ccc solid;
+	padding: 5px 10px;
+	vertical-align: top;
+	line-height: 1;
+	text-align: left;
+}

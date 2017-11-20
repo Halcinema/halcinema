@@ -1,0 +1,83 @@
+﻿@charset "UTF-8";
+
+#wrapper #contents #KAIINN {
+	margin-top: 10px;
+	margin-left: 200px;
+	border-radius: 5px;
+	border-style: solid;
+	border-width: thin;
+	margin-right: 200px;
+	padding-top: 5px;
+	padding-bottom: 15px;
+	padding-left: 10px;
+	margin-bottom: 20px;
+}
+#contents #KAIINN table {
+	margin-top: 0px;
+	margin-left: 5px;
+	margin-bottom: 40px;
+	width: auto;
+}
+#KAIINN table tr {
+
+}
+#KAIINN table td  {
+	margin-top: 10px;
+	margin-left: 10px;
+	padding-right: 10px;
+	padding-top: 30px;
+}
+table tr #hutoi {
+	font-weight: bolder;
+	padding-right: 30px;
+}
+
+
+#contents #KAIINN h3 {
+	margin-left: 10px;
+	margin-top: 15px;
+	font-weight: bolder;
+	font-size: 25px;
+	margin-bottom: 10px;
+}
+#contents #KAIINN p {
+	padding-top: 10px;
+	padding-left: 10px;
+	margin-bottom: 5px;
+}
+form table tr {
+	height: 50px;
+}
+
+
+tr td input {
+	padding-left: 0px;
+	height: 30px;
+}
+tr td #sex {
+	width: auto;
+	height: auto;
+
+
+
+}
+
+
+
+
+
+#KAIINN p a {
+	color: #007CFF;
+}
+#KAIINN form p {
+	color: #FF0004;
+	padding-bottom: 30px;
+}
+
+#KAIINN form #submit {
+	margin-left: 20px;
+	width: 80px;
+	height: 35px;
+	font-size: 17px;
+	text-align: center;
+}

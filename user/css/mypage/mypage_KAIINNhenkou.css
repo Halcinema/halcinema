@@ -1,0 +1,53 @@
+﻿@charset "UTF-8";
+table tr td {
+	width: 150px;
+}
+tr td #myouji {
+	width: 200px;
+}
+tr td #myouji_hurigana {
+	width: 200px;
+}
+tr td #name {
+	width: 200px;
+}
+tr td #name_hurigana {
+	width: 200px;
+}
+tr td #nen {
+	width: 100px;
+	float: none;
+}
+tr td #getu {
+	width: 100px;
+}
+tr td #niti {
+	width: 100px;
+}
+tr td #yuubinn1 {
+	width: 100px;
+}
+tr td #yuubinn2 {
+	width: 100px;
+
+}
+tr td #ken {
+	width: 200px;
+}
+tr td #tyou {
+	width: 200px;
+}
+tr td #denwa {
+	width: 200px;
+}
+#KAIINN form #submit {
+	width: 90px;
+	padding-right: 8px;
+
+
+
+}
+#KAIINNtaikai form #submit {
+	width: 90px;
+	padding-right: 8px;
+}

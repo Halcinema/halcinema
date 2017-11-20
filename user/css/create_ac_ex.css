@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+#contents{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+form{
+    width: 700px;
+    margin: 0 auto;
+}
+
+h1{
+    font-size: 30px;
+    margin: 0 0 50px 0;
+}

@@ -1,0 +1,39 @@
+﻿@charset "UTF-8";
+#wrapper #contents #eiga {
+	margin-top: 10px;
+	margin-left: 200px;
+	border-style: solid;
+	border-width: thin;
+	border-radius: 5px;
+	margin-right: 200px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	height: 270px;
+}
+#contents #eiga h4 {
+	margin-top: 5px;
+	margin-left: 10px;
+	font-variant: normal;
+	font-weight: bolder;
+	font-size: 25px;
+	margin-bottom: 15px;
+}
+#contents #eiga p {
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+#eiga p img {
+	float: left;
+	margin-right: 20px;
+}
+
+#contents #eiga a {
+	margin-top: 10px;
+	margin-left: 0px;
+	margin-right: 10px;
+	color: #007CFF;
+}
+#contents #eiga #syousai_miru {
+	padding-top: 20px;
+}

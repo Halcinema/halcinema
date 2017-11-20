@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+#contents{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+#left{
+    width: 700px;
+    float: left;
+    margin: 0 50px 0 0;
+}
+
+h1{
+    font-size: 30px;
+    margin: 0 0 50px 0;
+}
+
+#right{
+    width: 250px;
+    float: right;
+}

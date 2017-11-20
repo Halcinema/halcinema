@@ -1,0 +1,92 @@
+﻿@charset "UTF-8";
+#wrapper #contents #YYKsyousai {
+	margin-left: 200px;
+	margin-top: 20px;
+	border-width: thin;
+	border-style: solid;
+	border-radius: 5px;
+	margin-right: 200px;
+	padding-bottom: 15px;
+	margin-bottom: 20px;
+}
+#contents #YYKsyousai h4 {
+	margin-left: 15px;
+	margin-top: 15px;
+	font-weight: bolder;
+	font-size: 25px;
+}
+#contents #YYKsyousai p {
+	padding-top: 10px;
+	padding-left: 10px;
+	margin-bottom: 20px;
+}
+#YYKsyousai p img {
+	float: left;
+	margin-right: 20px;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+#contents #YYKsyousai table {
+	margin-top: 230px;
+	margin-left: 20px;
+	margin-bottom: 40px;
+	width: 630px;
+}
+
+#YYKsyousai table tr {
+	margin-top: 10px;
+	margin-left: 10px;
+	height: 30px;
+	border-top: thin solid #8D8D8D;
+	border-bottom: thin solid #8D8D8D;
+}
+table tr td {
+	margin-left: 10px;
+	margin-top: 10px;
+	padding-right: 20px;
+	float: none;
+	padding-bottom: 30px;
+	padding-top: 25px;
+	padding-left: 15px;
+	clear: none;
+}
+table tr #hutoi {
+	font-weight: bolder;
+	padding-right: 30px;
+}
+
+#contents #YYKsyousai #YYkopsion {
+	margin-top: 20px;
+	padding-bottom: 10px;
+}
+#YYKsyousai #YYkopsion p {
+	float: none;
+	margin-bottom: -6px;
+	margin-top: 5px;
+	padding-left: 20px;
+	padding-bottom: 5px;
+}
+#contents #YYKsyousai #YYkdel {
+	margin-left: 10px;
+}
+#YYkopsion p a {
+	color: #007CFF;
+}
+
+#YYKsyousai #YYkdel h4 {
+	margin-left: 10px;
+}
+#YYKsyousai #YYkdel p {
+	color: #FF0004;
+}
+
+
+
+#YYkdel input {
+	margin-left: 10px;
+	width: 80px;
+	height: 35px;
+	font-size: 17px;
+	text-align: center;
+}

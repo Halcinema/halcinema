@@ -1,0 +1,257 @@
+@charset "utf-8";
+
+#contents{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+#left{
+    width: 700px;
+    float: left;
+    margin: 0 50px 0 0;
+}
+
+h1{
+    font-size: 30px;
+    margin: 0 0 10px 0;
+}
+
+#attention{
+    margin: 0 0 50px 0;
+}
+
+#select_ticket_area{
+    margin: 0 0 50px 0;
+}
+
+#select_ticket_area h2{
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+#select_ticket_area .ticket{
+    margin: 0 0 10px 0;
+}
+
+#select_ticket_area .ticket .seat_num{
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    float: left;
+}
+
+#select_ticket_area .ticket .select_ticket{
+    width: 500px;
+    height: 50px;
+    font-size: 20px;
+    float: right;
+}
+
+#select_ticket_area .ticket .select_ticket select{
+    width: 500px;
+    height: 50px;
+}
+
+#select_ticket_area #total{
+    width: 200px;
+    font-size: 25px;
+    float: left;
+    text-align: left;
+}
+
+#select_ticket_area #price{
+    width: 500px;
+    font-size: 25px;
+    float: right;
+    text-align: right;
+}
+
+#drink{
+    margin: 0 0 50px 0;
+}
+
+#drink h2{
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+#drink p{
+    margin: 0 0 10px 0;
+}
+
+#drink .chk_drink{
+    width: 350px;
+    height: 50px;
+    float: left;
+}
+
+#food{
+    margin: 0 0 50px 0;
+}
+
+#food h2{
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+#food p{
+    margin: 0 0 10px 0;
+}
+
+#food .chk_food{
+    width: 350px;
+    height: 50px;
+    float: left;
+}
+
+#goods{
+    margin: 0 0 50px 0;
+}
+
+#goods h2{
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+#goods p{
+    margin: 0 0 10px 0;
+}
+
+#goods .chk_goods{
+    width: 350px;
+    height: 50px;
+    float: left;
+}
+
+#login_area{
+    width: 700px;
+    margin: 0 0 50px 0;
+}
+
+#login_area h2{
+    font-size: 20px;
+    margin: 0 0 20px 0;
+}
+
+#login_area h3{
+    margin: 0 0 10px 0;
+}
+
+#login_area .txt_box{
+    width: 700px;
+    height: 50px;
+    margin: 0 0 20px 0;
+}
+
+#text_align{
+    text-align: center;
+}
+
+#login{
+    width: 500px;
+    height: 50px;
+    font-size: 20px;
+    margin: 0 0 20px 0;
+}
+
+#next_area{
+    width: 700px;
+    margin: 0 0 50px 0;
+}
+
+#next_area h2{
+    font-size: 20px;
+    margin: 0 0 20px 0;
+}
+
+#next_area p{
+    text-align: center;
+}
+
+#next{
+    width: 500px;
+    height: 50px;
+    font-size: 20px;
+    margin: 0 0 20px 0;
+}
+
+#back_area form{
+    text-align: center;
+}
+
+#back{
+    width: 500px;
+    height: 50px;
+    background-color: #FFFFFF;
+    font-size: 20px;
+    color: #808080;
+    margin: 0 0 20px 0;
+    border: solid 1px #808080;
+}
+
+#back:hover{
+    background-color: #808080;
+    color: #FFFFFF;
+}
+
+#all_back_area form{
+    text-align: center;
+}
+
+#all_back{
+    width: 500px;
+    height: 50px;
+    background-color: #FFFFFF;
+    font-size: 20px;
+    color: #808080;
+    margin: 0 0 20px 0;
+    border: solid 1px #808080;
+}
+
+#all_back:hover{
+    background-color: #808080;
+    color: #FFFFFF;
+}
+
+#right{
+    width: 250px;
+    float: right;
+}
+
+#purchase_contents{
+    width: 250px;
+}
+
+#purchase_contents h2{
+    width: 250px;
+    font-size: 20px;
+    background-color: #808080;
+    color: #FFFFFF;
+    padding: 10px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border: solid 1px #000000;
+}
+
+#purchase_contents dl{
+    width: 250px;
+    padding: 10px;
+    border-right: solid 1px #000000;
+    border-bottom: solid 1px #000000;
+    border-left: solid 1px #000000;
+}
+
+#purchase_contents dl dt{
+    margin: 0 0 10px 0;
+}
+
+#purchase_contents dl dd{
+    margin: 0 0 20px 0;
+}
+
+#purchase_contents dl dd:last-child{
+    margin: 0 0 0 0;
+}

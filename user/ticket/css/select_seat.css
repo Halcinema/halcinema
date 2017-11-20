@@ -1,0 +1,169 @@
+@charset "utf-8";
+
+#contents{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+#left{
+    width: 700px;
+    float: left;
+    margin: 0 50px 0 0;
+}
+
+h1{
+    font-size: 30px;
+    margin: 0 0 50px 0;
+}
+
+#icon_des{
+    width: 700px;
+    height: 44px;
+    margin: 0 0 80px 0;
+}
+
+#icon_des h2{
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+#icon_des ul li{
+    width: 350px;
+    height: 22px;
+    float: left;
+    vertical-align: middle;
+    margin: 0 0 10px 0;
+}
+
+#icon_des ul li img{
+    vertical-align: middle;
+    margin: 0 10px 0 0;
+}
+
+#select_seat_area_out{
+    text-align: center;
+    margin: 0 0 50px 0;
+}
+
+#select_seat_area_in{
+    display: inline-block;
+}
+
+#select_seat_area_in table tr th{
+    padding: 3px 1px 3px 1px;
+    font-size: 10px;
+}
+
+#select_seat_area_in table tr td{
+    padding: 3px 1px 3px 1px;
+    font-size: 10px;
+}
+
+#select_seat_area_in table tr td input{
+    display: none;
+}
+
+#fac{
+    width: 700px;
+    margin: 0 0 50px 0;
+}
+
+#fac h2{
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+#fac table tr th{
+    background-color: #808080;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 10px;
+    border: solid 1px #000000;
+}
+
+#fac table tr td{
+    padding: 10px;
+    border: solid 1px #000000;
+}
+
+#terms{
+    margin: 0 0 50px 0;
+}
+
+#terms h2{
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+#terms iframe{
+    border: solid 1px #000000;
+    padding: 10px;
+}
+
+form{
+    width: 700px;
+    text-align: center;
+}
+
+#next{
+    width: 500px;
+    height: 50px;
+    font-size: 20px;
+    margin: 0 0 20px 0;
+}
+
+#back{
+    width: 500px;
+    height: 50px;
+    background-color: #FFFFFF;
+    font-size: 20px;
+    color: #808080;
+    border: solid 1px #808080;
+    margin: 0 0 20px 0;
+}
+
+#back:hover{
+    background-color: #808080;
+    color: #FFFFFF;
+}
+
+#right{
+    width: 250px;
+    float: right;
+}
+
+#purchase_contents{
+    width: 250px;
+}
+
+#purchase_contents h2{
+    width: 250px;
+    font-size: 20px;
+    background-color: #808080;
+    color: #FFFFFF;
+    padding: 10px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border: solid 1px #000000;
+}
+
+#purchase_contents dl{
+    width: 250px;
+    padding: 10px;
+    border-right: solid 1px #000000;
+    border-bottom: solid 1px #000000;
+    border-left: solid 1px #000000;
+}
+
+#purchase_contents dl dt{
+    margin: 0 0 10px 0;
+}
+
+#purchase_contents dl dd{
+    margin: 0 0 20px 0;
+}
+
+#purchase_contents dl dd:last-child{
+    margin: 0 0 0 0;
+}

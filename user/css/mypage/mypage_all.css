@@ -1,0 +1,126 @@
+﻿@charset "UTF-8";
+
+/*ブラウザスタイルの初期化*/
+
+*{
+	margin:0;
+	padding:0;
+}
+
+body{
+	width:100%;
+}
+
+#wrapper{
+	width:100%;
+}
+
+#mypage_nav {
+	float: none;
+}
+
+#mypage_nav ul li a{
+	float: left;
+	width: 20%;
+	text-align: center;
+	border-width: thin;
+	border-style: solid;
+	padding: 30px 0;
+	display: block;
+	text-decoration: none;
+	font-size: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+
+#mypage_nav ul li a:hover {
+	display:block;
+	background-color: #D8D8D8;
+}
+
+
+ul li a {
+	display:block;
+	text-decoration: none;
+}
+
+#wrapper #contents {
+	margin-top: 20px;
+}
+#wrapper h2 {
+	margin-top: 20px;
+	margin-left: 20px;
+	font-size: 30px;
+	font-style: normal;
+}
+#contents h3 {
+	font-size: 25px;
+	margin-left: 20px;
+	margin-bottom: 50px;
+}
+
+#wrapper #contents #YYKswitch {
+	margin-left: 35%;
+	margin-top: 25px;
+	margin-bottom: 10px;
+	width: 500px;
+	height: 25px;
+	padding-bottom: 40px;
+}
+#contents #YYKswitch span {
+	font-size: 20px;
+	background-color: #EFFEFF;
+	border-width: thin;
+	border-style: solid;
+	width: 100px;
+	margin-left: 15px;
+	height: 200px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+#YYKswitch span a {
+	text-decoration: none;
+	margin-left: 25px;
+	margin-right: 25px;
+	width: 100px;
+	height: 200px;
+}
+#wrapper #contents #page {
+	margin-left: 39%;
+	width: auto;
+	height: auto;
+	margin-top: 20px;
+	margin-bottom: 35px;
+}
+#contents #page span {
+	margin-right: 26px;
+	font-size: 20px;
+}
+#wrapper #contents #kensuu {
+	margin-left: 200px;
+	font-size: 18px;
+}
+
+#contents #top  {
+	margin-left: 48%;
+	margin-top: 0px;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+#wrapper #contents #OK {
+	margin-top: 20px;
+	margin-left: 20px;
+	text-align: center;
+}
+#wrapper #contents #OK a {
+	color: #007CFF;
+}
+#KAIINNtaikai form #submit {
+	margin-left: 20px;
+	width: 80px;
+	height: 35px;
+	font-size: 17px;
+	text-align: center;
+	padding-right: 8px;
+}

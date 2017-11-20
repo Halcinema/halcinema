@@ -1,0 +1,153 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+//変数定義
+/* ヘッダーの高さ */ $adminHeaderHeight: 80px;
+/* ベースカラー */ $baseColor: #222222;
+/* アクセントカラー */ $accentColor: crimson;
+/* ベーステキストカラー */ $baseTextColor: #222222;
+/* アクセントテキストカラー */ $accentTextColor: crimson;
+
+//ログイン
+.admin_login{
+    background-color: #222222;
+    height: 100%;
+    #wrapper{
+        display: flex;
+        align-items: center;
+        width: 400px;
+        margin: 0 auto;
+    }
+    h1{
+        margin: 0 0 20px 0;
+        font-size: 30px;
+        color: #FFFFFF;
+    }
+    h2{
+        margin: 0 0 50px 0;
+        font-size: 20px;
+        color: #FFFFFF;
+    }
+    #msg{
+        margin: 0 0 30px 0;
+        color: #FFFFFF;
+    }
+    section{
+        margin: 0 0 30px;
+    }
+    section h3{
+        margin: 0 0 5px 0;
+        font-size: 16px;
+        color: #FFFFFF;
+    }
+}
+
+//ヘッダー、グローバルナビゲーション
+.admin{
+    &_header{
+        display: flex;
+        position: fixed;
+        width: 100%;
+        height: $adminHeaderHeight;
+        background-color: $baseColor;
+        &_ttl{
+            min-width: 300px;
+            height: 100%;
+            background-color: $accentColor;
+            color: #FFFFFF;
+            font-size: 16px;
+            line-height: $adminHeaderHeight;
+            text-align: center;
+        }
+        &_list{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            &_item{
+                margin-right: 20px;
+                font-size: 16px;
+                line-height: $adminHeaderHeight;
+                color: #FFFFFF;
+                &:first-child{
+                    margin: 0 auto 0 20px;
+                    color: #FFFFFF;
+                }
+                a{
+                    color: #FFFFFF;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    &_gnav{
+        position: fixed;
+        min-width: 300px;
+        height: calc(100vh - #{$adminHeaderHeight});
+        background-color: $baseColor;
+        margin: $adminHeaderHeight 0 0 0;
+        overflow: auto;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        &_list{
+            width: 100%;
+            &_item{
+                width: 100%;
+                height: 50px;
+                a{
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    padding: 0 0 0 10px ;
+                    text-decoration: none;
+                    color: #FFFFFF;
+                    font-size: 20px;
+                    line-height: 50px;
+                    &:hover{
+                        background-color: $accentColor;
+                        cursor: pointer;
+                    }
+                    i{
+                        margin-right: 10px;
+                        color: #FFFFFF;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//映画追加
+h3{
+  font-size: 25px;
+  text-align: center;
+  margin-bottom:50px;
+}
+h4{
+  width:10em;
+  display: inline-block;
+  margin-bottom:50px;
+}
+#text_area{
+  vertical-align: top;
+}
+label{
+  vertical-align: top;
+}
+span{
+vertical-align: middle;
+}
+input[type="submit"]{
+  text-align: center;
+}
+input[name="runningtime"]{
+  width:80px;
+
+}
+textarea{
+  margin-bottom:50px;
+}
+.center{
+  text-align: center;
+}

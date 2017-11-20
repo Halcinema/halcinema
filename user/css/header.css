@@ -1,0 +1,75 @@
+.flex-container{
+	display: flex;
+	flex-direction: row; /* デフォルト値 */
+	align-items: center;; /* デフォルト値 */
+	justify-content: center; /* デフォルト値 */
+	flex-wrap: nowrap; /* デフォルト値 */
+	align-content: strech; /* デフォルト値 */
+}
+/* CSS Document */
+#header_top{
+	min-width: 1080px;
+	background-color:#28385E;
+	justify-content:center; /* デフォルト値 */
+	margin:0 0 50px 0;
+	padding:20px 0;
+}
+#header_top h1{
+	color:#fff;
+	font-size: 1.7em;
+	text-align: center;
+}
+#header_top #login{
+	justify-content:center;
+	flex-direction:column;
+	margin-left:50px;
+
+}
+#header_top #login a{
+	border:1px solid #fff;
+	border-radius: 20px;
+	color:#fff;
+	display: block;
+	margin:10px 0;
+	padding:10px 30px;
+	text-decoration: none;
+
+}
+#header_top #login #lg{
+}
+header nav {
+}
+header nav ul{
+	display:flex;
+	justify-content:center;
+
+}
+header nav li{
+	color:#fff;
+	text-align: center;
+
+}
+
+header nav li a{
+		color:#fff;
+		border-right:1px solid #ddd;
+		display: block;
+		font-size:18px;
+		padding:0px 20px;
+		text-decoration: none;
+		text-align: center;
+}
+header nav li:first-child{
+	border-left:1px solid #ddd;
+}
+header nav .gn_icon{
+	display: inline-block;
+	margin-right:5px;
+}
+header nav .text{
+	margin:0 auto;
+}
+
+header #header_top #login p{
+    color: #FFFFFF;
+}
