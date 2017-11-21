@@ -1,23 +1,31 @@
-//var cnt = 0;
+var seatCnt = 0;
+
+$(function(){
+    $(".go_select_ticket").on("click",function(){
+        if(seatCnt == 0){
+            alert("座席選択数が0です。");
+        }else{
+            $(".select_seat_form").attr("action","select_ticket.php");
+        }
+    });
+})
 
 function fnc_select(id)
 {
-
-    //cnt ++;
-
-    //if(cnt < 3){
+    if(seatCnt < 6){
     $("#img"+id)
         .attr("src","images/seat_1.gif")
         .attr("onClick","fnc_release('"+id+"')")
         .attr("alt","選択した席");
-    //}else{
-        //alert("6席まで選択可能です。");
-    //}
+    seatCnt ++;
+    }else{
+        alert("選択可能な座席は6席までです。");
+    }
 }
 
 function fnc_release(id)
 {
-    //cnt --;
+    seatCnt --;
 
     $("#img"+id)
         .attr("src","images/seat_0.gif")
