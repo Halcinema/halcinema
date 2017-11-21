@@ -66,10 +66,10 @@ if(!mysqli_close($Link)){
 <!DOCTYPE html>
 <html lang="ja">
 <?php include("../../head.php"); ?>
-<body>
+<body class="select_ticket">
     <div id="wrapper">
       <div id="contents">
-            <p id="pan"><span id="now" class="pan_padding">座席・チケット選択</span><span>&gt;</span><span class="pan_padding">ご購入者情報の入力</span><span>&gt;</span><span class="pan_padding">お支払情報の入力</span><span>&gt;</span><span class="pan_padding">購入内容の確認</span><span>&gt;</span><span class="pan_padding">購入完了</span></p>
+            <p class="ticket_breadcrumbs"><span id="now" class="pan_padding">座席・チケット選択</span><span>&gt;</span><span class="pan_padding">ご購入者情報の入力</span><span>&gt;</span><span class="pan_padding">お支払情報の入力</span><span>&gt;</span><span class="pan_padding">購入内容の確認</span><span>&gt;</span><span class="pan_padding">購入完了</span></p>
             <div id="left">
                 <h1>チケットの種類をお選びください。</h1>
                 <p id="attention">今から15分以内に購入が完了しない場合、自動的に座席は解除されます。</p>
