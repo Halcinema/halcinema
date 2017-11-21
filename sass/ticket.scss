@@ -31,160 +31,95 @@
 
     h1{
         font-size: 30px;
-        margin: 0 0 10px 0;
-    }
-
-    #attention{
         margin: 0 0 50px 0;
     }
 
-    #select_ticket_area{
-        margin: 0 0 50px 0;
+    #icon_des{
+        width: 700px;
+        height: 44px;
+        margin: 0 0 80px 0;
     }
 
-    #select_ticket_area h2{
+    #icon_des h2{
         font-size: 20px;
         margin: 0 0 10px 0;
     }
 
-    #select_ticket_area .ticket{
+    #icon_des ul li{
+        width: 350px;
+        height: 22px;
+        float: left;
+        vertical-align: middle;
         margin: 0 0 10px 0;
     }
 
-    #select_ticket_area .ticket .seat_num{
-        width: 200px;
-        height: 50px;
-        line-height: 50px;
+    #icon_des ul li img{
+        vertical-align: middle;
+        margin: 0 10px 0 0;
+    }
+
+    #select_seat_area_out{
         text-align: center;
-        font-size: 20px;
-        float: left;
-    }
-
-    #select_ticket_area .ticket .select_ticket{
-        width: 500px;
-        height: 50px;
-        font-size: 20px;
-        float: right;
-    }
-
-    #select_ticket_area .ticket .select_ticket select{
-        width: 500px;
-        height: 50px;
-    }
-
-    #select_ticket_area #total{
-        width: 200px;
-        font-size: 25px;
-        float: left;
-        text-align: left;
-    }
-
-    #select_ticket_area #price{
-        width: 500px;
-        font-size: 25px;
-        float: right;
-        text-align: right;
-    }
-
-    #drink{
         margin: 0 0 50px 0;
     }
 
-    #drink h2{
-        font-size: 20px;
-        margin: 0 0 10px 0;
+    #select_seat_area_in{
+        display: inline-block;
     }
 
-    #drink p{
-        margin: 0 0 10px 0;
+    #select_seat_area_in table tr th{
+        padding: 3px 1px 3px 1px;
+        font-size: 10px;
     }
 
-    #drink .chk_drink{
-        width: 350px;
-        height: 50px;
-        float: left;
+    #select_seat_area_in table tr td{
+        padding: 3px 1px 3px 1px;
+        font-size: 10px;
     }
 
-    #food{
-        margin: 0 0 50px 0;
+    #select_seat_area_in table tr td input{
+        display: none;
     }
 
-    #food h2{
-        font-size: 20px;
-        margin: 0 0 10px 0;
-    }
-
-    #food p{
-        margin: 0 0 10px 0;
-    }
-
-    #food .chk_food{
-        width: 350px;
-        height: 50px;
-        float: left;
-    }
-
-    #goods{
-        margin: 0 0 50px 0;
-    }
-
-    #goods h2{
-        font-size: 20px;
-        margin: 0 0 10px 0;
-    }
-
-    #goods p{
-        margin: 0 0 10px 0;
-    }
-
-    #goods .chk_goods{
-        width: 350px;
-        height: 50px;
-        float: left;
-    }
-
-    #login_area{
+    #fac{
         width: 700px;
         margin: 0 0 50px 0;
     }
 
-    #login_area h2{
+    #fac h2{
         font-size: 20px;
-        margin: 0 0 20px 0;
-    }
-
-    #login_area h3{
         margin: 0 0 10px 0;
     }
 
-    #login_area .txt_box{
-        width: 700px;
-        height: 50px;
-        margin: 0 0 20px 0;
+    #fac table tr th{
+        background-color: #808080;
+        color: #FFFFFF;
+        font-size: 16px;
+        padding: 10px;
+        border: solid 1px #000000;
     }
 
-    #text_align{
-        text-align: center;
+    #fac table tr td{
+        padding: 10px;
+        border: solid 1px #000000;
     }
 
-    #login{
-        width: 500px;
-        height: 50px;
-        font-size: 20px;
-        margin: 0 0 20px 0;
-    }
-
-    #next_area{
-        width: 700px;
+    #terms{
         margin: 0 0 50px 0;
     }
 
-    #next_area h2{
+    #terms h2{
         font-size: 20px;
-        margin: 0 0 20px 0;
+        margin: 0 0 10px 0;
     }
 
-    #next_area p{
+    #terms iframe{
+        border: solid 1px #000000;
+        padding: 10px;
+    }
+
+    form{
+        width: 700px;
         text-align: center;
     }
 
@@ -195,40 +130,17 @@
         margin: 0 0 20px 0;
     }
 
-    #back_area form{
-        text-align: center;
-    }
-
     #back{
         width: 500px;
         height: 50px;
         background-color: #FFFFFF;
         font-size: 20px;
         color: #808080;
-        margin: 0 0 20px 0;
         border: solid 1px #808080;
+        margin: 0 0 20px 0;
     }
 
     #back:hover{
-        background-color: #808080;
-        color: #FFFFFF;
-    }
-
-    #all_back_area form{
-        text-align: center;
-    }
-
-    #all_back{
-        width: 500px;
-        height: 50px;
-        background-color: #FFFFFF;
-        font-size: 20px;
-        color: #808080;
-        margin: 0 0 20px 0;
-        border: solid 1px #808080;
-    }
-
-    #all_back:hover{
         background-color: #808080;
         color: #FFFFFF;
     }
