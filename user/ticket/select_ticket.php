@@ -65,7 +65,7 @@ if(!mysqli_close($Link)){
 
 <!DOCTYPE html>
 <html lang="ja">
-<?php include("../head.php"); ?>
+<?php include("../../head.php"); ?>
 <body>
     <div id="wrapper">
       <div id="contents">
