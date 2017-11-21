@@ -15,6 +15,11 @@ $ShowId = "";
 
 if(isset($_GET["ShowId"])){
     $ShowId = $_GET["ShowId"];
+}
+
+if(isset($_SESSION["showId"])){
+    $ShowId = $_SESSION["showId"];
+}
     //  MySQL関連変数を外部ファイルで持たせる
     //  外部ファイルの読み込み
     include("../mysqlenv.php");
@@ -70,7 +75,7 @@ if(isset($_GET["ShowId"])){
         $errMsg .= "指定上映IDに該当する席状況データが見つかりませんでした。<br />";
         $errFlg = "true";
     }
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -127,13 +132,7 @@ if(isset($_GET["ShowId"])){
                                         <input id="<?php print chr(65+$i).$j; ?>" type="checkbox" name="selected[]" value="<?php print chr(65+$i).$j; ?>" />
                                     <?php } ?>
                                     <img id="img<?php print chr(65+$i).$j; ?>" src="images/seat_<?php
-                                        if($Row[chr(65+$i).$j] == "0"){
-                                            print "0";
-                                        }else if($Row[chr(65+$i).$j] == "1"){
-                                            print "1";
-                                        }else if($Row[chr(65+$i).$j] == "2"){
-                                            print "2";
-                                        }
+                                            print $Row[chr(65+$i).$j];
                                     ?>.gif" width="15" height="22" alt="<?php
                                         if($Row[chr(65+$i).$j] == "0"){
                                             print "空席（購入可能）";
