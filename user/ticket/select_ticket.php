@@ -8,17 +8,14 @@ $errFlg = "false";
 //エラーメッセージ
 $errMsg = "";
 
-if(isset($_POST["ShowId"])){
-    $ShowId = $_POST["ShowId"];
-    $_SESSION["showId"] = $ShowId;
-}
-
 if(isset($_POST["selected"])){
     $selected = $_POST["selected"];
     foreach($selected as $seats){
         //席記号を添え字にチケット初期値0を格納
         $array[$seats] = "0";
     }
+    //セッションをリセットしてから再格納
+    unset($_SESSION["seats"]);
     $_SESSION["seats"] = $array;
 }
 

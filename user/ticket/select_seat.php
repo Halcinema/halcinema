@@ -1,4 +1,5 @@
 <?php
+session_start();
 header("Content-Type:text/html; charset=UTF-8");
 $pageTitle = "座席選択 | 予約";
 
@@ -14,68 +15,64 @@ $errMsg = "";
 $ShowId = "";
 
 if(isset($_GET["ShowId"])){
-    $ShowId = $_GET["ShowId"];
+    $_SESSION["showId"] = $_GET["ShowId"];
+}
+$ShowId = $_SESSION["showId"];
+
+//  MySQL関連変数を外部ファイルで持たせる
+//  外部ファイルの読み込み
+include("../mysqlenv.php");
+
+//  MySQLとの接続開始
+if(!$Link = mysqli_connect($HOST,$USER,$PASS)){
+  //  うまく接続できなかった
+  exit("MySQL接続エラー<br />".mysqli_connect_error());
 }
 
-if(isset($_SESSION["showId"])){
-    $ShowId = $_SESSION["showId"];
+$SQL = "set names utf8";
+if(!mysqli_query($Link,$SQL)){
+    exit("MySQLクエリー送信エラー<br />".$SQL);
 }
-    //  MySQL関連変数を外部ファイルで持たせる
-    //  外部ファイルの読み込み
-    include("../mysqlenv.php");
 
-    //  MySQLとの接続開始
-    if(!$Link = mysqli_connect
-                ($HOST,$USER,$PASS)){
-      //  うまく接続できなかった
-      exit("MySQL接続エラー<br />" .
-        mysqli_connect_error());
+if(!mysqli_select_db($Link,$DB)){
+    exit("MySQLDB選択エラー<br />".$DB);
+}
+
+$SQL = "select * from t_scon where show_id='".$ShowId."'";
+if(!$SqlRes = mysqli_query($Link,$SQL)){
+    exit("MySQLクエリー送信エラー<br />".mysqli_error($Link) . "<br />" .$SQL);
+}
+
+//  連想配列への抜出（先頭行）
+$Row = mysqli_fetch_array($SqlRes);
+
+//  抜き出されたレコード件数を求める
+$NumRow = mysqli_num_rows($SqlRes);
+
+//  MySQLのメモリ解放(selectの時のみ)
+mysqli_free_result($SqlRes);
+
+//  MySQLとの切断
+if(!mysqli_close($Link)){
+  exit("MySQL切断エラー");
+}
+
+if($NumRow == 0){
+    $errMsg .= "指定上映IDに該当する席状況データが見つかりませんでした。<br />";
+    $errFlg = "true";
+}
+
+for($i=0; $i<10; $i++){
+    for($j=1; $j<21; $j++){
+        if(isset($_SESSION["seats"])){
+            foreach($_SESSION["seats"] as $pointer => $value){
+                if($pointer == chr(65+$i).$j){
+                    $Row[chr(65+$i).$j] = "1";
+                }
+            }
+        }
     }
-
-    //  クエリー送信(文字コード)
-    $SQL = "set names utf8";
-    if(!mysqli_query($Link,$SQL)){
-      //  クエリー送信失敗
-      exit("MySQLクエリー送信エラー<br />" .
-            $SQL);
-    }
-
-    //  MySQLデータベース選択
-    if(!mysqli_select_db($Link,$DB)){
-      //  MySQLデータベース選択失敗
-      exit("MySQLデータベース選択エラー<br />" .
-            $DB);
-    }
-
-    //1件目の抽出処理
-    //  クエリー送信(選択クエリー)
-    $SQL = "select * from t_scon where show_id='".$ShowId."'";
-    if(!$SqlRes = mysqli_query($Link,$SQL)){
-      //  クエリー送信失敗
-      exit("MySQLクエリー送信エラー<br />" .
-            mysqli_error($Link) . "<br />" .
-            $SQL);
-    }
-
-    //  連想配列への抜出（先頭行）
-    $Row = mysqli_fetch_array($SqlRes);
-
-    //  抜き出されたレコード件数を求める
-    $NumRow = mysqli_num_rows($SqlRes);
-
-    //  MySQLのメモリ解放(selectの時のみ)
-    mysqli_free_result($SqlRes);
-
-    //  MySQLとの切断
-    if(!mysqli_close($Link)){
-      exit("MySQL切断エラー");
-    }
-
-    if($NumRow == 0){
-        $errMsg .= "指定上映IDに該当する席状況データが見つかりませんでした。<br />";
-        $errFlg = "true";
-    }
-
+}
 ?>
 
 <!DOCTYPE html>
@@ -129,7 +126,7 @@ if(isset($_SESSION["showId"])){
                                 <td>
                                     <?php if($Row[chr(65+$i).$j] == "0" || $Row[chr(65+$i).$j] == "1"){ ?>
                                         <label for="<?php print chr(65+$i).$j; ?>">
-                                        <input id="<?php print chr(65+$i).$j; ?>" type="checkbox" name="selected[]" value="<?php print chr(65+$i).$j; ?>" />
+                                        <input id="<?php print chr(65+$i).$j; ?>" type="checkbox" name="selected[]" value="<?php print chr(65+$i).$j; ?>" <?php if($Row[chr(65+$i).$j] == "1"){ print "checked='checked'"; } ?> />
                                     <?php } ?>
                                     <img id="img<?php print chr(65+$i).$j; ?>" src="images/seat_<?php
                                             print $Row[chr(65+$i).$j];
@@ -144,7 +141,7 @@ if(isset($_SESSION["showId"])){
                                     ?>" <?php
                                         if($Row[chr(65+$i).$j] == "0"){
                                             print "onClick=\"fnc_select('".chr(65+$i).$j."');\"";
-                                        }else if($Row[chr(65+$i).$i] == "1"){
+                                        }else if($Row[chr(65+$i).$j] == "1"){
                                             print "onClick=\"fnc_release('".chr(65+$i).$j."');\"";
                                         }
                                     ?>/>
@@ -169,7 +166,6 @@ if(isset($_SESSION["showId"])){
                     <h2>利用規約</h2>
                     <iframe src="terms.html" width="700" height="200"></iframe>
                 </div>
-                    <input type="hidden" name="ShowId" value="<?php print $ShowId; ?>" />
                     <input id="next" type="submit" name="next" value="利用規約に同意して次へ" />
                 </form>
                 <form>
