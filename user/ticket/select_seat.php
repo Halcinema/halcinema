@@ -16,6 +16,8 @@ $ShowId = "";
 
 if(isset($_GET["ShowId"])){
     $_SESSION["showId"] = $_GET["ShowId"];
+    //劇場選択ページから来た場合は座席情報をリセット
+    unset($_SESSION["seats"]);
 }
 $ShowId = $_SESSION["showId"];
 
@@ -92,7 +94,7 @@ for($i=0; $i<10; $i++){
                         <li><img src="images/seat_2.gif" width="15" height="22" alt="購入済み／販売対象外">購入済み／販売対象外</li>
                     </ul>
                 </div>
-                <form method="post" action="select_ticket.php">
+                <form class="select_seat_form" action="javascript:void(0);" method="post">
                 <div id="select_seat_area_out">
                     <div id="select_seat_area_in">
                         <table>
@@ -166,7 +168,7 @@ for($i=0; $i<10; $i++){
                     <h2>利用規約</h2>
                     <iframe src="terms.html" width="700" height="200"></iframe>
                 </div>
-                    <input id="next" type="submit" name="next" value="利用規約に同意して次へ" />
+                    <input id="next" class="go_select_ticket" type="submit" name="next" value="利用規約に同意して次へ" />
                 </form>
                 <form>
                     <input id="back" type="submit" name="back" value="時間指定画面へ戻る" />
