@@ -1,14 +1,5 @@
 <?php session_start();
-/*-----------------------------------------------------------------------------
-  概要      :
-            :
-  作成者    :
-  作成日    :
-  更新履歴  :
------------------------------------------------------------------------------*/
-//  HTTPヘッダーで文字コードを指定
 header("Content-Type:text/html; charset=UTF-8");
-//処理部
 
 if(isset($_POST["ShowId"])){
     $ShowId = $_POST["ShowId"];
@@ -49,7 +40,7 @@ if($status == "0"){
     if(!$Link = mysqli_connect
                 ($HOST,$USER,$PASS)){
       //  うまく接続できなかった
-      exit("MySQL接続エラー<br />" . 
+      exit("MySQL接続エラー<br />" .
         mysqli_connect_error());
     }
 
