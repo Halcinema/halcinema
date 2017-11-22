@@ -12,7 +12,7 @@
 </head>
 
 <body>
-
+<!-- コメントテスト -->
 <?php include("header.php"); ?>
 
     <div id="wrapper" style="line-height: 30px;">
