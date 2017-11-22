@@ -17,8 +17,6 @@ $PageTitle = "ページ名";
 //echo $_SESSION ['movie_img'];
 $show = $_POST;
 
-$show
-
 ?>
 <!DOCTYPE html>
 <head>
@@ -52,7 +50,6 @@ StyleSheet記述  -->
               <span><?= $showtime_end ?></span></br>
           <form class="" action="ins_show_ins.php" method="post">
               <input type="hidden" name="select_theater" value="<?=  $show['select_theater'] ?>">
-              <input type="hidden" name="select_screen" value="<?= $show['movie_story'] ?>">
               <input type="hidden" name="select_screen" value="<?= $show['select_screen']  ?>">
               <input type="hidden" name="select_movie" value="<?= $show['select_movie']  ?>">
               <input type="hidden" name="select_date" value="<?= $show['select_date']  ?>">

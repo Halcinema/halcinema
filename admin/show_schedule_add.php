@@ -184,18 +184,21 @@ echo $RowAry2['movie_st'];
             <h4>映画</h4>
             <select name="select_movie">
               <?php for($i=0; $i<$NumRows2; $i++) :?>
-                <option value="<?= $RowAry2[$i]['movie_num']?>,<?php diffTime($RowAry[$i]['show_start'],$RowAry2[$i]['movie_st'])?>"><?= $RowAry2[$i]['movie_name'] ?></option>
+                <option value="<?= $RowAry2[$i]['movie_num']?>"><?= $RowAry2[$i]['movie_name'] ?></option>
               <?php endfor ?>
             </select>
               <h4>日時</h4>
               <input type="date" name="select_date" value="<?php echo $SelectDate; ?>"><br>
               <input type="time" name="showtime-start"><br>
               <input type="time" name="showtime-end"><br>
-              <input type="hidden" name="movie_time" value="<?php  ?>">
               <p class="center"><input type="submit" name="btn" value="スケジュールに追加する" ></p>
           </form>
         </div>
         </div>
     </div>
 </body>
+<!--
+,<?php //diffTime($RowAry2[$i]['show_start'],$RowAry2[$i]['movie_st'])?>
+-->
 </html>
+
