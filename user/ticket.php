@@ -1,3 +1,4 @@
+<?php include ("login_session.php"); ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -11,38 +12,49 @@
 
 <body>
 <?php include("header.php"); ?>
-        <div id="wrapper">
-<h1 class="page_name">チケット情報</h1>
+        <div id="wrapper" style="line-height: 30px;">
+    <ul style="display: flex;">
+<a href="service.php" class="service_button"><li>サービス案内>></li></a><a href="ticket.php" class="service_button" id="now"><li>チケット案内>></li></a><a href="access.php" class="service_button"><li>アクセス方法・駐車場情報>></li></a>
+	</ul>
+<h1 class="page_name">チケット案内</h1>
 <section class="clearfix">
     
     <ul id="ticket_box">
         <li>
-        <img src="images/ticketbox.jpg">
         <div id="ticket_info">
+        <img src="images/ticketbox.jpg">
         <h4 class="info_name">チケットボックス</h4>
         <p>チケットボックスはエントランスからロビーに入った正面にあります。モニターに映し出された上映時間、空席状況を確認いただきチケットをご購入ください。
-また、インターネットチケットをご購入済みの方はロビーに入って右側にあります自動発券機にて発券ください。</p>
+            また、インターネットチケットをご購入済みの方はロビーに入って右側にあります自動発券機にて発券ください。
+        </p>
             </div>
         </li>
     </ul>
-        
-<h2 class="contents_name">お知らせ</h2>
+    
+<h2 class="contents_name" id="service-mokuji">目次</h2>
+    
+        <ul class="page_link">
+            <a href="#ticket-oshirase"><li>お知らせ</li></a>
+            <a href="#ticket-ryokin"><li>料金の情報</li></a>
+        </ul>
+    
+<h2 class="contents_name" id="ticket-oshirase">お知らせ</h2>
   <div class="sale_info" style="padding-bottom:85px">
-    <p style="width:450px;float:left">チケットとグッズをセットで買うと割引！<br>
+    <p style="width:650px;float:left">チケットとグッズをセットで買うと割引！<br>
     チケットとグッズをセットで購入すると料金が割引されます。</p>
       <img src="images/set_price.png" style="float:right" height="75px">
   </div>
   <div class="sale_info" style="padding-bottom:85px">
-    <p style="width:500px;float:left">3D、4DX、DOLBYでの観賞は各々で追加料金を頂いております。<br>
+    <p style="width:650px;float:left">3D、4DX、DOLBYでの観賞は各々で追加料金を頂いております。<br>
     4DXについて詳しくは<a href="4dx.php">こちら</a></p>
       <img src="images/4dx.png" style="float:right;" height="75px">
   </div>
   <div class="sale_info" style="padding-bottom:85px">
-    <p style="width:500px;float:left">3D映画視聴後、3D眼鏡はお持ち帰りいただけます。<br>3D眼鏡をお持ち込みいただくと、メガネの料金100円が割引されます。</p>
+    <p style="width:650px;float:left">3D映画視聴後、3D眼鏡はお持ち帰りいただけます。<br>3D眼鏡をお持ち込みいただくと、メガネの料金100円が割引されます。</p>
       <img src="images/glasses.jpg" style="float:right;" height="75px"><p></p>
   </div>
-<h2 class="contents_name">料金の情報</h2>
-
+<h2 class="contents_name" id="ticket-ryokin">料金の情報</h2>
+<div id="ticket_box_back">
   <div class="ticket_box  clearfix">
     <div class="ticket_left">基本入場料金</div>
     <div class="ticket_right">
@@ -167,6 +179,7 @@
       </table>
     </div>
   </div>
+</div>
 </section>
     </div>
     <footer></footer>

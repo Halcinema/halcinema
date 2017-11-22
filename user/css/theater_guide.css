@@ -1,23 +1,26 @@
 @charset "utf-8";
 #about_theater{
-	width:1000px;
-	height:350px;
+	height:450px;
 	border: 1px #000 solid;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	-ms-border-radius: 10px;
 	-o-border-radius: 10px;
 	border-radius: 10px;
+    
+    /*background: -moz-linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.05) 80%, rgba(0,0,255,0.2) 100%); /* FF3.6-15 */
+	/*background: -webkit-linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.05) 80%, rgba(0,0,255,0.2) 100%); /* Chrome10-25,Safari5.1-6 */
+    /*background:linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.05) 80%, rgba(0,0,255,0.2) 100%);*/
+    
 }#theater{
 	margin: 25px;
 	width: 600px;
 	float: left;
 }#setumei{
-	padding: 25px 0 50px 0;
+	padding: 25px;
 	width: 300px;
 	float: left;
 }#theater_map{
-	width: 1000px;
 	padding: 25px;
 	border: 1px #000 solid;
 	-webkit-border-radius: 10px;
@@ -26,27 +29,33 @@
 	-o-border-radius: 10px;
 	border-radius: 10px;
 }#spec{
+    width: 1000px;
+    line-height: 30px;
 }.sc{
 	width: 150px;
-	padding:10px;
+	padding:20px;
 }.s{
 	width: 160px;
-	padding:10px;
+	padding:20px;
 }.c{
 	width: 120px;
-	padding:10px;
+	padding:20px;
 }.v{
 	width: 120px;
-	padding:10px;
+	padding:20px;
 }.m{
 	width: 100px;
-	padding:10px;
-}table{
+	padding:20px;
+}#spec table{
+    text-align: center;
+    margin: 0 auto;
 	border-collapse: collapse;
 	border-spacing: 0;
+    background-color: white;
+    width: 1000px;
 }table td{
 	border-bottom: 1px #ccc solid;
-	padding: 5px 10px;
+	padding: 20px 10px;
 	vertical-align: top;
 	line-height: 1;
 	text-align: left;

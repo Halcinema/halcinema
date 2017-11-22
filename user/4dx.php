@@ -1,3 +1,4 @@
+<?php include ("login_session.php"); ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -9,7 +10,7 @@
 <title>4DX</title>
 </head>
 <?php include("header.php"); ?>
-    <div id="wrapper">
+    <div id="wrapper" style="line-height: 30px;">
 <body>
 <h1 class="page_name">4DX</h1>
 <section class="clearfix">
