@@ -1,7 +1,11 @@
 var seatCnt = 0;
 
+seatCnt = window.sessionStorage.getItem(['ssSeatCnt']);
+console.log(seatCnt);
+
 $(function(){
     $(".go_select_ticket").on("click",function(){
+        window.sessionStorage.setItem(['ssSeatCnt'],[seatCnt]);
         if(seatCnt == 0){
             alert("座席選択数が0です。");
         }else{
