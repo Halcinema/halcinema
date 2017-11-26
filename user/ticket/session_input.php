@@ -1,11 +1,6 @@
 <?php session_start();
 header("Content-Type:text/html; charset=UTF-8");
 
-if(isset($_POST["noLoginBuy"])){
-    header("Location: pay_info.php");
-    exit();
-}
-/*
 if(isset($_POST["selected"])){
     if(isset($_SESSION["seats"])){
         unset($_SESSION["seats"]);
@@ -14,21 +9,16 @@ if(isset($_POST["selected"])){
     $_SESSION["seats"] = $selected;
 }
 
-//print_r($selected);
-
-//echo "<br>";
-
-foreach($_SESSION["seats"] as $shid => $num){
-    //echo $shid;
-    //echo ":";
-    //echo $num;
-    //echo "<br>";
+if(isset($_POST["noLoginBuy"])){
+    header("Location: user_info.php");
+    exit();
 }
 
-if(isset($_POST["status"])){
-    $status = $_POST["status"];
+if(isset($_POST["loginBuy"])){
+    header("Location: pay_info.php");
+    exit();
 }
-*/
+
 if(isset($_POST["login"])){
     $MemMail = $_POST["txtMail"];
     $MemPass = $_POST["txtPass"];
@@ -70,13 +60,11 @@ if(isset($_POST["login"])){
             header("Location: pay_info.php");
             exit();
         }else{
-            $msg = "『組み合わせが誤っています』";
-            header("Location: select_ticket.php");
+            header("Location: select_ticket.php?loginErr=1");
             exit();
         }
     }else{
-        $msg = "『入力されたメールアドレスは登録されていません』";
-        header("Location: select_ticket.php");
+        header("Location: select_ticket.php?loginErr=2");
         exit();
     }
 }

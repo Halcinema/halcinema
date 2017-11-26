@@ -1,25 +1,18 @@
-<?php
-$selected = $_POST["selected"];
-print_r($selected);
+<?php include("../login_session.php");
+$pageTitle = "ご購入者情報の入力 | 予約";
+//$selected = $_POST["selected"];
+//print_r($selected);
 ?>
 
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <title>ご購入者情報の入力 | HALシネマ</title>
-        <link rel="stylesheet" href="../css/reset.css" type="text/css" />
-        <link rel="stylesheet" href="../css/common.css" type="text/css" />
-        <link rel="stylesheet" href="css/pan.css" type="text/css" />
-        <link rel="stylesheet" href="css/user_info.css" type="text/css" />
-</head>
-
-<body>
+<?php include("../../head.php"); ?>
+<body class="user_info">
     <div id="wrapper">
-      <div id="contents">
-            <p id="pan"><span class="pan_padding">座席・チケット選択</span><span>&gt;</span><span id="now" class="pan_padding">ご購入者情報の入力</span><span>&gt;</span><span class="pan_padding">お支払情報の入力</span><span>&gt;</span><span class="pan_padding">購入内容の確認</span><span>&gt;</span><span class="pan_padding">購入完了</span></p>
+        <?php include("header.php"); ?>
+        <div id="contents">
             <div id="left">
-                <h1>ご購入に必要な情報を入力してください。</h1>
+                <h2>ご購入に必要な情報を入力してください。</h2>
                 <div id="name">
                     <h2>お名前（※必須項目）</h2>
                     <form action="#">
@@ -79,8 +72,8 @@ print_r($selected);
                     </form>
                 </div>
             </div>
-            <div id="right">
-                <div id="purchase_contents">
+            <div class="left">
+                <div class="ticket_status">
                     <h2>ご購入内容</h2>
                     <dl>
                         <dt>作品</dt>
@@ -97,6 +90,9 @@ print_r($selected);
                 </div>
             </div>
         </div>
+        <footer class="ticket_footer">
+            <p class="ticket_footer_ttl">Copyright &copy; 2017 halcinema</p>
+        </footer>
     </div>
 </body>
 </html>

@@ -1,13 +1,6 @@
-<?php
-session_start();
+<?php include("../login_session.php");
 header("Content-Type:text/html; charset=UTF-8");
 $pageTitle = "座席選択 | 予約";
-
-//エラーフラグ（初期値：エラー無し）
-$errFlg = "false";
-
-//エラーメッセージ
-$errMsg = "";
 
 //上映ID変数宣言
 //プレゼン用データ宣言
@@ -169,9 +162,7 @@ for($i=0; $i<10; $i++){
                     <iframe src="terms.html" width="700" height="200"></iframe>
                 </div>
                     <input id="next" class="go_select_ticket" type="submit" name="next" value="利用規約に同意して次へ" />
-                </form>
-                <form>
-                    <input id="back" type="submit" name="back" value="時間指定画面へ戻る" />
+                    <input id="back" class="transition_cinema_schedule" type="submit" name="back" value="時間指定画面へ戻る" />
                 </form>
             </div>
             <div class="right">

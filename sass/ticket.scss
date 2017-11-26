@@ -29,14 +29,12 @@
         height: 50px;
         margin: 0 auto;
         line-height: 50px;
-        span{
+        &_list {
             color: #fff;
-        }
-        &_now{
-            color: #FF0000;
-        }
-        &_padding{
             padding: 0 10px;
+        }
+        &_now {
+            color: #FF0000;
         }
     }
 }
@@ -356,6 +354,147 @@
     }
 }
 
+.user_info {
+    #contents{
+        display: flex;
+        width: 1000px;
+        margin: 0 auto;
+    }
+
+    #left{
+        width: 700px;
+        margin: 0 50px 0 0;
+    }
+
+    h2{
+        font-size: 30px;
+        margin: 0 0 50px 0;
+    }
+
+    #name{
+        width: 700px;
+        margin: 0 0 50px 0;
+    }
+
+    #name h2{
+        font-size: 20px;
+        margin: 0 0 10px 0;
+    }
+
+    #name h3{
+        margin: 0 0 10px 0;
+    }
+
+    #tel{
+        width: 700px;
+        margin: 0 0 50px 0;
+    }
+
+    #tel h2{
+        font-size: 20px;
+        margin: 0 0 10px 0;
+    }
+
+    #tel h3{
+        margin: 0 0 10px 0;
+    }
+
+    #mail{
+        width: 700px;
+        margin: 0 0 50px 0;
+    }
+
+    #mail h2{
+        font-size: 20px;
+        margin: 0 0 10px 0;
+    }
+
+    #mail h3{
+        margin: 0 0 10px 0;
+    }
+
+    #pay{
+        width: 700px;
+        margin: 0 0 50px 0;
+    }
+
+    #pay h2{
+        font-size: 20px;
+        margin: 0 0 10px 0;
+    }
+
+    .select_pay{
+        width: 350px;
+        height: 50px;
+        float: left;
+    }
+
+    #left .txt_box{
+        width: 700px;
+        height: 50px;
+        margin: 0 0 20px 0;
+    }
+
+    #next_area{
+        width: 700px;
+        margin: 0 0 50px 0;
+    }
+
+    #next_area h2{
+        font-size: 20px;
+        margin: 0 0 20px 0;
+    }
+
+    #next_area form{
+        text-align: center;
+    }
+
+    #next{
+        width: 500px;
+        height: 50px;
+        font-size: 20px;
+        margin: 0 0 20px 0;
+    }
+
+    #back_area form{
+        text-align: center;
+    }
+
+    #back{
+        width: 500px;
+        height: 50px;
+        background-color: #FFFFFF;
+        font-size: 20px;
+        color: #808080;
+        margin: 0 0 20px 0;
+        border: solid 1px #808080;
+    }
+
+    #back:hover{
+        background-color: #808080;
+        color: #FFFFFF;
+    }
+
+    #all_back_area form{
+        text-align: center;
+    }
+
+    #all_back{
+        width: 500px;
+        height: 50px;
+        background-color: #FFFFFF;
+        font-size: 20px;
+        color: #808080;
+        margin: 0 0 20px 0;
+        border: solid 1px #808080;
+    }
+
+    #all_back:hover{
+        background-color: #808080;
+        color: #FFFFFF;
+    }
+}
+
 .pay_info {
     #contents{
         display: flex;
@@ -454,6 +593,114 @@
     #all_back:hover{
         background-color: #808080;
         color: #FFFFFF;
+    }
+}
+
+.chk {
+    #contents{
+        display: flex;
+        width: 1000px;
+        margin: 0 auto;
+    }
+
+    #left{
+        width: 700px;
+        margin: 0 50px 0 0;
+    }
+
+    h2{
+        font-size: 30px;
+        margin: 0 0 50px 0;
+    }
+
+    #credit{
+        width: 700px;
+        margin: 0 0 50px 0;
+    }
+
+    #credit h2{
+        font-size: 20px;
+        margin: 0 0 10px 0;
+    }
+
+    #credit p{
+        margin: 0 0 20px 0;
+    }
+
+    #credit h3{
+        margin: 0 0 10px 0;
+    }
+
+    #next_area{
+        width: 700px;
+        margin: 0 0 50px 0;
+    }
+
+    #next_area form{
+        text-align: center;
+    }
+
+    #next{
+        width: 500px;
+        height: 50px;
+        font-size: 20px;
+        margin: 0 0 20px 0;
+    }
+
+    #back_area form{
+        text-align: center;
+    }
+
+    #back{
+        width: 500px;
+        height: 50px;
+        background-color: #FFFFFF;
+        font-size: 20px;
+        color: #808080;
+        margin: 0 0 20px 0;
+        border: solid 1px #808080;
+    }
+
+    #back:hover{
+        background-color: #808080;
+        color: #FFFFFF;
+    }
+
+    #all_back_area form{
+        text-align: center;
+    }
+
+    #all_back{
+        width: 500px;
+        height: 50px;
+        background-color: #FFFFFF;
+        font-size: 20px;
+        color: #808080;
+        margin: 0 0 20px 0;
+        border: solid 1px #808080;
+    }
+
+    #all_back:hover{
+        background-color: #808080;
+        color: #FFFFFF;
+    }
+}
+
+.ex {
+    #contents{
+        display: flex;
+        width: 1000px;
+        margin: 0 auto 50px auto;
+    }
+
+    #left{
+        width: 700px;
+        margin: 0 50px 0 0;
+    }
+
+    h2{
+        font-size: 30px;
+        margin: 0 0 50px 0;
     }
 }
 

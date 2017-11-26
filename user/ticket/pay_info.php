@@ -1,11 +1,5 @@
 <?php include("../login_session.php");
 $pageTitle = "お支払い情報の入力 | 予約";
-
-$LoginFlag = "";
-
-    if(isset($_POST["ShowId"])){
-        $ShowId = $_POST["ShowId"];
-    }
 /*
     if(isset($_POST["selected"])){
         $seats = $_POST["selected"];
@@ -23,25 +17,7 @@ $LoginFlag = "";
 <?php include("../../head.php"); ?>
 <body class="pay_info">
     <div id="wrapper">
-        <header class="ticket_header">
-            <div class="ticket_header_top">
-                <h1 class="ticket_header_top_ttl">halcinema / オンライン予約</h1>
-                <?php if($MemMail != ""): ?>
-                <p class="ticket_header_top_user"><?php print $MemName; ?>さんでログイン中</p>
-                <?php endif; ?>
-            </div>
-            <p class="ticket_header_breadcrumbs">
-                <span class="ticket_header_breadcrumbs_padding">座席・チケット選択</span>
-                <span>&gt;</span>
-                <span class="ticket_header_breadcrumbs_now ticket_header_breadcrumbs_padding">ご購入者情報の入力</span>
-                <span>&gt;</span>
-                <span class="ticket_header_breadcrumbs_padding">お支払情報の入力</span>
-                <span>&gt;</span>
-                <span class="ticket_header_breadcrumbs_padding">購入内容の確認</span>
-                <span>&gt;</span>
-                <span class="ticket_header_breadcrumbs_padding">購入完了</span>
-            </p>
-        </header>
+        <?php include("header.php"); ?>
         <div id="contents">
             <div id="left">
                 <h2>お支払いに必要な情報を入力してください。</h2>
@@ -94,7 +70,7 @@ $LoginFlag = "";
                     </form>
                 </div>
             </div>
-            <div class="right">
+            <div class="left">
                 <div class="ticket_status">
                     <h2>ご購入内容</h2>
                     <dl>
@@ -102,8 +78,12 @@ $LoginFlag = "";
                         <dd>〇〇〇〇</dd>
                         <dt>日時</dt>
                         <dd>XXXX年XX月XX日(X)<br>XX:XX~XX:XX</dd>
+                        <dt>座席・券種</dt>
+                        <dd>スクリーン名<br>XX 〇〇／XXXX円<br>XX 〇〇／XXXX円<br>XX 〇〇／XXXX円</dd>
                         <dt>劇場</dt>
                         <dd>〇〇〇〇</dd>
+                        <dt>合計</dt>
+                        <dd>XXXX円</dd>
                     </dl>
                 </div>
             </div>

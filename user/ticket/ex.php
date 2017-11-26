@@ -1,4 +1,6 @@
-<?php
+<?php include("../login_session.php");
+header("Content-Type:text/html; charset=UTF-8");
+$pageTitle = "購入完了 | 予約";
 //if(isset($_GET["ShowId"])){
     //$ShowId = $_GET["ShowId"];
     //  MySQL関連変数を外部ファイルで持たせる
@@ -10,7 +12,7 @@
     if(!$Link = mysqli_connect
                 ($HOST,$USER,$PASS)){
       //  うまく接続できなかった
-      exit("MySQL接続エラー<br />" . 
+      exit("MySQL接続エラー<br />" .
         mysqli_connect_error());
     }
 
@@ -62,26 +64,21 @@
 ?>
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <title>購入完了 | HALシネマ</title>
-        <link rel="stylesheet" href="../css/reset.css" type="text/css" />
-        <link rel="stylesheet" href="../css/common.css" type="text/css" />
-        <link rel="stylesheet" href="css/pan.css" type="text/css" />
-        <link rel="stylesheet" href="css/ex.css" type="text/css" />
-</head>
-
-<body>
+<?php include("../../head.php"); ?>
+<body class="ex">
     <div id="wrapper">
-      <div id="contents">
-            <p id="pan"><span class="pan_padding">座席・チケット選択</span><span>&gt;</span><span class="pan_padding">ご購入者情報の入力</span><span>&gt;</span><span class="pan_padding">お支払情報の入力</span><span>&gt;</span><span class="pan_padding">購入内容の確認</span><span>&gt;</span><span id="now" class="pan_padding">購入完了</span></p>
+        <?php include("header.php"); ?>
+        <div id="contents">
             <div id="left">
-                <h1>ご購入が完了しました。</h1>
+                <h2>ご購入が完了しました。</h2>
                 <a href="../index.php">トップへ戻る</a>
             </div>
-            <div id="right">
+            <div class="right">
             </div>
         </div>
+        <footer class="ticket_footer">
+            <p class="ticket_footer_ttl">Copyright &copy; 2017 halcinema</p>
+        </footer>
     </div>
 </body>
 </html>

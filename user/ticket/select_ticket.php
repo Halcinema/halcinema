@@ -1,12 +1,17 @@
 <?php include("../login_session.php");
 header("Content-Type:text/html; charset=UTF-8");
 $pageTitle = "チケット選択 | 予約";
+$loginErrMsg = "";
 
-//エラーフラグ（初期値：エラー無し）
-$errFlg = "false";
-
-//エラーメッセージ
-$errMsg = "";
+if(isset($_GET["loginErr"])){
+    $loginErr = $_GET["loginErr"];
+    if($loginErr == "1"){
+        $loginErrMsg = "組み合わせが誤っています";
+    }else if($loginErr == "2"){
+        $loginErrMsg = "入力されたメールアドレスは登録されていません";
+    }
+}
+$loginerrMsg = "";
 
 if(isset($_POST["selected"])){
     $selected = $_POST["selected"];
@@ -140,11 +145,13 @@ if(!mysqli_close($Link)){
                         </ul>
                     </section>
                 </div>
-                <input type="hidden" name="ShowId" value="<?php $ShowId ?>">
-                <input class="status" type="hidden" name="status" value="">
                 <div id="login_area">
                     <h2>ログインして購入</h2>
                         <?php if($MemMail == ""){ ?>
+                        <p>ログインするとご購入者情報の入力を省略することができます。</p>
+                        <?php if($loginErrMsg != ""){
+                            print $loginErrMsg;
+                        } ?>
                         <h3>メールアドレス</h3>
                         <input class="txt_box" type="email" name="txtMail" value="">
                         <h3>パスワード</h3>
@@ -156,7 +163,7 @@ if(!mysqli_close($Link)){
                         <h3><?php print $MemName; ?>さん、すでにログインされています。</h3>
                         <h3>このアカウントで購入する。</h3>
                         <div id="text_align">
-                            <input class="ticket_accent_btn" type="submit" name="logout" value="次へ" onClick="fnc_logout();">
+                            <input class="ticket_accent_btn" type="submit" name="loginBuy" value="次へ">
                         </div>
                         <h3>このアカウントでは購入しない。</h3>
                         <div id="text_align">
