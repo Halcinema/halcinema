@@ -71,20 +71,7 @@ if(!mysqli_close($Link)){
 <?php include("../../head.php"); ?>
 <body class="select_ticket">
     <div id="wrapper">
-        <header class="ticket_header">
-            <h1 class="ticket_header_ttl">halcinema / オンライン予約</h1>
-            <p class="ticket_header_breadcrumbs">
-                <span class="ticket_header_breadcrumbs_now ticket_header_breadcrumbs_padding">座席・チケット選択</span>
-                <span>&gt;</span>
-                <span class="ticket_header_breadcrumbs_padding">ご購入者情報の入力</span>
-                <span>&gt;</span>
-                <span class="ticket_header_breadcrumbs_padding">お支払情報の入力</span>
-                <span>&gt;</span>
-                <span class="ticket_header_breadcrumbs_padding">購入内容の確認</span>
-                <span>&gt;</span>
-                <span class="ticket_header_breadcrumbs_padding">購入完了</span>
-            </p>
-        </header>
+        <?php include("header.php"); ?>
         <div id="contents">
             <div id="left">
                 <h2 class="select_ticket_ttl">チケットの種類をお選びください。</h2>
@@ -163,24 +150,24 @@ if(!mysqli_close($Link)){
                         <h3>パスワード</h3>
                         <input class="txt_box" type="password" name="txtPass" value="">
                         <div id="text_align">
-                            <input id="login" type="submit" name="login" value="ログイン" onClick="fnc_login();">
+                            <input class="ticket_accent_btn" type="submit" name="login" value="ログイン">
                         </div>
                         <?php }else{ ?>
                         <h3><?php print $MemName; ?>さん、すでにログインされています。</h3>
                         <h3>このアカウントで購入する。</h3>
                         <div id="text_align">
-                            <input id="login" type="submit" name="logout" value="次へ" onClick="fnc_logout();">
+                            <input class="ticket_accent_btn" type="submit" name="logout" value="次へ" onClick="fnc_logout();">
                         </div>
                         <h3>このアカウントでは購入しない。</h3>
                         <div id="text_align">
-                            <input id="login" type="submit" name="logout" value="ログアウト" onClick="fnc_logout();">
+                            <input class="ticket_accent_btn" type="submit" name="logout" value="ログアウト">
                   </div>
                   <?php } ?>
                 </div>
                 <?php if($MemMail == ""){ ?>
                 <div id="next_area">
                     <h2>ログインしないで購入</h2>
-                        <p><input class="no_login_buy" type="submit" name="noLoginBuy" value="次へ"></p>
+                        <p><input class="ticket_accent_btn" type="submit" name="noLoginBuy" value="次へ"></p>
                 </div>
                 <?php } ?>
                 </form>

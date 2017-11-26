@@ -5,24 +5,33 @@
 
 //ヘッダー
 .ticket_header {
-    background-color: #222222;
+    background-color: #222;
     margin-bottom: 50px;
     width: 100%;
     height: 100px;
-    &_ttl {
+    &_top {
+        display: flex;
         width: 1000px;
         height: 50px;
         margin: 0 auto;
-        color: #fff;
         line-height: 50px;
+        &_ttl {
+            margin-right: auto;
+            color: #fff;
+        }
+        &_user {
+            color: #fff;
+        }
     }
     //パンくずリスト
     &_breadcrumbs {
         width: 1000px;
         height: 50px;
         margin: 0 auto;
-        color: #fff;
         line-height: 50px;
+        span{
+            color: #fff;
+        }
         &_now{
             color: #FF0000;
         }
@@ -293,12 +302,6 @@
         text-align: center;
     }
 
-    #login{
-        width: 500px;
-        height: 50px;
-        font-size: 20px;
-        margin: 0 0 20px 0;
-    }
 
     #next_area{
         width: 700px;
@@ -312,13 +315,6 @@
 
     #next_area p{
         text-align: center;
-    }
-
-    #next{
-        width: 500px;
-        height: 50px;
-        font-size: 20px;
-        margin: 0 0 20px 0;
     }
 
     #back_area form{
@@ -459,10 +455,6 @@
         background-color: #808080;
         color: #FFFFFF;
     }
-
-    #LoginMessage{
-        margin: 0 0 50px 0;
-    }
 }
 
 //購入状況
@@ -498,4 +490,11 @@
             }
         }
     }
+}
+
+.ticket_accent_btn{
+    width: 500px;
+    height: 50px;
+    font-size: 20px;
+    margin: 0 0 20px 0;
 }

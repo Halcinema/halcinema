@@ -1,4 +1,4 @@
-<?php
+<?php include("../login_session.php");
 $pageTitle = "お支払い情報の入力 | 予約";
 
 $LoginFlag = "";
@@ -24,7 +24,12 @@ $LoginFlag = "";
 <body class="pay_info">
     <div id="wrapper">
         <header class="ticket_header">
-            <h1 class="ticket_header_ttl">halcinema / オンライン予約</h1>
+            <div class="ticket_header_top">
+                <h1 class="ticket_header_top_ttl">halcinema / オンライン予約</h1>
+                <?php if($MemMail != ""): ?>
+                <p class="ticket_header_top_user"><?php print $MemName; ?>さんでログイン中</p>
+                <?php endif; ?>
+            </div>
             <p class="ticket_header_breadcrumbs">
                 <span class="ticket_header_breadcrumbs_padding">座席・チケット選択</span>
                 <span>&gt;</span>
@@ -39,9 +44,6 @@ $LoginFlag = "";
         </header>
         <div id="contents">
             <div id="left">
-                <?php if($LoginFlag == "Success"){ ?>
-                <p id="LoginMessage"><?php print $Row["mem_fk"]; print $Row["mem_gk"]; ?>さんでログインしました。</p>
-                <?php } ?>
                 <h2>お支払いに必要な情報を入力してください。</h2>
                 <div>
                     <h3>クレジットカード払い</h3>
