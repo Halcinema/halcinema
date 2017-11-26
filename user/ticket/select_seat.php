@@ -85,7 +85,7 @@ for($i=0; $i<10; $i++){
         <header class="ticket_header">
             <h1 class="ticket_header_ttl">halcinema / オンライン予約</h1>
             <p class="ticket_header_breadcrumbs">
-                <span class="ticket_header_breadcrumbs_now" class="ticket_header_breadcrumbs_padding">座席・チケット選択</span>
+                <span class="ticket_header_breadcrumbs_now ticket_header_breadcrumbs_padding">座席・チケット選択</span>
                 <span>&gt;</span>
                 <span class="ticket_header_breadcrumbs_padding">ご購入者情報の入力</span>
                 <span>&gt;</span>

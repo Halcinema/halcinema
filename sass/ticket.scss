@@ -439,3 +439,149 @@
         margin: 0 0 0 0;
     }
 }
+
+.pay_info {
+
+    #contents{
+        display: flex;
+        width: 1000px;
+        margin: 0 auto;
+    }
+
+    #left{
+        width: 700px;
+        margin: 0 50px 0 0;
+    }
+
+    h1{
+        font-size: 30px;
+        margin: 0 0 50px 0;
+    }
+
+    #LoginMessage{
+        margin: 0 0 10px 0;
+    }
+
+    #credit{
+        width: 700px;
+        margin: 0 0 50px 0;
+    }
+
+    #credit h2{
+        font-size: 20px;
+        margin: 0 0 10px 0;
+    }
+
+    #credit h3{
+        margin: 0 0 10px 0;
+    }
+
+    form .txt_box{
+        width: 700px;
+        height: 50px;
+        margin: 0 0 20px 0;
+    }
+
+    #next_area{
+        width: 700px;
+        margin: 0 0 50px 0;
+    }
+
+    #next_area h2{
+        font-size: 20px;
+        margin: 0 0 20px 0;
+    }
+
+    #next_area{
+        text-align: center;
+    }
+
+    #next{
+        width: 500px;
+        height: 50px;
+        font-size: 20px;
+        margin: 0 0 20px 0;
+    }
+
+    #back_area form{
+        text-align: center;
+    }
+
+    #back{
+        width: 500px;
+        height: 50px;
+        background-color: #FFFFFF;
+        font-size: 20px;
+        color: #808080;
+        margin: 0 0 20px 0;
+        border: solid 1px #808080;
+    }
+
+    #back:hover{
+        background-color: #808080;
+        color:#FFFFFF;
+    }
+
+    #all_back_area form{
+        text-align: center;
+    }
+
+    #all_back{
+        width: 500px;
+        height: 50px;
+        background-color: #FFFFFF;
+        font-size: 20px;
+        color: #808080;
+        margin: 0 0 20px 0;
+        border: solid 1px #808080;
+    }
+
+    #all_back:hover{
+        background-color: #808080;
+        color: #FFFFFF;
+    }
+
+    #right{
+        width: 250px;
+    }
+
+    #purchase_contents{
+        width: 250px;
+    }
+
+    #purchase_contents h2{
+        width: 250px;
+        font-size: 20px;
+        background-color: #808080;
+        color: #FFFFFF;
+        padding: 10px;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        border: solid 1px #000000;
+    }
+
+    #purchase_contents dl{
+        width: 250px;
+        padding: 10px;
+        border-right: solid 1px #000000;
+        border-bottom: solid 1px #000000;
+        border-left: solid 1px #000000;
+    }
+
+    #purchase_contents dl dt{
+        margin: 0 0 10px 0;
+    }
+
+    #purchase_contents dl dd{
+        margin: 0 0 20px 0;
+    }
+
+    #purchase_contents dl dd:last-child{
+        margin: 0 0 0 0;
+    }
+
+    p{
+        margin: 0 0 50px 0;
+    }
+}

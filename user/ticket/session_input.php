@@ -1,10 +1,11 @@
 <?php session_start();
 header("Content-Type:text/html; charset=UTF-8");
 
-if(isset($_POST["ShowId"])){
-    $ShowId = $_POST["ShowId"];
+if(isset($_POST["noLoginBuy"])){
+    header("Location: pay_info.php");
+    exit();
 }
-
+/*
 if(isset($_POST["selected"])){
     if(isset($_SESSION["seats"])){
         unset($_SESSION["seats"]);
@@ -106,4 +107,5 @@ if($status == "2"){
     header("Location: select_ticket.php?bstatus=1");
     exit();
 }
+*/
 ?>
