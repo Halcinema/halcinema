@@ -74,7 +74,7 @@ if(!mysqli_close($Link)){
         <header class="ticket_header">
             <h1 class="ticket_header_ttl">halcinema / オンライン予約</h1>
             <p class="ticket_header_breadcrumbs">
-                <span class="ticket_header_breadcrumbs_now" class="ticket_header_breadcrumbs_padding">座席・チケット選択</span>
+                <span class="ticket_header_breadcrumbs_now ticket_header_breadcrumbs_padding">座席・チケット選択</span>
                 <span>&gt;</span>
                 <span class="ticket_header_breadcrumbs_padding">ご購入者情報の入力</span>
                 <span>&gt;</span>
@@ -154,7 +154,7 @@ if(!mysqli_close($Link)){
                     </section>
                 </div>
                 <input type="hidden" name="ShowId" value="<?php $ShowId ?>">
-                <input id="status" type="hidden" name="status" value="">
+                <input class="status" type="hidden" name="status" value="">
                 <div id="login_area">
                     <h2>ログインして購入</h2>
                         <?php if($MemMail == ""){ ?>
@@ -180,7 +180,7 @@ if(!mysqli_close($Link)){
                 <?php if($MemMail == ""){ ?>
                 <div id="next_area">
                     <h2>ログインしないで購入</h2>
-                        <p><input id="next" type="submit" name="next" value="次へ" onClick="fnc_session(<?php print $cnt ?>);"></p>
+                        <p><input class="no_login_buy" type="submit" name="noLoginBuy" value="次へ"></p>
                 </div>
                 <?php } ?>
                 </form>

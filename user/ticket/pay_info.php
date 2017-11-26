@@ -1,4 +1,5 @@
 <?php
+$pageTitle = "お支払い情報の入力 | 予約";
 
 $LoginFlag = "";
 
@@ -19,19 +20,24 @@ $LoginFlag = "";
 
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <title>お支払い情報の入力 | HALシネマ</title>
-        <link rel="stylesheet" href="../css/reset.css" type="text/css" />
-        <link rel="stylesheet" href="../css/common.css" type="text/css" />
-        <link rel="stylesheet" href="css/pan.css" type="text/css" />
-        <link rel="stylesheet" href="css/pay_info.css" type="text/css" />
-</head>
-
-<body>
+<?php include("../../head.php"); ?>
+<body class="pay_info">
     <div id="wrapper">
-      <div id="contents">
-            <p id="pan"><span class="pan_padding">座席・チケット選択</span><span>&gt;</span><span class="pan_padding">ご購入者情報の入力</span><span>&gt;</span><span id="now" class="pan_padding">お支払情報の入力</span><span>&gt;</span><span class="pan_padding">購入内容の確認</span><span>&gt;</span><span class="pan_padding">購入完了</span></p>
+        <header class="ticket_header">
+            <h1 class="ticket_header_ttl">halcinema / オンライン予約</h1>
+            <p class="ticket_header_breadcrumbs">
+                <span class="ticket_header_breadcrumbs_padding">座席・チケット選択</span>
+                <span>&gt;</span>
+                <span class="ticket_header_breadcrumbs_now ticket_header_breadcrumbs_padding">ご購入者情報の入力</span>
+                <span>&gt;</span>
+                <span class="ticket_header_breadcrumbs_padding">お支払情報の入力</span>
+                <span>&gt;</span>
+                <span class="ticket_header_breadcrumbs_padding">購入内容の確認</span>
+                <span>&gt;</span>
+                <span class="ticket_header_breadcrumbs_padding">購入完了</span>
+            </p>
+        </header>
+        <div id="contents">
             <div id="left">
                 <?php if($LoginFlag == "Success"){ ?>
                 <p id="LoginMessage"><?php print $Row["mem_fk"]; print $Row["mem_gk"]; ?>さんでログインしました。</p>
@@ -104,6 +110,9 @@ $LoginFlag = "";
                 </div>
             </div>
         </div>
+        <footer class="ticket_footer">
+            <p class="ticket_footer_ttl">Copyright &copy; 2017 halcinema</p>
+        </footer>
     </div>
 </body>
 </html>
