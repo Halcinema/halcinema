@@ -195,8 +195,8 @@ if(!mysqli_close($Link)){
                     </form>
                 </div>
             </div>
-            <div id="right">
-                <div id="purchase_contents">
+            <div class="right">
+                <div class="ticket_status">
                     <h2>ご購入内容</h2>
                     <dl>
                         <dt>作品</dt>
