@@ -6,6 +6,35 @@
 //ヘッダー
 .ticket_header {
     background-color: #222222;
+    margin-bottom: 50px;
+    width: 100%;
+    height: 100px;
+    &_ttl {
+        width: 1000px;
+        height: 50px;
+        margin: 0 auto;
+        color: #fff;
+        line-height: 50px;
+    }
+    //パンくずリスト
+    &_breadcrumbs {
+        width: 1000px;
+        height: 50px;
+        margin: 0 auto;
+        color: #fff;
+        line-height: 50px;
+        &_now{
+            color: #FF0000;
+        }
+        &_padding{
+            padding: 0 10px;
+        }
+    }
+}
+
+//フッター
+.ticket_footer {
+    background-color: #222222;
     width: 100%;
     height: 50px;
     &_ttl {
@@ -16,29 +45,16 @@
     }
 }
 
-//パンくずリスト
-.ticket_breadcrumbs {
-    padding: 20px 0 20px 0;
-    margin: 0 0 50px 0;
-    border-bottom: solid 1px #808080;
-    #now{
-        color: #FF0000;
-    }
-    .pan_padding{
-        padding: 0 10px 0 10px;
-    }
-}
-
 //座席選択
 .select_seat {
     #contents{
+        display: flex;
         width: 1000px;
         margin: 0 auto;
     }
 
     #left{
         width: 700px;
-        float: left;
         margin: 0 50px 0 0;
     }
 
@@ -160,7 +176,6 @@
 
     #right{
         width: 250px;
-        float: right;
     }
 
     #purchase_contents{
@@ -202,13 +217,13 @@
 
 .select_ticket{
     #contents{
+        display: flex;
         width: 1000px;
         margin: 0 auto;
     }
 
     #left{
         width: 700px;
-        float: left;
         margin: 0 50px 0 0;
     }
 
@@ -412,7 +427,6 @@
 
     #right{
         width: 250px;
-        float: right;
     }
 
     #purchase_contents{

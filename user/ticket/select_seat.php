@@ -84,9 +84,19 @@ for($i=0; $i<10; $i++){
     <div id="wrapper">
         <header class="ticket_header">
             <h1 class="ticket_header_ttl">halcinema / オンライン予約</h1>
+            <p class="ticket_header_breadcrumbs">
+                <span class="ticket_header_breadcrumbs_now" class="ticket_header_breadcrumbs_padding">座席・チケット選択</span>
+                <span>&gt;</span>
+                <span class="ticket_header_breadcrumbs_padding">ご購入者情報の入力</span>
+                <span>&gt;</span>
+                <span class="ticket_header_breadcrumbs_padding">お支払情報の入力</span>
+                <span>&gt;</span>
+                <span class="ticket_header_breadcrumbs_padding">購入内容の確認</span>
+                <span>&gt;</span>
+                <span class="ticket_header_breadcrumbs_padding">購入完了</span>
+            </p>
         </header>
         <div id="contents">
-            <p class="ticket_breadcrumbs"><span id="now" class="pan_padding">座席・チケット選択</span><span>&gt;</span><span class="pan_padding">ご購入者情報の入力</span><span>&gt;</span><span class="pan_padding">お支払情報の入力</span><span>&gt;</span><span class="pan_padding">購入内容の確認</span><span>&gt;</span><span class="pan_padding">購入完了</span></p>
             <div id="left">
                 <h2>お好きな座席をお選びください。</h2>
                 <div id="icon_des">
@@ -190,7 +200,10 @@ for($i=0; $i<10; $i++){
                     </dl>
                 </div>
             </div>
-        </div>
-    </div>
+        </div><!-- /#contents -->
+        <footer class="ticket_footer">
+            <p class="ticket_footer_ttl">Copyright &copy; 2017 halcinema</p>
+        </footer>
+    </div><!-- /#wrapper -->
 </body>
 </html>
