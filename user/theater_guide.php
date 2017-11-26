@@ -1,3 +1,4 @@
+<?php include ("login_session.php"); ?>
 <!DOCTYPE html>
 <html lang="ja">
 <html>
@@ -19,8 +20,8 @@
 <h1 class="page_name">劇場情報</h1>
 <section class="clearfix">
   <div id="about_theater">
-    <div id="theater"> <img src="images/theater.jpg" height="300px"><img src="images/theater2.jpg" height="300px"> </div>
-    <div id="setumei"> 7スクリーン、全席ソフトレザー張りの1,256席を備えた都市型シネマコンプレックス。昼夜を通して木漏れ日をイメージしたゆったりと落ち着いた空間を演出。<br>
+    <div id="theater"> <img src="images/theater.jpg" width="300px"><img src="images/theater2.jpg" width="300px"> </div>
+    <div id="setumei" style="line-height:25px;"> 7スクリーン、全席ソフトレザー張りの1,256席を備えた都市型シネマコンプレックス。昼夜を通して木漏れ日をイメージしたゆったりと落ち着いた空間を演出。<br>
       全座席に光触媒ソフトレザーシート（※1）を採用しております。疲労は最小限に、長時間の鑑賞をリラックスしてご覧いただけるオリジナルシアターシートです。<br>
       <br>
       （※1）可視光を吸収して空気浄化、脱臭、殺菌などの働きをします。 </div>

@@ -1,15 +1,23 @@
 @charset "utf-8";
-#map{
+section{
+}
+.map{
 	width: 1000px;
+    height: 650px;
+    border: 1px solid #000;
+    box-sizing: border-box;
 }#map_img{
+    margin: 20px 0;
 	width: 580px;
 	padding:10px;
-	margin:10px 10px 0 0;
 	margin-right:50px;
 	float: left;
 }#mapdetail{
-	width: 300px;
-	float: left;
+	width: 350px;
+	float: right;
+}#mapdetail h2{
+    font-size: 1.5em;
+    margin: 30px 0;
 }#mapdetail table{
 	float: left;
 }table.access {
@@ -27,4 +35,8 @@
 	width:100px;
 }.right{
 	width:200px;
+}
+.top_info_01{
+}.top_info_01 img{
+    float: right;
 }
