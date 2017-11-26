@@ -6,14 +6,14 @@
         <?php endif; ?>
     </div>
     <p class="ticket_header_breadcrumbs">
-        <span class="ticket_header_breadcrumbs_padding">座席・チケット選択</span>
+        <span class="ticket_header_breadcrumbs_list ticket_header_breadcrumbs_list1">座席・チケット選択</span>
+        <span >&gt;</span>
+        <span class="ticket_header_breadcrumbs_list ticket_header_breadcrumbs_list2">ご購入者情報の入力</span>
         <span>&gt;</span>
-        <span class="ticket_header_breadcrumbs_now ticket_header_breadcrumbs_padding">ご購入者情報の入力</span>
+        <span class="ticket_header_breadcrumbs_list ticket_header_breadcrumbs_list3">お支払情報の入力</span>
         <span>&gt;</span>
-        <span class="ticket_header_breadcrumbs_padding">お支払情報の入力</span>
+        <span class="ticket_header_breadcrumbs_list ticket_header_breadcrumbs_list4">購入内容の確認</span>
         <span>&gt;</span>
-        <span class="ticket_header_breadcrumbs_padding">購入内容の確認</span>
-        <span>&gt;</span>
-        <span class="ticket_header_breadcrumbs_padding">購入完了</span>
+        <span class="ticket_header_breadcrumbs_list ticket_header_breadcrumbs_list5">購入完了</span>
     </p>
 </header>

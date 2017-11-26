@@ -20,6 +20,29 @@ $(function(){
             $(".select_seat_form").attr("action","select_ticket.php");
         }
     });
+
+    $(".transition_cinema_schedule").on("click",function(){
+        $("form").attr("action","../cinema_schedule.php");
+    });
+
+    if(location.href.indexOf("select_seat") != -1){
+        $(".ticket_header_breadcrumbs_list1").addClass("ticket_header_breadcrumbs_now");
+    }
+    if(location.href.indexOf("select_ticket") != -1){
+        $(".ticket_header_breadcrumbs_list1").addClass("ticket_header_breadcrumbs_now");
+    }
+    if(location.href.indexOf("user_info") != -1){
+        $(".ticket_header_breadcrumbs_list2").addClass("ticket_header_breadcrumbs_now");
+    }
+    if(location.href.indexOf("pay_info") != -1){
+        $(".ticket_header_breadcrumbs_list3").addClass("ticket_header_breadcrumbs_now");
+    }
+    if(location.href.indexOf("chk") != -1){
+        $(".ticket_header_breadcrumbs_list4").addClass("ticket_header_breadcrumbs_now");
+    }
+    if(location.href.indexOf("ex") != -1){
+        $(".ticket_header_breadcrumbs_list5").addClass("ticket_header_breadcrumbs_now");
+    }
 });
 
 function fnc_select(id)
