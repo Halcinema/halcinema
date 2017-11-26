@@ -87,7 +87,7 @@ if(!mysqli_close($Link)){
         </header>
         <div id="contents">
             <div id="left">
-                <h2>チケットの種類をお選びください。</h2>
+                <h2 class="select_ticket_ttl">チケットの種類をお選びください。</h2>
                 <p id="attention">今から15分以内に購入が完了しない場合、自動的に座席は解除されます。</p>
                 <form id="next_form" method="post" action="session_input.php">
                 <div class="select_ticket_area">
@@ -114,43 +114,44 @@ if(!mysqli_close($Link)){
                         <p class="disp">XXXX円</p>
                     </div>
                 </div>
-                <div id="drink">
-                    <h2>ドリンク</h2>
-                    <p>オプションでドリンクを購入することできます。映画館で受け取れて便利です。</p>
-                    <div class="clearfix">
-                        <div class="chk_drink"><input type="checkbox" name="drink[]" value="d1">ペプシコーラ 200円</div>
-                        <div class="chk_drink"><input type="checkbox" name="drink[]" value="d2">ミニッツメイド 200円</div>
-                        <div class="chk_drink"><input type="checkbox" name="drink[]" value="">カルピス 200円</div>
-                        <div class="chk_drink"><input type="checkbox" name="drink[]" value="">メロンソーダ 200円</div>
-                        <div class="chk_drink"><input type="checkbox" name="drink[]" value="">C.Cレモン 200円</div>
-                        <div class="chk_drink"><input type="checkbox" name="drink[]" value="">ジンジャーエール 200円</div>
-                        <div class="chk_drink"><input type="checkbox" name="drink[]" value="">リプトン・アイスティー 200円</div>
-                        <div class="chk_drink"><input type="checkbox" name="drink[]" value="">ウーロン茶 200円</div>
-                        <div class="chk_drink"><input type="checkbox" name="drink[]" value="">白ぶどう 200円</div>
-                    </div>
-                </div>
-                <div id="food">
-                    <h2>フード</h2>
-                    <p>オプションでフードを購入することできます。映画館で受け取れて便利です。</p>
-                    <div class="clearfix">
-                        <div class="chk_food"><input type="checkbox" name="food[]" value="">ポップコーン 400円</div>
-                        <div class="chk_food"><input type="checkbox" name="food[]" value="">フライドポテト300円</div>
-                        <div class="chk_food"><input type="checkbox" name="food[]" value="">鶏の唐揚げ 300円</div>
-                        <div class="chk_food"><input type="checkbox" name="food[]" value="">ホットドック 350円</div>
-                        <div class="chk_food"><input type="checkbox" name="food[]" value="">サンドウィッチ 350円</div>
-                        <div class="chk_food"><input type="checkbox" name="food[]" value="">チュリトス 300円</div>
-                        <div class="chk_food"><input type="checkbox" name="food[]" value="">プレッツェル 200円</div>
-                    </div>
-                </div>
-                <div id="goods">
-                    <h2>goods</h2>
-                    <p>オプションでグッズを購入することできます。映画館で受け取れて便利です。</p>
-                    <div class="clearfix">
-                        <div class="chk_goods"><input type="checkbox" name="goods[]" value="">パンフレット 800円</div>
-                        <div class="chk_goods"><input type="checkbox" name="goods[]" value="">キーホルダー 300円</div>
-                        <div class="chk_goods"><input type="checkbox" name="goods[]" value="">ぬいぐるみ 1500円</div>
-                        <div class="chk_goods"><input type="checkbox" name="goods[]" value="">メモ帳 200円</div>
-                    </div>
+                <div class="opt">
+                    <h2 class="opt_ttl">オプションをお選びください。</h2>
+                    <p class="opt_des">オプションを購入することできます。映画館で受け取れて便利です。</p>
+                    <section class="opt_group">
+                        <h3 class="opt_group_ttl">ドリンク</h3>
+                        <ul class="opt_group_list">
+                            <li class="opt_group_list_item"><input type="checkbox" name="drink[]" value="d1">ペプシコーラ 200円</li>
+                            <li class="opt_group_list_item"><input type="checkbox" name="drink[]" value="d2">ミニッツメイド 200円</li>
+                            <li class="opt_group_list_item"><input type="checkbox" name="drink[]" value="">カルピス 200円</li>
+                            <li class="opt_group_list_item"><input type="checkbox" name="drink[]" value="">メロンソーダ 200円</li>
+                            <li class="opt_group_list_item"><input type="checkbox" name="drink[]" value="">C.Cレモン 200円</li>
+                            <li class="opt_group_list_item"><input type="checkbox" name="drink[]" value="">ジンジャーエール 200円</li>
+                            <li class="opt_group_list_item"><input type="checkbox" name="drink[]" value="">リプトン・アイスティー 200円</li>
+                            <li class="opt_group_list_item"><input type="checkbox" name="drink[]" value="">ウーロン茶 200円</li>
+                            <li class="opt_group_list_item"><input type="checkbox" name="drink[]" value="">白ぶどう 200円</li>
+                        </ul>
+                    </section>
+                    <section class="opt_group">
+                        <h3 class="opt_group_ttl">フード</h3>
+                        <ul class="opt_group_list">
+                            <li class="opt_group_list_item"><input type="checkbox" name="food[]" value="">ポップコーン 400円</li>
+                            <li class="opt_group_list_item"><input type="checkbox" name="food[]" value="">フライドポテト300円</li>
+                            <li class="opt_group_list_item"><input type="checkbox" name="food[]" value="">鶏の唐揚げ 300円</li>
+                            <li class="opt_group_list_item"><input type="checkbox" name="food[]" value="">ホットドック 350円</li>
+                            <li class="opt_group_list_item"><input type="checkbox" name="food[]" value="">サンドウィッチ 350円</li>
+                            <li class="opt_group_list_item"><input type="checkbox" name="food[]" value="">チュリトス 300円</li>
+                            <li class="opt_group_list_item"><input type="checkbox" name="food[]" value="">プレッツェル 200円</li>
+                        </ul>
+                    </section>
+                    <section class="opt_group">
+                        <h3 class="opt_group_ttl">グッズ</h3>
+                        <ul class="opt_group_list">
+                            <li class="opt_group_list_item"><input type="checkbox" name="goods[]" value="">パンフレット 800円</li>
+                            <li class="opt_group_list_item"><input type="checkbox" name="goods[]" value="">キーホルダー 300円</li>
+                            <li class="opt_group_list_item"><input type="checkbox" name="goods[]" value="">ぬいぐるみ 1500円</li>
+                            <li class="opt_group_list_item"><input type="checkbox" name="goods[]" value="">メモ帳 200円</li>
+                        </ul>
+                    </section>
                 </div>
                 <input type="hidden" name="ShowId" value="<?php $ShowId ?>">
                 <input id="status" type="hidden" name="status" value="">
