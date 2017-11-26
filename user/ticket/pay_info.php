@@ -42,7 +42,7 @@ $LoginFlag = "";
                 <?php if($LoginFlag == "Success"){ ?>
                 <p id="LoginMessage"><?php print $Row["mem_fk"]; print $Row["mem_gk"]; ?>さんでログインしました。</p>
                 <?php } ?>
-                <h1>お支払いに必要な情報を入力してください。</h1>
+                <h2>お支払いに必要な情報を入力してください。</h2>
                 <div>
                     <h3>クレジットカード払い</h3>
                     <p><label for="credit1"><input id="credit1" type="radio" name="pay">VISA:1234（下四桁）</label></p>
@@ -92,20 +92,16 @@ $LoginFlag = "";
                     </form>
                 </div>
             </div>
-            <div id="right">
-                <div id="purchase_contents">
+            <div class="right">
+                <div class="ticket_status">
                     <h2>ご購入内容</h2>
                     <dl>
                         <dt>作品</dt>
                         <dd>〇〇〇〇</dd>
                         <dt>日時</dt>
                         <dd>XXXX年XX月XX日(X)<br>XX:XX~XX:XX</dd>
-                        <dt>座席・券種</dt>
-                        <dd>スクリーン名<br>XX 〇〇／XXXX円<br>XX 〇〇／XXXX円<br>XX 〇〇／XXXX円</dd>
                         <dt>劇場</dt>
                         <dd>〇〇〇〇</dd>
-                        <dt>合計</dt>
-                        <dd>XXXX円</dd>
                     </dl>
                 </div>
             </div>

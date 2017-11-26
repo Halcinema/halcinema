@@ -187,8 +187,8 @@ for($i=0; $i<10; $i++){
                     <input id="back" type="submit" name="back" value="時間指定画面へ戻る" />
                 </form>
             </div>
-            <div id="right">
-                <div id="purchase_contents">
+            <div class="right">
+                <div class="ticket_status">
                     <h2>ご購入内容</h2>
                     <dl>
                         <dt>作品</dt>

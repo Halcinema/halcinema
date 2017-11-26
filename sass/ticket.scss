@@ -173,46 +173,6 @@
         background-color: #808080;
         color: #FFFFFF;
     }
-
-    #right{
-        width: 250px;
-    }
-
-    #purchase_contents{
-        width: 250px;
-    }
-
-    #purchase_contents h2{
-        width: 250px;
-        font-size: 20px;
-        background-color: #808080;
-        color: #FFFFFF;
-        padding: 10px;
-        display: table-cell;
-        text-align: center;
-        vertical-align: middle;
-        border: solid 1px #000000;
-    }
-
-    #purchase_contents dl{
-        width: 250px;
-        padding: 10px;
-        border-right: solid 1px #000000;
-        border-bottom: solid 1px #000000;
-        border-left: solid 1px #000000;
-    }
-
-    #purchase_contents dl dt{
-        margin: 0 0 10px 0;
-    }
-
-    #purchase_contents dl dd{
-        margin: 0 0 20px 0;
-    }
-
-    #purchase_contents dl dd:last-child{
-        margin: 0 0 0 0;
-    }
 }
 
 .select_ticket{
@@ -398,50 +358,9 @@
         background-color: #808080;
         color: #FFFFFF;
     }
-
-    #right{
-        width: 250px;
-    }
-
-    #purchase_contents{
-        width: 250px;
-    }
-
-    #purchase_contents h2{
-        width: 250px;
-        font-size: 20px;
-        background-color: #808080;
-        color: #FFFFFF;
-        padding: 10px;
-        display: table-cell;
-        text-align: center;
-        vertical-align: middle;
-        border: solid 1px #000000;
-    }
-
-    #purchase_contents dl{
-        width: 250px;
-        padding: 10px;
-        border-right: solid 1px #000000;
-        border-bottom: solid 1px #000000;
-        border-left: solid 1px #000000;
-    }
-
-    #purchase_contents dl dt{
-        margin: 0 0 10px 0;
-    }
-
-    #purchase_contents dl dd{
-        margin: 0 0 20px 0;
-    }
-
-    #purchase_contents dl dd:last-child{
-        margin: 0 0 0 0;
-    }
 }
 
 .pay_info {
-
     #contents{
         display: flex;
         width: 1000px;
@@ -453,7 +372,7 @@
         margin: 0 50px 0 0;
     }
 
-    h1{
+    h2{
         font-size: 30px;
         margin: 0 0 50px 0;
     }
@@ -541,47 +460,42 @@
         color: #FFFFFF;
     }
 
-    #right{
-        width: 250px;
-    }
-
-    #purchase_contents{
-        width: 250px;
-    }
-
-    #purchase_contents h2{
-        width: 250px;
-        font-size: 20px;
-        background-color: #808080;
-        color: #FFFFFF;
-        padding: 10px;
-        display: table-cell;
-        text-align: center;
-        vertical-align: middle;
-        border: solid 1px #000000;
-    }
-
-    #purchase_contents dl{
-        width: 250px;
-        padding: 10px;
-        border-right: solid 1px #000000;
-        border-bottom: solid 1px #000000;
-        border-left: solid 1px #000000;
-    }
-
-    #purchase_contents dl dt{
-        margin: 0 0 10px 0;
-    }
-
-    #purchase_contents dl dd{
-        margin: 0 0 20px 0;
-    }
-
-    #purchase_contents dl dd:last-child{
-        margin: 0 0 0 0;
-    }
-
-    p{
+    #LoginMessage{
         margin: 0 0 50px 0;
+    }
+}
+
+//購入状況
+.right {
+    width: 250px;
+    .ticket_status {
+        width: 250px;
+        h2{
+            width: 250px;
+            font-size: 20px;
+            background-color: #808080;
+            color: #FFFFFF;
+            padding: 10px;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+            border: solid 1px #000000;
+        }
+        dl{
+            width: 250px;
+            padding: 10px;
+            border-right: solid 1px #000000;
+            border-bottom: solid 1px #000000;
+            border-left: solid 1px #000000;
+            dt{
+                margin: 0 0 10px 0;
+            }
+            dd{
+                margin: 0 0 20px 0;
+                &:last-child{
+                    margin: 0 0 0 0;
+                }
+            }
+        }
     }
 }
