@@ -71,31 +71,32 @@ if(!mysqli_close($Link)){
 <?php include("../../head.php"); ?>
 <body class="select_ticket">
     <div id="wrapper">
-      <div id="contents">
+        <header class="ticket_header">
+            <h1 class="ticket_header_ttl">halcinema / オンライン予約</h1>
+        </header>
+        <div id="contents">
             <p class="ticket_breadcrumbs"><span id="now" class="pan_padding">座席・チケット選択</span><span>&gt;</span><span class="pan_padding">ご購入者情報の入力</span><span>&gt;</span><span class="pan_padding">お支払情報の入力</span><span>&gt;</span><span class="pan_padding">購入内容の確認</span><span>&gt;</span><span class="pan_padding">購入完了</span></p>
             <div id="left">
-                <h1>チケットの種類をお選びください。</h1>
+                <h2>チケットの種類をお選びください。</h2>
                 <p id="attention">今から15分以内に購入が完了しない場合、自動的に座席は解除されます。</p>
                 <form id="next_form" method="post" action="session_input.php">
                 <div id="select_ticket_area">
                     <h2>スクリーン名</h2>
                     <?php foreach($_SESSION["seats"] as $pointer => $value){ ?>
                     <div class="ticket">
-                        <div class="clearfix">
-                            <p class="seat_num"><?php print $pointer ?></p>
-                            <p class="select_ticket">
-                                <select name="selected[<?php print $pointer ?>]">
-                                    <option value="0" <?php if($value == "0"){ print "selected='selected'"; }?>>券種を選択して下さい。</option>
-                                    <option value="1" <?php if($value == "1"){ print "selected='selected'"; }?>>一般 1,100円</option>
-                                    <option value="2" <?php if($value == "2"){ print "selected='selected'"; }?>>高校生 500円</option>
-                                    <option value="3" <?php if($value == "3"){ print "selected='selected'"; }?>>大・専 500円</option>
-                                    <option value="4" <?php if($value == "4"){ print "selected='selected'"; }?>>中・小 500円</option>
-                                    <option value="5" <?php if($value == "5"){ print "selected='selected'"; }?>>幼児（3才～） 500円</option>
-                                    <option value="6" <?php if($value == "6"){ print "selected='selected'"; }?>>シニア（60才以上）1,100円</option>
-                                    <option value="7" <?php if($value == "7"){ print "selected='selected'"; }?>>障碍者割引 1,000円</option>
-                                </select>
-                            </p>
-                        </div>
+                        <p class="seat_num"><?php print $pointer ?></p>
+                        <p class="select_ticket">
+                            <select name="selected[<?php print $pointer ?>]">
+                                <option value="0" <?php if($value == "0"){ print "selected='selected'"; }?>>券種を選択して下さい。</option>
+                                <option value="1" <?php if($value == "1"){ print "selected='selected'"; }?>>一般 1,100円</option>
+                                <option value="2" <?php if($value == "2"){ print "selected='selected'"; }?>>高校生 500円</option>
+                                <option value="3" <?php if($value == "3"){ print "selected='selected'"; }?>>大・専 500円</option>
+                                <option value="4" <?php if($value == "4"){ print "selected='selected'"; }?>>中・小 500円</option>
+                                <option value="5" <?php if($value == "5"){ print "selected='selected'"; }?>>幼児（3才～） 500円</option>
+                                <option value="6" <?php if($value == "6"){ print "selected='selected'"; }?>>シニア（60才以上）1,100円</option>
+                                <option value="7" <?php if($value == "7"){ print "selected='selected'"; }?>>障碍者割引 1,000円</option>
+                            </select>
+                        </p>
                     </div>
                     <?php } ?>
                     <div class="clearfix">
