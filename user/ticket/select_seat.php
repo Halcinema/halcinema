@@ -82,10 +82,13 @@ for($i=0; $i<10; $i++){
 <?php include("../../head.php"); ?>
 <body class="select_seat">
     <div id="wrapper">
-      <div id="contents">
+        <header class="ticket_header">
+            <h1 class="ticket_header_ttl">halcinema / オンライン予約</h1>
+        </header>
+        <div id="contents">
             <p class="ticket_breadcrumbs"><span id="now" class="pan_padding">座席・チケット選択</span><span>&gt;</span><span class="pan_padding">ご購入者情報の入力</span><span>&gt;</span><span class="pan_padding">お支払情報の入力</span><span>&gt;</span><span class="pan_padding">購入内容の確認</span><span>&gt;</span><span class="pan_padding">購入完了</span></p>
             <div id="left">
-                <h1>お好きな座席をお選びください。</h1>
+                <h2>お好きな座席をお選びください。</h2>
                 <div id="icon_des">
                     <h2>アイコン説明</h2>
                     <ul>
