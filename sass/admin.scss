@@ -121,35 +121,37 @@
 }
 
 //映画追加
-h3{
-  font-size: 25px;
-  text-align: center;
-  margin-bottom:50px;
-}
-h4{
-  width:10em;
-  display: inline-block;
-  margin-bottom:50px;
-}
-#text_area{
-  vertical-align: top;
-}
-label{
-  vertical-align: top;
-}
-span{
-vertical-align: middle;
-}
-input[type="submit"]{
-  text-align: center;
-}
-input[name="runningtime"]{
-  width:80px;
+.add_movie {
+    h3{
+      font-size: 25px;
+      text-align: center;
+      margin-bottom:50px;
+    }
+    h4{
+      width:10em;
+      display: inline-block;
+      margin-bottom:50px;
+    }
+    #text_area{
+      vertical-align: top;
+    }
+    label{
+      vertical-align: top;
+    }
+    span{
+    vertical-align: middle;
+    }
+    input[type="submit"]{
+      text-align: center;
+    }
+    input[name="runningtime"]{
+      width:80px;
 
-}
-textarea{
-  margin-bottom:50px;
-}
-.center{
-  text-align: center;
+    }
+    textarea{
+      margin-bottom:50px;
+    }
+    .center{
+      text-align: center;
+    }
 }
