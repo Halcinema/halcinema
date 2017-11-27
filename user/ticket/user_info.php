@@ -72,7 +72,7 @@ $pageTitle = "ご購入者情報の入力 | 予約";
                     </form>
                 </div>
             </div>
-            <div class="left">
+            <div class="right">
                 <div class="ticket_status">
                     <h2>ご購入内容</h2>
                     <dl>
@@ -81,7 +81,21 @@ $pageTitle = "ご購入者情報の入力 | 予約";
                         <dt>日時</dt>
                         <dd>XXXX年XX月XX日(X)<br>XX:XX~XX:XX</dd>
                         <dt>座席・券種</dt>
-                        <dd>スクリーン名<br>XX 〇〇／XXXX円<br>XX 〇〇／XXXX円<br>XX 〇〇／XXXX円</dd>
+                        <dd>スクリーン名</dd>
+                        <?php foreach($_SESSION["seats"] as $pointer => $value){ ?>
+                        <div class="ticket">
+                            <?php print $pointer; ?>
+                            <?php
+                                if($value == "1"){ print "一般 1,100円"; }
+                                if($value == "2"){ print "高校生 500円"; }
+                                if($value == "3"){ print "大・専 500円"; }
+                                if($value == "4"){ print "中・小 500円"; }
+                                if($value == "5"){ print "幼児（3才～） 500円"; }
+                                if($value == "6"){ print "シニア（60才以上）1,100円"; }
+                                if($value == "7"){ print "障碍者割引 1,000円"; }
+                            ?>
+                        </div>
+                        <?php } ?>
                         <dt>劇場</dt>
                         <dd>〇〇〇〇</dd>
                         <dt>合計</dt>
