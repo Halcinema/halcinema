@@ -1,6 +1,7 @@
+<?php include "login_session.php" ?>
 <!DOCTYPE html>
 <html lang="ja">
-	<head>	
+	<head>
 		<meta charset="utf-8">
 		<title>HALシネマ-上映スケジュール</title>
 		<link rel="stylesheet" href="css/reset.css">
@@ -93,7 +94,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 		</section>
 				<section class="s_cinema">
 			<h4 class="cinema_title">いつまた、君と　何日君再来（ホーリージュンザイライ）</h4>
@@ -117,7 +118,7 @@
 				</div>
 			</div>
 		</section>
-		
+
 	</body>
-	
+
 </html>
