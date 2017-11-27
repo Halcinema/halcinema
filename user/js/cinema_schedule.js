@@ -13,9 +13,9 @@ var getOfBeforeAfterDays = function(dateObj, number) {
 
 $(function(){
     var yb=["日","月","火","水","木","金","土"];
-    
-    today = new Date(); 
-    
+
+    today = new Date();
+
     day1 = today;
     var day1_year = day1.getFullYear();
     var day1_month = keta(day1.getMonth()+1);
@@ -92,6 +92,21 @@ $(function(){
     $(".day7_month").html(day7_month);
     $(".day7_day").html(day7_day);
     $(".day7_day_of_week").html(yb[day7_day_of_week]);
+
+    $.ajax({
+        type: 'POST',
+        url: 'cinema_schedule_json.php',
+        dataType: 'json',
+        success: function(data){
+            console.log("json取得成功");
+            /*
+            var len = json.length;
+            for(var i=0; i < len; i++){
+                $("body").append(json[i].version + ' ' + json[i].codename + '<br>');
+            }
+            */
+        }
+    });
 });
 
 /*
@@ -111,7 +126,7 @@ $(function(){
 
 function timerFunc(){
     var yb=["日","月","火","水","木","金","土"];
-    
+
     now=new Date();
     $("#nen").html(now.getFullYear());
     $("#tuki").html(keta(now.getMonth()+1));
@@ -128,7 +143,7 @@ function timerFunc(){
     }
     $("#fun").html(keta(now.getMinutes()));
     $("#byo").html(keta(now.getSeconds()));
-    
+
     setTimeout("timerFunc()",1000);
 }
 */
