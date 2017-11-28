@@ -83,27 +83,27 @@ if(!mysqli_close($Link)){
                 <p id="attention">今から15分以内に購入が完了しない場合、自動的に座席は解除されます。</p>
                 <form id="next_form" method="post" action="session_input.php">
                 <div class="select_ticket_area">
-                    <h2>スクリーン名</h2>
+                    <h2><?php print $_SESSION["ticket_status"]["scr_name"]; ?></h2>
                     <?php foreach($_SESSION["seats"] as $pointer => $value): ?>
                         <div class="ticket">
                             <p class="seat_num"><?php print $pointer ?></p>
                             <p class="select_ticket">
-                                <select name="selected[<?php print $pointer ?>]">
+                                <select class="select_ticket_list" name="selected[<?php print $pointer ?>]">
                                     <option value="0" <?php if($value == "0"){ print "selected='selected'"; }?>>券種を選択して下さい。</option>
-                                    <option value="1" <?php if($value == "1"){ print "selected='selected'"; }?>>一般 1,100円</option>
-                                    <option value="2" <?php if($value == "2"){ print "selected='selected'"; }?>>高校生 500円</option>
-                                    <option value="3" <?php if($value == "3"){ print "selected='selected'"; }?>>大・専 500円</option>
-                                    <option value="4" <?php if($value == "4"){ print "selected='selected'"; }?>>中・小 500円</option>
-                                    <option value="5" <?php if($value == "5"){ print "selected='selected'"; }?>>幼児（3才～） 500円</option>
-                                    <option value="6" <?php if($value == "6"){ print "selected='selected'"; }?>>シニア（60才以上）1,100円</option>
-                                    <option value="7" <?php if($value == "7"){ print "selected='selected'"; }?>>障碍者割引 1,000円</option>
+                                    <option value="1" <?php if($value == "1"){ print "selected='selected'"; }?> data-val="1100">一般 1,100円</option>
+                                    <option value="2" <?php if($value == "2"){ print "selected='selected'"; }?> data-val="500">高校生 500円</option>
+                                    <option value="3" <?php if($value == "3"){ print "selected='selected'"; }?> data-val="500">大・専 500円</option>
+                                    <option value="4" <?php if($value == "4"){ print "selected='selected'"; }?> data-val="500">中・小 500円</option>
+                                    <option value="5" <?php if($value == "5"){ print "selected='selected'"; }?> data-val="500">幼児（3才～） 500円</option>
+                                    <option value="6" <?php if($value == "6"){ print "selected='selected'"; }?> data-val="1100">シニア（60才以上）1,100円</option>
+                                    <option value="7" <?php if($value == "7"){ print "selected='selected'"; }?> data-val="1000">障碍者割引 1,000円</option>
                                 </select>
                             </p>
                         </div>
                     <?php endforeach; ?>
                     <div class="price">
                         <p class="ttl">合計</p>
-                        <p class="disp">XXXX円</p>
+                        <p class="disp">0円</p>
                     </div>
                 </div>
                 <div class="opt">
@@ -194,11 +194,15 @@ if(!mysqli_close($Link)){
                     <h2>ご購入内容</h2>
                     <dl>
                         <dt>作品</dt>
-                        <dd>〇〇〇〇</dd>
-                        <dt>日時</dt>
-                        <dd>XXXX年XX月XX日(X)<br>XX:XX~XX:XX</dd>
+                        <dd><?php print $_SESSION["ticket_status"]["movie_name"]; ?></dd>
+                        <dt>入場可能日時</dt>
+                        <dd><?php print $_SESSION["ticket_status"]["show_enter"]; ?></dd>
+                        <dt>上映開始日時</dt>
+                        <dd><?php print $_SESSION["ticket_status"]["show_start"]; ?></dd>
+                        <dt>上映終了日時</dt>
+                        <dd><?php print $_SESSION["ticket_status"]["show_finish"]; ?></dd>
                         <dt>劇場</dt>
-                        <dd>〇〇〇〇</dd>
+                        <dd><?php print $_SESSION["ticket_status"]["the_name"]; ?></dd>
                     </dl>
                 </div>
             </div>

@@ -1,7 +1,5 @@
 <?php include("../login_session.php");
 $pageTitle = "ご購入者情報の入力 | 予約";
-//$selected = $_POST["selected"];
-//print_r($selected);
 ?>
 
 <!DOCTYPE html>
@@ -77,13 +75,17 @@ $pageTitle = "ご購入者情報の入力 | 予約";
                     <h2>ご購入内容</h2>
                     <dl>
                         <dt>作品</dt>
-                        <dd>〇〇〇〇</dd>
-                        <dt>日時</dt>
-                        <dd>XXXX年XX月XX日(X)<br>XX:XX~XX:XX</dd>
+                        <dd><?php print $_SESSION["ticket_status"]["movie_name"]; ?></dd>
+                        <dt>入場可能日時</dt>
+                        <dd><?php print $_SESSION["ticket_status"]["show_enter"]; ?></dd>
+                        <dt>上映開始日時</dt>
+                        <dd><?php print $_SESSION["ticket_status"]["show_start"]; ?></dd>
+                        <dt>上映終了日時</dt>
+                        <dd><?php print $_SESSION["ticket_status"]["show_finish"]; ?></dd>
+                        <dt>劇場</dt>
+                        <dd><?php print $_SESSION["ticket_status"]["the_name"]; ?></dd>
                         <dt>座席・券種</dt>
-                        <dd>スクリーン名</dd>
-                        <?php foreach($_SESSION["seats"] as $pointer => $value){ ?>
-                        <div class="ticket">
+                        <dd><?php foreach($_SESSION["seats"] as $pointer => $value){ ?>
                             <?php print $pointer; ?>
                             <?php
                                 if($value == "1"){ print "一般 1,100円"; }
@@ -94,12 +96,8 @@ $pageTitle = "ご購入者情報の入力 | 予約";
                                 if($value == "6"){ print "シニア（60才以上）1,100円"; }
                                 if($value == "7"){ print "障碍者割引 1,000円"; }
                             ?>
-                        </div>
-                        <?php } ?>
-                        <dt>劇場</dt>
-                        <dd>〇〇〇〇</dd>
-                        <dt>合計</dt>
-                        <dd>XXXX円</dd>
+                            <br>
+                        <?php } ?></dd>
                     </dl>
                 </div>
             </div>

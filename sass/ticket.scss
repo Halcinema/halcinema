@@ -279,6 +279,9 @@
                     width: 500px;
                     height: 50px;
                 }
+                &_val {
+                    display: none;
+                }
             }
         }
         .price {
@@ -562,87 +565,46 @@
         margin: 0 0 50px 0;
     }
 
-    #LoginMessage{
-        margin: 0 0 10px 0;
-    }
-
-    #credit{
-        width: 700px;
-        margin: 0 0 50px 0;
-    }
-
-    #credit h2{
-        font-size: 20px;
-        margin: 0 0 10px 0;
-    }
-
-    #credit h3{
-        margin: 0 0 10px 0;
-    }
-
-    form .txt_box{
-        width: 700px;
-        height: 50px;
-        margin: 0 0 20px 0;
-    }
-
-    #next_area{
-        width: 700px;
-        margin: 0 0 50px 0;
-    }
-
-    #next_area h2{
-        font-size: 20px;
-        margin: 0 0 20px 0;
-    }
-
-    #next_area{
-        text-align: center;
-    }
-
-    #next{
-        width: 500px;
-        height: 50px;
-        font-size: 20px;
-        margin: 0 0 20px 0;
-    }
-
-    #back_area form{
-        text-align: center;
-    }
-
-    #back{
-        width: 500px;
-        height: 50px;
-        background-color: #FFFFFF;
-        font-size: 20px;
-        color: #808080;
-        margin: 0 0 20px 0;
-        border: solid 1px #808080;
-    }
-
-    #back:hover{
-        background-color: #808080;
-        color:#FFFFFF;
-    }
-
-    #all_back_area form{
-        text-align: center;
-    }
-
-    #all_back{
-        width: 500px;
-        height: 50px;
-        background-color: #FFFFFF;
-        font-size: 20px;
-        color: #808080;
-        margin: 0 0 20px 0;
-        border: solid 1px #808080;
-    }
-
-    #all_back:hover{
-        background-color: #808080;
-        color: #FFFFFF;
+    &_form {
+        &_section {
+            margin-bottom: 50px;
+            &_ttl {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+            &_item {
+                margin-bottom: 20px;
+                &_ttl {
+                    font-size: 20px;
+                    margin-bottom: 10px;
+                }
+                &_input {
+                    width: 700px !important;
+                    height: 50px !important;
+                }
+            }
+        }
+        &_btn{
+            margin: 0 0 50px 0;
+            text-align: center;
+            &_red {
+                width: 500px !important;
+                height: 50px !important;
+                font-size: 20px;
+            }
+            &_gray {
+                width: 500px !important;
+                height: 50px !important;
+                background-color: #FFFFFF !important;
+                font-size: 20px;
+                color: #808080 !important;
+                border: solid 1px #808080 !important;
+                &:hover {
+                    background-color: #808080 !important;
+                    color:#FFFFFF !important;
+                }
+            }
+        }
     }
 }
 
@@ -652,87 +614,50 @@
         width: 1000px;
         margin: 0 auto;
     }
-
     #left{
         width: 700px;
         margin: 0 50px 0 0;
     }
-
     h2{
         font-size: 30px;
         margin: 0 0 50px 0;
     }
-
-    #credit{
-        width: 700px;
+    &_section {
+        margin-bottom: 50px;
+        &_ttl {
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+        &_list {
+            margin-bottom: 20px;
+            &_item {
+                display: block;
+                font-size: 20px;
+                margin-bottom: 10px;
+                line-height: 30px;
+            }
+        }
+    }
+    &_btn{
         margin: 0 0 50px 0;
-    }
-
-    #credit h2{
-        font-size: 20px;
-        margin: 0 0 10px 0;
-    }
-
-    #credit p{
-        margin: 0 0 20px 0;
-    }
-
-    #credit h3{
-        margin: 0 0 10px 0;
-    }
-
-    #next_area{
-        width: 700px;
-        margin: 0 0 50px 0;
-    }
-
-    #next_area form{
         text-align: center;
-    }
-
-    #next{
-        width: 500px;
-        height: 50px;
-        font-size: 20px;
-        margin: 0 0 20px 0;
-    }
-
-    #back_area form{
-        text-align: center;
-    }
-
-    #back{
-        width: 500px;
-        height: 50px;
-        background-color: #FFFFFF;
-        font-size: 20px;
-        color: #808080;
-        margin: 0 0 20px 0;
-        border: solid 1px #808080;
-    }
-
-    #back:hover{
-        background-color: #808080;
-        color: #FFFFFF;
-    }
-
-    #all_back_area form{
-        text-align: center;
-    }
-
-    #all_back{
-        width: 500px;
-        height: 50px;
-        background-color: #FFFFFF;
-        font-size: 20px;
-        color: #808080;
-        margin: 0 0 20px 0;
-        border: solid 1px #808080;
-    }
-
-    #all_back:hover{
-        background-color: #808080;
-        color: #FFFFFF;
+        &_red {
+            width: 500px !important;
+            height: 50px !important;
+            font-size: 20px;
+        }
+        &_gray {
+            width: 500px !important;
+            height: 50px !important;
+            background-color: #FFFFFF !important;
+            font-size: 20px;
+            color: #808080 !important;
+            border: solid 1px #808080 !important;
+            &:hover {
+                background-color: #808080 !important;
+                color:#FFFFFF !important;
+            }
+        }
     }
 }
 
@@ -780,9 +705,9 @@
                 margin: 0 0 10px 0;
             }
             dd{
-                margin: 0 0 20px 0;
+                margin: 0 0 20px 16px;
                 &:last-child{
-                    margin: 0 0 0 0;
+                    margin: 0 0 0 16px;
                 }
             }
         }

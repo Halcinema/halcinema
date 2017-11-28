@@ -5,6 +5,9 @@ $theNum = "";
 if(isset($_GET["the_num"])){
     $theNum = $_GET["the_num"];
 }
+if(isset($_POST["the_num"])){
+    $theNum = $_POST["the_num"];
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">

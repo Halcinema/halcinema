@@ -1,10 +1,6 @@
 <?php include("../login_session.php");
 header("Content-Type:text/html; charset=UTF-8");
 $pageTitle = "座席選択 | 予約";
-
-//上映ID変数宣言
-//プレゼン用データ宣言
-//halcinema東京スクリーン1-2017年07月14日20時00分上映開始
 $ShowId = "";
 
 if(isset($_GET["ShowId"])){
@@ -29,7 +25,8 @@ if(!mysqli_select_db($Link,$DB)){
     exit("MySQLDB選択エラー<br />".$DB);
 }
 
-$SQL = "select * from t_scon where show_id='".$ShowId."'";
+$SQL = "select * from t_theater, t_screen, t_show, t_scon, t_movie";
+$SQL .= " where t_show.show_id='".$ShowId."' and t_show.show_id = t_scon.show_id and t_show.scr_id = t_screen.scr_id and t_theater.the_num = t_screen.the_num and t_show.movie_num = t_movie.movie_num";
 if(!$SqlRes = mysqli_query($Link,$SQL)){
     exit("MySQLクエリー送信エラー<br />".mysqli_error($Link) . "<br />" .$SQL);
 }
@@ -60,6 +57,13 @@ for($i=0; $i<10; $i++){
         }
     }
 }
+$arrTicketStatus["movie_name"] = $Row["movie_name"];
+$arrTicketStatus["show_enter"] = $Row["show_enter"];
+$arrTicketStatus["show_start"] = $Row["show_start"];
+$arrTicketStatus["show_finish"] = $Row["show_finish"];
+$arrTicketStatus["the_name"] = $Row["the_name"];
+$arrTicketStatus["scr_name"] = $Row["scr_name"];
+$_SESSION["ticket_status"] = $arrTicketStatus;
 ?>
 
 <!DOCTYPE html>
@@ -80,6 +84,7 @@ for($i=0; $i<10; $i++){
                     </ul>
                 </div>
                 <form class="select_seat_form" action="javascript:void(0);" method="post">
+                <h3><?php print $_SESSION["ticket_status"]["scr_name"]; ?></h3>
                 <div id="select_seat_area_out">
                     <div id="select_seat_area_in">
                         <table>
@@ -153,6 +158,7 @@ for($i=0; $i<10; $i++){
                     <h2>利用規約</h2>
                     <iframe src="terms.html" width="700" height="200"></iframe>
                 </div>
+                    <input type="hidden" name="the_num" value="<?php print $Row["the_num"]; ?>">
                     <input id="next" class="go_select_ticket" type="submit" name="next" value="利用規約に同意して次へ" />
                     <input id="back" class="transition_cinema_schedule" type="submit" name="back" value="時間指定画面へ戻る" />
                 </form>
@@ -162,11 +168,15 @@ for($i=0; $i<10; $i++){
                     <h2>ご購入内容</h2>
                     <dl>
                         <dt>作品</dt>
-                        <dd>〇〇〇〇</dd>
-                        <dt>日時</dt>
-                        <dd>XXXX年XX月XX日(X)<br>XX:XX~XX:XX</dd>
+                        <dd><?php print $_SESSION["ticket_status"]["movie_name"]; ?></dd>
+                        <dt>入場可能日時</dt>
+                        <dd><?php print $_SESSION["ticket_status"]["show_enter"]; ?></dd>
+                        <dt>上映開始日時</dt>
+                        <dd><?php print $_SESSION["ticket_status"]["show_start"]; ?></dd>
+                        <dt>上映終了日時</dt>
+                        <dd><?php print $_SESSION["ticket_status"]["show_finish"]; ?></dd>
                         <dt>劇場</dt>
-                        <dd>〇〇〇〇</dd>
+                        <dd><?php print $_SESSION["ticket_status"]["the_name"]; ?></dd>
                     </dl>
                 </div>
             </div>
