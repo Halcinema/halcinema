@@ -190,7 +190,9 @@ $(function(){
          ajaxProcess();
     });
 
-    ajaxProcess();
+    if(location.href.indexOf("cinema_schedule") != -1){
+        ajaxProcess();
+    }
 });
 
 function fnc_select(id)
