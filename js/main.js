@@ -9,7 +9,8 @@ var getOfBeforeAfterDays = function(dateObj, number) {
 };
 //劇場コード
 var theNum = "";
-
+//選択日時
+var dayA = "";
 /*** 座席予約ページ ***/
 //座席数
 var seatCnt = 0;
@@ -143,18 +144,53 @@ $(function(){
     $(".day7_day").html(day7_day);
     $(".day7_day_of_week").html(yb[day7_day_of_week]);
 
-    $.ajax({
-        type: 'GET',
-        url: 'cinema_schedule_json.php',
-        dataType: 'json',
-        data: {
-            "the_num":theNum
-        },
-        success: function(data){
-            console.log("json取得成功");
-            $(".theater_name").html(data[0].the_name);
-        }
+    //初期値
+    dayA = (day1_year+"-"+day1_month+"-"+day1_day);
+
+    $(".cinema_schedule_days_item_day1").on("click",function(){
+         var selectedDay = $(".cinema_schedule_days_item_day1").text();
+         $(".cinema_schedule_selected").html(selectedDay);
+         dayA = (day1_year+"-"+day1_month+"-"+day1_day);
+         ajaxProcess();
     });
+    $(".cinema_schedule_days_item_day2").on("click",function(){
+         var selectedDay = $(".cinema_schedule_days_item_day2").text();
+         $(".cinema_schedule_selected").html(selectedDay);
+         dayA = (day2_year+"-"+day2_month+"-"+day2_day);
+         ajaxProcess();
+    });
+    $(".cinema_schedule_days_item_day3").on("click",function(){
+         var selectedDay = $(".cinema_schedule_days_item_day3").text();
+         $(".cinema_schedule_selected").html(selectedDay);
+         dayA = (day3_year+"-"+day3_month+"-"+day3_day);
+         ajaxProcess();
+    });
+    $(".cinema_schedule_days_item_day4").on("click",function(){
+         var selectedDay = $(".cinema_schedule_days_item_day4").text();
+         $(".cinema_schedule_selected").html(selectedDay);
+         dayA = (day4_year+"-"+day4_month+"-"+day4_day);
+         ajaxProcess();
+    });
+    $(".cinema_schedule_days_item_day5").on("click",function(){
+         var selectedDay = $(".cinema_schedule_days_item_day5").text();
+         $(".cinema_schedule_selected").html(selectedDay);
+         dayA = (day5_year+"-"+day5_month+"-"+day5_day);
+         ajaxProcess();
+    });
+    $(".cinema_schedule_days_item_day6").on("click",function(){
+         var selectedDay = $(".cinema_schedule_days_item_day6").text();
+         $(".cinema_schedule_selected").html(selectedDay);
+         dayA = (day6_year+"-"+day6_month+"-"+day6_day);
+         ajaxProcess();
+    });
+    $(".cinema_schedule_days_item_day7").on("click",function(){
+         var selectedDay = $(".cinema_schedule_days_item_day7").text();
+         $(".cinema_schedule_selected").html(selectedDay);
+         dayA = (day7_year+"-"+day7_month+"-"+day7_day);
+         ajaxProcess();
+    });
+
+    ajaxProcess();
 });
 
 function fnc_select(id)
@@ -195,3 +231,43 @@ function dataRead(data){
         cnt ++;
     }
 */
+
+function ajaxProcess(){
+    $.ajax({
+        type: 'GET',
+        url: 'cinema_schedule_json.php',
+        dataType: 'json',
+        data: {
+            "the_num":theNum,
+            "date":dayA
+        },
+        success: function(data){
+            console.log("json取得成功");
+            console.log(data);
+            dataRead(data);
+        }
+    });
+}
+
+function dataRead(data){
+    var str = "";
+    var movie_num = [];
+    var movie_name = [];
+    var show_id = [];
+    var show_start = [];
+    var scr_name = [];
+    for(var i in data){
+        movie_num[i] = data[i].movie_num;
+        movie_name[i] = data[i].movie_name;
+        show_id[i] = data[i].show_id;
+        show_start[i] = data[i].show_start;
+        scr_name[i] = data[i].scr_name;
+        str += "<h4 class='cinema_schedule_ajax_movie-name'>" + movie_name[i] + "</h4>";
+        str += "<p class='cinema_schedule_ajax_scr'><span class='cinema_schedule_ajax_scr_ttl'>" + scr_name[i] + "</span><a href='ticket/select_seat.php?ShowId=" + show_id[i] + "'>" + show_start[i] + "</a></p>";
+    }
+    if(data.length == 0){
+        console.log("true");
+        str = "<h4 class='cinema_schedule_ajax_movie-name'>上映データはありません。</h4>";
+    }
+    $(".cinema_schedule_ajax").html(str);
+}

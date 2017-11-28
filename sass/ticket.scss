@@ -35,40 +35,21 @@
         font-size:1.5em;
         text-align:center;
     }
-    .s_cinema{
-    	box-shadow: 1px 2px 2px 2px;
-    	border-radius: 10px;
-    	margin-bottom:30px;
-    	padding:30px;
-    }
-    .screen{
-    	border-bottom:2px solid #ddd;
-    	border-top:2px solid #ddd;
-    	padding:10px 0 30px 0;
-    }
-    .screens{
-    	display:flex;
-    }
-    .s_screen{
-    	width:14%;
-    	border:1px solid #ddd;
-    	border-radius: 10px;
-    	margin:0 5px;
-    	text-align:center;
-    }
-    .screen_num{
-    	margin-bottom:15px;
-    }
-    .screen a{
-    	display:block;
-    	padding:30px;
-    	text-decoration: none;
-    }
-    .cinema_time span{
-    	font-size:1.2em;
-    }
-    .cinema_time{
-    	margin-bottom:10px;
+    &_ajax {
+        &_movie-name {
+            border-bottom: solid 3px #ddd;
+            font-size: 1.5em;
+            line-height: 2em;
+        }
+        &_scr {
+            font-size: 1.5em;
+            line-height: 2em;
+            &_ttl {
+                background-color: #222;
+                color: #fff;
+                margin-right: 10px;
+            }
+        }
     }
 }
 
