@@ -3,6 +3,56 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
+//上映一覧
+.cinema_schedule {
+    padding: 0 50px;
+    &_ttl {
+        margin-bottom: 50px;
+        font-size:1.5em;
+        text-align:center;
+        &_num {
+            display: none;
+        }
+    }
+    &_days {
+        display:flex;
+        justify-content: center;
+        margin-bottom:50px;
+        &_item {
+            width:20%;
+            border:1px solid #ddd;
+            border-radius: 10px;
+            margin:0px 5px;
+            padding:30px;
+            text-align:center;
+            &_selected{
+            	background-color:#ddd;
+            }
+        }
+    }
+    &_selected {
+        margin-bottom: 50px;
+        font-size:1.5em;
+        text-align:center;
+    }
+    &_ajax {
+        &_movie-name {
+            border-bottom: solid 3px #ddd;
+            font-size: 1.5em;
+            line-height: 2em;
+        }
+        &_scr {
+            font-size: 1.5em;
+            line-height: 2em;
+            &_ttl {
+                background-color: #222;
+                color: #fff;
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
 //ヘッダー
 .ticket_header {
     background-color: #222;
