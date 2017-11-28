@@ -9,9 +9,15 @@ var getOfBeforeAfterDays = function(dateObj, number) {
     return result;
 };
 
+var theNum = "";
+
+
+
 //この領域はbody内読み込み前に読み込むので、ここにbody内についてのプログラムは記述不可
 
 $(function(){
+    theNum = $(".the_num").text();
+
     var yb=["日","月","火","水","木","金","土"];
 
     today = new Date();
@@ -98,7 +104,7 @@ $(function(){
         url: 'cinema_schedule_json.php',
         dataType: 'json',
         data: {
-            "the_num":"1"
+            "the_num":theNum
         },
         success: function(data){
             console.log("json取得成功");

@@ -41,7 +41,7 @@
 						<img src="images/theater01.jpg">
 			        <h3>HALシネマ名古屋</h3>
 						<div class="detail">
-							<div class="next_btn"><a href="sinema_schedule.php?the_num=2">上映作品</a></div>
+							<div class="next_btn"><a href="cinema_schedule.php?the_num=2">上映作品</a></div>
 							<div class="next_btn"><a href="theater_guide.php?the_num=2">劇場案内</a></div>
 					 </div>
 				</section>
@@ -49,7 +49,7 @@
 				      <img src="images/theater01.jpg">
 			        <h3>HALシネマ大阪</h3>
 						<div class="detail">
-							<div class="next_btn"><a href="sinema_schedule.php?the_num=3">上映作品</a></div>
+							<div class="next_btn"><a href="cinema_schedule.php?the_num=3">上映作品</a></div>
 							<div class="next_btn"><a href="theater_guide.php?the_num=3">劇場案内</a></div>
 					 </div>
 				</section>

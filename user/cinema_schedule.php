@@ -19,10 +19,10 @@ if(isset($_GET["the_num"])){
 		<div id="wrapper">
 			<?php include("header.php") ?>
 		</div>
-		<h2><span class="theater_name"></span>上映スケジュール</h2>
+		<h2><span class="the_num"><?php print $theNum; ?></span><span class="theater_name"></span>上映スケジュール</h2>
 		<div class="schedule">
 			<div class="s_days" id="selected">
-			<a href="">
+			<a class="schedule_list" href="">
 				<p><span class="day1_month"></span>月<span class="day1_day"></span>日（<span class="day1_day_of_week"></span>）</p>
 			</a>
 			</div>
