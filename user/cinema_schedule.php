@@ -1,4 +1,9 @@
-<?php include "login_session.php" ?>
+<?php include "login_session.php";
+$theNum = "";
+if(isset($_GET["the_num"])){
+    $theNum = $_GET["the_num"];
+}
+?>
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
@@ -14,7 +19,7 @@
 		<div id="wrapper">
 			<?php include("header.php") ?>
 		</div>
-		<h2>名古屋シネマズ　上映スケジュール</h2>
+		<h2><span class="theater_name"></span>上映スケジュール</h2>
 		<div class="schedule">
 			<div class="s_days" id="selected">
 			<a href="">
