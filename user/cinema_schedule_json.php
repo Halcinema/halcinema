@@ -1,5 +1,6 @@
 <?php
 $theNum = "";
+$RowAry = array();
 
 if(isset($_GET["the_num"])){
     $theNum = $_GET["the_num"];
@@ -45,11 +46,6 @@ mysqli_free_result($SqlRes);
 
 if(!mysqli_close($Link)){
     exit("MySQL切断エラー");
-}
-
-if($NumRow == 0){
-    $errMsg .= "指定上映IDに該当する席状況データが見つかりませんでした。<br />";
-    $errFlg = "true";
 }
 
 header('Content-Type: application/json');

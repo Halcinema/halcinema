@@ -94,17 +94,15 @@ $(function(){
     $(".day7_day_of_week").html(yb[day7_day_of_week]);
 
     $.ajax({
-        type: 'POST',
+        type: 'GET',
         url: 'cinema_schedule_json.php',
         dataType: 'json',
+        data: {
+            "the_num":"1"
+        },
         success: function(data){
             console.log("json取得成功");
-            /*
-            var len = json.length;
-            for(var i=0; i < len; i++){
-                $("body").append(json[i].version + ' ' + json[i].codename + '<br>');
-            }
-            */
+            $(".theater_name").html(data[0].the_name);
         }
     });
 });
@@ -153,3 +151,10 @@ function keta(suuji){
     }
     return suuji;
 }
+/*
+function dataRead(data){
+    for(var i in data){
+        example[cnt] = data[i].example;
+        cnt ++;
+    }
+*/
