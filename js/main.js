@@ -39,6 +39,9 @@ $(function(){
     $(".transition_cinema_schedule").on("click",function(){
         $("form").attr("action","../cinema_schedule.php");
     });
+    $(".transition_select_seat").on("click",function(){
+        $("form").attr("action","select_seat.php");
+    });
 
     //オンライン予約パンくずリスト
     if(location.href.indexOf("select_seat") != -1){
