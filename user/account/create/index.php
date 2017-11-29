@@ -1,19 +1,12 @@
+<?php $pageTitle = "内容入力 | 新規会員登録" ?>
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <title>新規会員登録内容入力 | HALシネマ</title>
-        <link rel="stylesheet" href="css/reset.css" type="text/css" />
-        <link rel="stylesheet" href="css/common.css" type="text/css" />
-        <link rel="stylesheet" href="css/pan.css" type="text/css" />
-        <link rel="stylesheet" href="css/create_ac_input.css" type="text/css" />
-</head>
-
+<? include("../../../head.php"); ?>
 <body>
     <div id="wrapper">
       <div id="contents">
             <p id="pan"><span id="now" class="pan_padding">会員情報の入力</span><span>&gt;</span><span class="pan_padding">会員情報の確認</span><span>&gt;</span><span class="pan_padding">登録完了</span></p>
-            <form action="create_ac_chk.php">
+            <form action="chk.php">
                 <h1>会員登録に必要な情報を入力してください。</h1>
                 <div id="name">
                     <h2>お名前（※必須項目）</h2>
