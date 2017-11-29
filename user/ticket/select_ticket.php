@@ -177,17 +177,14 @@ if(!mysqli_close($Link)){
                         <p><input class="ticket_accent_btn" type="submit" name="noLoginBuy" value="次へ"></p>
                 </div>
                 <?php } ?>
+                <input type="hidden" name="the_num" value="<?php print $_SESSION["ticket_status"]["the_num"]; ?>">
+                <div class="btn">
+                    <input id="back" class="transition_select_seat" type="submit" name="back" value="戻る">
+                </div>
+                <div class="btn">
+                    <input id="all_back" class="transition_cinema_schedule" type="submit" name="all_back" value="購入を取り消して時間指定画面へ戻る">
+                </div>
                 </form>
-                <div id="back_area">
-                    <form action="select_seat.php">
-                        <input id="back" type="submit" name="back" value="戻る">
-                    </form>
-                </div>
-                <div id="all_back_area">
-                    <form action="sinema_schedule.php">
-                        <input id="all_back" type="submit" name="all_back" value="購入を取り消して時間指定画面へ戻る">
-                    </form>
-                </div>
             </div>
             <div class="right">
                 <div class="ticket_status">

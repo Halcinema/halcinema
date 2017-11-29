@@ -61,6 +61,7 @@ $arrTicketStatus["movie_name"] = $Row["movie_name"];
 $arrTicketStatus["show_enter"] = $Row["show_enter"];
 $arrTicketStatus["show_start"] = $Row["show_start"];
 $arrTicketStatus["show_finish"] = $Row["show_finish"];
+$arrTicketStatus["the_num"] = $Row["the_num"];
 $arrTicketStatus["the_name"] = $Row["the_name"];
 $arrTicketStatus["scr_name"] = $Row["scr_name"];
 $_SESSION["ticket_status"] = $arrTicketStatus;
@@ -158,7 +159,7 @@ $_SESSION["ticket_status"] = $arrTicketStatus;
                     <h2>利用規約</h2>
                     <iframe src="terms.html" width="700" height="200"></iframe>
                 </div>
-                    <input type="hidden" name="the_num" value="<?php print $Row["the_num"]; ?>">
+                    <input type="hidden" name="the_num" value="<?php print $_SESSION["ticket_status"]["the_num"]; ?>">
                     <input id="next" class="go_select_ticket" type="submit" name="next" value="利用規約に同意して次へ" />
                     <input id="back" class="transition_cinema_schedule" type="submit" name="back" value="時間指定画面へ戻る" />
                 </form>
