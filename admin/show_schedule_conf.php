@@ -33,7 +33,7 @@ StyleSheet記述  -->
 </head>
 <body>
     <div id="wrapper">
-      <?php include("left.php"); ?>
+      <?php include("common.php"); ?>
         <div id="main">
           <h3>確認してね☆</h3>
               <h4>劇場</h4>
@@ -48,7 +48,7 @@ StyleSheet記述  -->
               <span><?= $show['showtime-start'] ?></span></br>
               <h4>上映終了時間</h4>
               <span><?= $showtime_end ?></span></br>
-          <form class="" action="ins_show_ins.php" method="post">
+          <form class="" action="ins_show.php" method="post">
               <input type="hidden" name="select_theater" value="<?=  $show['select_theater'] ?>">
               <input type="hidden" name="select_screen" value="<?= $show['select_screen']  ?>">
               <input type="hidden" name="select_movie" value="<?= $show['select_movie']  ?>">
