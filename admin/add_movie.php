@@ -1,4 +1,5 @@
 <?php
+include('login_session.php');
 header("Content-Type:text/html; charset=UTF-8");
 $pageTitle = "ページ名 | 管理";
 ?>
@@ -6,7 +7,7 @@ $pageTitle = "ページ名 | 管理";
 <?php include("../head.php"); ?>
 <body class="add_movie">
     <div id="wrapper">
-      <?php include("left.php"); ?>
+      <?php include("common.php"); ?>
         <div id="main">
           <h3>追加する映画の情報を入力してね☆</h3>
           <form class="" action="add_conf_movie.php" method="post" enctype="multipart/form-data">

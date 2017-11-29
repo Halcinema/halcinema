@@ -1,5 +1,5 @@
 <?php
-session_start();
+include('login_session.php');
 /*-----------------------------------------------------------------------------
   概要      :
             :
@@ -10,28 +10,17 @@ session_start();
 //  HTTPヘッダーで文字コードを指定
 header("Content-Type:text/html; charset=UTF-8");
 //処理部
-$PageTitle = "ページ名";
+$pageTitle = "ページ名";
 //$_SESSION = $_FILES['movie_img'];
 //echo $_SESSION ['movie_img'];
 $movie = $_POST;
 
 ?>
 <!DOCTYPE html>
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="content-script-type" content="text/javascript">
-<meta http-equiv="content-style-type" content="text/css">
-<link rel="stylesheet" href="/halcinema/admin/css/reset.css" type="text/css" />
-<link rel="stylesheet" href="/halcinema/admin/css/common.css" type="text/css" />
-<link rel="stylesheet" href="/halcinema/admin/css/add_movie.css" type="text/css" />
-<!--  StyleSheet記述
-<link rel="stylesheet" href="./css/main.css" type="text/css" media="all">
-StyleSheet記述  -->
-<title>ページ名 | halcinema管理</title>
-</head>
+<?php include("../head.php"); ?>
 <body>
     <div id="wrapper">
-      <?php include("left.php"); ?>
+      <?php include("common.php"); ?>
         <div id="main">
           <h3>確認してね☆</h3>
               <h4>映画タイトル</h4>
