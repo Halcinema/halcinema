@@ -1,25 +1,16 @@
-<?php
-$selected = $_POST["selected"];
-print_r($selected);
+<?php include("../login_session.php");
+$pageTitle = "ご購入者情報の入力 | 予約";
 ?>
 
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <title>ご購入者情報の入力 | HALシネマ</title>
-        <link rel="stylesheet" href="../css/reset.css" type="text/css" />
-        <link rel="stylesheet" href="../css/common.css" type="text/css" />
-        <link rel="stylesheet" href="css/pan.css" type="text/css" />
-        <link rel="stylesheet" href="css/user_info.css" type="text/css" />
-</head>
-
-<body>
+<?php include("../../head.php"); ?>
+<body class="user_info">
     <div id="wrapper">
-      <div id="contents">
-            <p id="pan"><span class="pan_padding">座席・チケット選択</span><span>&gt;</span><span id="now" class="pan_padding">ご購入者情報の入力</span><span>&gt;</span><span class="pan_padding">お支払情報の入力</span><span>&gt;</span><span class="pan_padding">購入内容の確認</span><span>&gt;</span><span class="pan_padding">購入完了</span></p>
+        <?php include("header.php"); ?>
+        <div id="contents">
             <div id="left">
-                <h1>ご購入に必要な情報を入力してください。</h1>
+                <h2>ご購入に必要な情報を入力してください。</h2>
                 <div id="name">
                     <h2>お名前（※必須項目）</h2>
                     <form action="#">
@@ -79,24 +70,41 @@ print_r($selected);
                     </form>
                 </div>
             </div>
-            <div id="right">
-                <div id="purchase_contents">
+            <div class="right">
+                <div class="ticket_status">
                     <h2>ご購入内容</h2>
                     <dl>
                         <dt>作品</dt>
-                        <dd>〇〇〇〇</dd>
-                        <dt>日時</dt>
-                        <dd>XXXX年XX月XX日(X)<br>XX:XX~XX:XX</dd>
-                        <dt>座席・券種</dt>
-                        <dd>スクリーン名<br>XX 〇〇／XXXX円<br>XX 〇〇／XXXX円<br>XX 〇〇／XXXX円</dd>
+                        <dd><?php print $_SESSION["ticket_status"]["movie_name"]; ?></dd>
+                        <dt>入場可能日時</dt>
+                        <dd><?php print $_SESSION["ticket_status"]["show_enter"]; ?></dd>
+                        <dt>上映開始日時</dt>
+                        <dd><?php print $_SESSION["ticket_status"]["show_start"]; ?></dd>
+                        <dt>上映終了日時</dt>
+                        <dd><?php print $_SESSION["ticket_status"]["show_finish"]; ?></dd>
                         <dt>劇場</dt>
-                        <dd>〇〇〇〇</dd>
-                        <dt>合計</dt>
-                        <dd>XXXX円</dd>
+                        <dd><?php print $_SESSION["ticket_status"]["the_name"]; ?></dd>
+                        <dt>座席・券種</dt>
+                        <dd><?php foreach($_SESSION["seats"] as $pointer => $value){ ?>
+                            <?php print $pointer; ?>
+                            <?php
+                                if($value == "1"){ print "一般 1,100円"; }
+                                if($value == "2"){ print "高校生 500円"; }
+                                if($value == "3"){ print "大・専 500円"; }
+                                if($value == "4"){ print "中・小 500円"; }
+                                if($value == "5"){ print "幼児（3才～） 500円"; }
+                                if($value == "6"){ print "シニア（60才以上）1,100円"; }
+                                if($value == "7"){ print "障碍者割引 1,000円"; }
+                            ?>
+                            <br>
+                        <?php } ?></dd>
                     </dl>
                 </div>
             </div>
         </div>
+        <footer class="ticket_footer">
+            <p class="ticket_footer_ttl">Copyright &copy; 2017 halcinema</p>
+        </footer>
     </div>
 </body>
 </html>

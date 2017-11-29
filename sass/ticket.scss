@@ -3,33 +3,119 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-//パンくずリスト
-.ticket_breadcrumbs {
-    padding: 20px 0 20px 0;
-    margin: 0 0 50px 0;
-    border-bottom: solid 1px #808080;
-    #now{
-        color: #FF0000;
+//上映一覧
+.cinema_schedule {
+    padding: 0 50px;
+    &_ttl {
+        margin-bottom: 50px;
+        font-size:1.5em;
+        text-align:center;
+        &_num {
+            display: none;
+        }
     }
-    .pan_padding{
-        padding: 0 10px 0 10px;
+    &_days {
+        display:flex;
+        justify-content: center;
+        margin-bottom:50px;
+        &_item {
+            width:20%;
+            border:1px solid #ddd;
+            border-radius: 10px;
+            margin:0px 5px;
+            padding:30px;
+            text-align:center;
+            &_selected{
+            	background-color:#ddd;
+            }
+        }
+    }
+    &_selected {
+        margin-bottom: 50px;
+        font-size:1.5em;
+        text-align:center;
+    }
+    &_ajax {
+        &_movie-name {
+            border-bottom: solid 3px #ddd;
+            font-size: 1.5em;
+            line-height: 2em;
+        }
+        &_scr {
+            font-size: 1.5em;
+            line-height: 2em;
+            &_ttl {
+                background-color: #222;
+                color: #fff;
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+//ヘッダー
+.ticket_header {
+    background-color: #222;
+    margin-bottom: 50px;
+    width: 100%;
+    height: 100px;
+    &_top {
+        display: flex;
+        width: 1000px;
+        height: 50px;
+        margin: 0 auto;
+        line-height: 50px;
+        &_ttl {
+            margin-right: auto;
+            color: #fff;
+        }
+        &_user {
+            color: #fff;
+        }
+    }
+    //パンくずリスト
+    &_breadcrumbs {
+        width: 1000px;
+        height: 50px;
+        margin: 0 auto;
+        line-height: 50px;
+        &_list {
+            color: #fff;
+            padding: 0 10px;
+        }
+        &_now {
+            color: #FF0000;
+        }
+    }
+}
+
+//フッター
+.ticket_footer {
+    background-color: #222222;
+    width: 100%;
+    height: 50px;
+    &_ttl {
+        width: 1000px;
+        margin: 0 auto;
+        color: #fff;
+        line-height: 50px;
     }
 }
 
 //座席選択
 .select_seat {
     #contents{
+        display: flex;
         width: 1000px;
         margin: 0 auto;
     }
 
     #left{
         width: 700px;
-        float: left;
         margin: 0 50px 0 0;
     }
 
-    h1{
+    h2{
         font-size: 30px;
         margin: 0 0 50px 0;
     }
@@ -144,173 +230,103 @@
         background-color: #808080;
         color: #FFFFFF;
     }
-
-    #right{
-        width: 250px;
-        float: right;
-    }
-
-    #purchase_contents{
-        width: 250px;
-    }
-
-    #purchase_contents h2{
-        width: 250px;
-        font-size: 20px;
-        background-color: #808080;
-        color: #FFFFFF;
-        padding: 10px;
-        display: table-cell;
-        text-align: center;
-        vertical-align: middle;
-        border: solid 1px #000000;
-    }
-
-    #purchase_contents dl{
-        width: 250px;
-        padding: 10px;
-        border-right: solid 1px #000000;
-        border-bottom: solid 1px #000000;
-        border-left: solid 1px #000000;
-    }
-
-    #purchase_contents dl dt{
-        margin: 0 0 10px 0;
-    }
-
-    #purchase_contents dl dd{
-        margin: 0 0 20px 0;
-    }
-
-    #purchase_contents dl dd:last-child{
-        margin: 0 0 0 0;
-    }
 }
 
 .select_ticket{
     #contents{
+        display: flex;
         width: 1000px;
         margin: 0 auto;
     }
 
     #left{
         width: 700px;
-        float: left;
         margin: 0 50px 0 0;
     }
 
-    h1{
+    .select_ticket_ttl {
         font-size: 30px;
+        line-height: 50px;
         margin: 0 0 10px 0;
+        border-bottom: solid 3px #808080;
     }
 
     #attention{
         margin: 0 0 50px 0;
     }
 
-    #select_ticket_area{
+    .select_ticket_area {
         margin: 0 0 50px 0;
+        h2 {
+            font-size: 20px;
+            margin: 0 0 10px 0;
+        }
+        .ticket {
+            display: flex;
+            margin: 0 0 10px 0;
+            .seat_num {
+                width: 200px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                font-size: 20px;
+            }
+            .select_ticket {
+                width: 500px;
+                height: 50px;
+                font-size: 20px;
+                select {
+                    width: 500px;
+                    height: 50px;
+                }
+                &_val {
+                    display: none;
+                }
+            }
+        }
+        .price {
+            display: flex;
+            .ttl {
+                width: 200px;
+                font-size: 25px;
+                text-align: left;
+            }
+
+            .disp {
+                width: 500px;
+                font-size: 25px;
+                text-align: right;
+            }
+        }
     }
 
-    #select_ticket_area h2{
-        font-size: 20px;
-        margin: 0 0 10px 0;
-    }
-
-    #select_ticket_area .ticket{
-        margin: 0 0 10px 0;
-    }
-
-    #select_ticket_area .ticket .seat_num{
-        width: 200px;
-        height: 50px;
-        line-height: 50px;
-        text-align: center;
-        font-size: 20px;
-        float: left;
-    }
-
-    #select_ticket_area .ticket .select_ticket{
-        width: 500px;
-        height: 50px;
-        font-size: 20px;
-        float: right;
-    }
-
-    #select_ticket_area .ticket .select_ticket select{
-        width: 500px;
-        height: 50px;
-    }
-
-    #select_ticket_area #total{
-        width: 200px;
-        font-size: 25px;
-        float: left;
-        text-align: left;
-    }
-
-    #select_ticket_area #price{
-        width: 500px;
-        font-size: 25px;
-        float: right;
-        text-align: right;
-    }
-
-    #drink{
-        margin: 0 0 50px 0;
-    }
-
-    #drink h2{
-        font-size: 20px;
-        margin: 0 0 10px 0;
-    }
-
-    #drink p{
-        margin: 0 0 10px 0;
-    }
-
-    #drink .chk_drink{
-        width: 350px;
-        height: 50px;
-        float: left;
-    }
-
-    #food{
-        margin: 0 0 50px 0;
-    }
-
-    #food h2{
-        font-size: 20px;
-        margin: 0 0 10px 0;
-    }
-
-    #food p{
-        margin: 0 0 10px 0;
-    }
-
-    #food .chk_food{
-        width: 350px;
-        height: 50px;
-        float: left;
-    }
-
-    #goods{
-        margin: 0 0 50px 0;
-    }
-
-    #goods h2{
-        font-size: 20px;
-        margin: 0 0 10px 0;
-    }
-
-    #goods p{
-        margin: 0 0 10px 0;
-    }
-
-    #goods .chk_goods{
-        width: 350px;
-        height: 50px;
-        float: left;
+    //オプション
+    .opt {
+        margin-bottom: 50px;
+        &_ttl {
+            font-size: 30px;
+            line-height: 50px;
+            margin: 0 0 10px 0;
+            border-bottom: solid 3px #808080;
+        }
+        &_des {
+            margin: 0 0 50px 0;
+        }
+        .opt_group {
+            margin: 0 0 50px 0;
+            &_ttl {
+                font-size: 20px;
+                margin: 0 0 30px 0;
+            }
+            &_list {
+                display: flex;
+                flex-wrap: wrap;
+                &_item{
+                    width: 350px;
+                    height: 50px;
+                }
+            }
+        }
     }
 
     #login_area{
@@ -337,10 +353,134 @@
         text-align: center;
     }
 
-    #login{
+
+    #next_area{
+        width: 700px;
+        margin: 0 0 50px 0;
+    }
+
+    #next_area h2{
+        font-size: 20px;
+        margin: 0 0 20px 0;
+    }
+
+    #next_area p{
+        text-align: center;
+    }
+
+    .btn{
+        text-align: center;
+    }
+
+    #back{
         width: 500px;
         height: 50px;
+        background-color: #FFFFFF;
         font-size: 20px;
+        color: #808080;
+        margin: 0 0 20px 0;
+        border: solid 1px #808080;
+    }
+
+    #back:hover{
+        background-color: #808080;
+        color: #FFFFFF;
+    }
+
+    #all_back{
+        width: 500px;
+        height: 50px;
+        background-color: #FFFFFF;
+        font-size: 20px;
+        color: #808080;
+        margin: 0 0 20px 0;
+        border: solid 1px #808080;
+    }
+
+    #all_back:hover{
+        background-color: #808080;
+        color: #FFFFFF;
+    }
+}
+
+.user_info {
+    #contents{
+        display: flex;
+        width: 1000px;
+        margin: 0 auto;
+    }
+
+    #left{
+        width: 700px;
+        margin: 0 50px 0 0;
+    }
+
+    h2{
+        font-size: 30px;
+        margin: 0 0 50px 0;
+    }
+
+    #name{
+        width: 700px;
+        margin: 0 0 50px 0;
+    }
+
+    #name h2{
+        font-size: 20px;
+        margin: 0 0 10px 0;
+    }
+
+    #name h3{
+        margin: 0 0 10px 0;
+    }
+
+    #tel{
+        width: 700px;
+        margin: 0 0 50px 0;
+    }
+
+    #tel h2{
+        font-size: 20px;
+        margin: 0 0 10px 0;
+    }
+
+    #tel h3{
+        margin: 0 0 10px 0;
+    }
+
+    #mail{
+        width: 700px;
+        margin: 0 0 50px 0;
+    }
+
+    #mail h2{
+        font-size: 20px;
+        margin: 0 0 10px 0;
+    }
+
+    #mail h3{
+        margin: 0 0 10px 0;
+    }
+
+    #pay{
+        width: 700px;
+        margin: 0 0 50px 0;
+    }
+
+    #pay h2{
+        font-size: 20px;
+        margin: 0 0 10px 0;
+    }
+
+    .select_pay{
+        width: 350px;
+        height: 50px;
+        float: left;
+    }
+
+    #left .txt_box{
+        width: 700px;
+        height: 50px;
         margin: 0 0 20px 0;
     }
 
@@ -354,7 +494,7 @@
         margin: 0 0 20px 0;
     }
 
-    #next_area p{
+    #next_area form{
         text-align: center;
     }
 
@@ -402,45 +542,177 @@
         background-color: #808080;
         color: #FFFFFF;
     }
+}
 
-    #right{
-        width: 250px;
-        float: right;
+.pay_info {
+    #contents{
+        display: flex;
+        width: 1000px;
+        margin: 0 auto;
     }
 
-    #purchase_contents{
-        width: 250px;
+    #left{
+        width: 700px;
+        margin: 0 50px 0 0;
     }
 
-    #purchase_contents h2{
-        width: 250px;
-        font-size: 20px;
-        background-color: #808080;
-        color: #FFFFFF;
-        padding: 10px;
-        display: table-cell;
+    h2{
+        font-size: 30px;
+        margin: 0 0 50px 0;
+    }
+
+    &_form {
+        &_section {
+            margin-bottom: 50px;
+            &_ttl {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+            &_item {
+                margin-bottom: 20px;
+                &_ttl {
+                    font-size: 20px;
+                    margin-bottom: 10px;
+                }
+                &_input {
+                    width: 700px !important;
+                    height: 50px !important;
+                }
+            }
+        }
+        &_btn{
+            margin: 0 0 50px 0;
+            text-align: center;
+            &_red {
+                width: 500px !important;
+                height: 50px !important;
+                font-size: 20px;
+            }
+            &_gray {
+                width: 500px !important;
+                height: 50px !important;
+                background-color: #FFFFFF !important;
+                font-size: 20px;
+                color: #808080 !important;
+                border: solid 1px #808080 !important;
+                &:hover {
+                    background-color: #808080 !important;
+                    color:#FFFFFF !important;
+                }
+            }
+        }
+    }
+}
+
+.chk {
+    #contents{
+        display: flex;
+        width: 1000px;
+        margin: 0 auto;
+    }
+    #left{
+        width: 700px;
+        margin: 0 50px 0 0;
+    }
+    h2{
+        font-size: 30px;
+        margin: 0 0 50px 0;
+    }
+    &_section {
+        margin-bottom: 50px;
+        &_ttl {
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+        &_list {
+            margin-bottom: 20px;
+            &_item {
+                display: block;
+                font-size: 20px;
+                margin-bottom: 10px;
+                line-height: 30px;
+            }
+        }
+    }
+    &_btn{
+        margin: 0 0 50px 0;
         text-align: center;
-        vertical-align: middle;
-        border: solid 1px #000000;
+        &_red {
+            width: 500px !important;
+            height: 50px !important;
+            font-size: 20px;
+        }
+        &_gray {
+            width: 500px !important;
+            height: 50px !important;
+            background-color: #FFFFFF !important;
+            font-size: 20px;
+            color: #808080 !important;
+            border: solid 1px #808080 !important;
+            &:hover {
+                background-color: #808080 !important;
+                color:#FFFFFF !important;
+            }
+        }
+    }
+}
+
+.ex {
+    #contents{
+        display: flex;
+        width: 1000px;
+        margin: 0 auto 50px auto;
     }
 
-    #purchase_contents dl{
+    #left{
+        width: 700px;
+        margin: 0 50px 0 0;
+    }
+
+    h2{
+        font-size: 30px;
+        margin: 0 0 50px 0;
+    }
+}
+
+//購入状況
+.right {
+    width: 250px;
+    .ticket_status {
         width: 250px;
-        padding: 10px;
-        border-right: solid 1px #000000;
-        border-bottom: solid 1px #000000;
-        border-left: solid 1px #000000;
+        h2{
+            width: 250px;
+            font-size: 20px;
+            background-color: #808080;
+            color: #FFFFFF;
+            padding: 10px;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+            border: solid 1px #000000;
+        }
+        dl{
+            width: 250px;
+            padding: 10px;
+            border-right: solid 1px #000000;
+            border-bottom: solid 1px #000000;
+            border-left: solid 1px #000000;
+            dt{
+                margin: 0 0 10px 0;
+            }
+            dd{
+                margin: 0 0 20px 16px;
+                &:last-child{
+                    margin: 0 0 0 16px;
+                }
+            }
+        }
     }
+}
 
-    #purchase_contents dl dt{
-        margin: 0 0 10px 0;
-    }
-
-    #purchase_contents dl dd{
-        margin: 0 0 20px 0;
-    }
-
-    #purchase_contents dl dd:last-child{
-        margin: 0 0 0 0;
-    }
+.ticket_accent_btn{
+    width: 500px !important;
+    height: 50px !important;
+    font-size: 20px;
+    margin: 0 0 20px 0;
 }

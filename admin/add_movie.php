@@ -3,8 +3,8 @@ header("Content-Type:text/html; charset=UTF-8");
 $pageTitle = "ページ名 | 管理";
 ?>
 <!DOCTYPE html>
-<?php include("../head.php");
-<body>
+<?php include("../head.php"); ?>
+<body class="add_movie">
     <div id="wrapper">
       <?php include("left.php"); ?>
         <div id="main">

@@ -21,19 +21,18 @@
 	list-style-type: none;
 	margin: 10px;
 	font-size:small;
-    line-height: 12px;
 }.info_left{
 	text-align:center;
 	padding:5px;
 	margin:2.5px;
-	height:20px;
 	width: 100px;
-	background-color: aqua;
+	background-color: #28385E;
+    color: white;
 	float: left;
+    opacity: 0.5;
 }.info_right{
 	padding:5px;
 	margin:2.5px;
-	height:20px;
 	width: 475px;
 	float: right;
 	text-align:left;
@@ -47,4 +46,65 @@
 	float:right;
 }.back:hover{
 	opacity: 0.5;
+}.let_review{
+    font-size: 1.5em;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    margin: 25px 0;
+}#coment_contents{
+    width: 1000px;
+    margin: 0 auto 100px;
+    line-height: 30px;
+    
+}
+
+
+textarea{
+    width: 600px;
+    height: 150px;
+    padding: 0 30px 0 10px;
+    border: solid 1px #808080;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
+    -moz-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+    -ms-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+    -o-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+    box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
+    
+}
+
+textarea:focus {
+    border:solid 1px crimson;
+}
+
+#review_title{
+    
+}#review_textarea{
+}.review_contents_title{
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 5px;
+    margin: 0 auto 10px;
+    border-bottom: 1px solid #000;
+}.review_contents{
+    padding: 10px;
+    border:1px solid #000;
+    margin-bottom: 30px;
+}.review_contents p{
+    text-align: right;
+}#page{
+    text-align: center;
+}#page a{
+    color: black;
+    background: white;
+    border: 3px solid #000;
+    text-decoration: none;
+    margin: 20px;
+    padding: 20px;
+}#page a:hover{
+    opacity: 0.5;
 }

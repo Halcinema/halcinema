@@ -2,6 +2,10 @@
 table tr td {
 	width: 150px;
 }
+table tr td input {
+
+}
+
 tr td #myouji {
 	width: 200px;
 }
