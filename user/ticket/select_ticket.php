@@ -149,9 +149,9 @@ if(!mysqli_close($Link)){
                     <h2>ログインして購入</h2>
                         <?php if($MemMail == ""){ ?>
                         <p>ログインするとご購入者情報の入力を省略することができます。</p>
-                        <?php if($loginErrMsg != ""){
-                            print $loginErrMsg;
-                        } ?>
+                            <?php if($loginErrMsg != ""){
+                                print $loginErrMsg;
+                            } ?>
                         <h3>メールアドレス</h3>
                         <input class="txt_box" type="email" name="txtMail" value="">
                         <h3>パスワード</h3>
