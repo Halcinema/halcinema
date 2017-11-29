@@ -1,19 +1,12 @@
+<?php $pageTitle = "内容確認 | 新規会員登録" ?>
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <title>新規会員登録内容確認 | HALシネマ</title>
-        <link rel="stylesheet" href="css/reset.css" type="text/css" />
-        <link rel="stylesheet" href="css/common.css" type="text/css" />
-        <link rel="stylesheet" href="css/pan.css" type="text/css" />
-        <link rel="stylesheet" href="css/create_ac_chk.css" type="text/css" />
-</head>
-
+<? include("../../../head.php"); ?>
 <body>
     <div id="wrapper">
       <div id="contents">
             <p id="pan"><span class="pan_padding">会員情報の入力</span><span>&gt;</span><span id="now" class="pan_padding">会員情報の確認</span><span>&gt;</span><span class="pan_padding">登録完了</span></p>
-            <form action="create_ac_ex.php">
+            <form action="ex.php">
                 <h1>会員登録をご確認ください。</h1>
                 <div id="name">
                     <h2>お名前（※必須項目）</h2>
@@ -69,7 +62,7 @@
                     <p>
                         <h3>番地以降</h3>
                         〇〇〇〇
-                    </p>          
+                    </p>
                 </div>
                 <div id="mail">
                     <h2>メールアドレス（※必須項目）</h2>
@@ -87,12 +80,10 @@
                 <div id="next_area">
                     <input id="next" type="submit" name="next" value="登録確定">
                 </div>
-            </form>
             <div id="back_area">
-                <form action="select_ticket.php">
-                    <input id="back" type="submit" name="back" value="戻る">
-                </form>
+                <input id="back" type="submit" name="back" value="戻る">
             </div>
+            </form>
         </div>
     </div>
 </body>
