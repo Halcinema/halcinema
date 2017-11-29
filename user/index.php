@@ -1,3 +1,4 @@
+<?php include("login_session.php"); ?>
 <!DOCTYPE html>
 
 <html lang="ja">
