@@ -42,6 +42,15 @@ $(function(){
     $(".transition_select_seat").on("click",function(){
         $("form").attr("action","select_seat.php");
     });
+    $(".transition_select_ticket").on("click",function(){
+        $("form").attr("action","select_ticket.php");
+    });
+    $(".transition_user_info").on("click",function(){
+        $("form").attr("action","user_info.php");
+    });
+    $(".transition_pay_info").on("click",function(){
+        $("form").attr("action","pay_info.php");
+    });
 
     //オンライン予約パンくずリスト
     if(location.href.indexOf("select_seat") != -1){

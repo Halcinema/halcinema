@@ -61,10 +61,14 @@ if(isset($_POST["pay"])){
                         <input class="chk_btn_red" type="submit" name="buy_confirm" value="購入確定">
                     </div>
                     <div class="chk_btn">
-                        <input class="chk_btn_gray" type="submit" name="back" value="戻る">
+                    <?php if($MemMail != ""){ ?>
+                        <input class="chk_btn_gray transition_pay_info" type="submit" name="back" value="戻る">
+                    <?php }else if($MemMail == ""){ ?>
+                        <input class="chk_btn_gray transition_user_info" type="submit" name="back" value="戻る">
+                    <?php } ?>
                     </div>
                     <div class="chk_btn">
-                        <input class="chk_btn_gray" type="submit" name="all_back" value="購入を取り消して時間指定画面へ戻る">
+                        <input class="chk_btn_gray transition_cinema_schedule" type="submit" name="all_back" value="購入を取り消して時間指定画面へ戻る">
                     </div>
                 </form>
             </div>

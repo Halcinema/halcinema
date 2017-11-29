@@ -53,11 +53,12 @@ $pageTitle = "お支払い情報の入力 | 予約";
                             <label for="credit3"><input id="credit3" type="radio" name="pay" value="3">コンビニ払いを使用</label>
                         </p>
                     </section>
+                    <input type="hidden" name="the_num" value="<?php print $_SESSION["ticket_status"]["the_num"]; ?>">
                     <p class="pay_info_form_btn">
                         <input class="pay_info_form_btn_red" type="submit" name="next" value="次へ">
                     </p>
                     <p class="pay_info_form_btn">
-                        <input class="pay_info_form_btn_gray" type="submit" name="back" value="戻る">
+                        <input class="pay_info_form_btn_gray transition_select_ticket" type="submit" name="back" value="戻る">
                     </p>
                     <p class="pay_info_form_btn">
                         <input class="pay_info_form_btn_gray transition_cinema_schedule" type="submit" name="all_back" value="購入を取り消して時間指定画面へ戻る">

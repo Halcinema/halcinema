@@ -64,6 +64,7 @@ $arrTicketStatus["show_finish"] = $Row["show_finish"];
 $arrTicketStatus["the_num"] = $Row["the_num"];
 $arrTicketStatus["the_name"] = $Row["the_name"];
 $arrTicketStatus["scr_name"] = $Row["scr_name"];
+$arrTicketStatus["scr_seat"] = $Row["scr_seat"];
 $_SESSION["ticket_status"] = $arrTicketStatus;
 ?>
 
@@ -152,7 +153,7 @@ $_SESSION["ticket_status"] = $arrTicketStatus;
                     <h2>映画館の設備</h2>
                     <table border="1">
                         <tr width="700"><th width="500">座席数</th><th width="200">設備・音響</th></tr>
-                        <tr><td>XX席+X車いす席</td><td>〇〇〇〇</td></tr>
+                        <tr><td><?php print $_SESSION["ticket_status"]["scr_seat"]; ?></td><td>〇〇〇〇</td></tr>
                     </table>
                 </div>
                 <div id="terms">
