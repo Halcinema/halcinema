@@ -50,7 +50,7 @@ StyleSheet記述  -->
               <span><?= $show['showtime-start'] ?></span></br>
               <h4>上映終了時間</h4>
               <span><?= $showtime_end ?></span></br>
-          <form class="" action="ins_show_ins.php" method="post">
+          <form class="" action="ins_show.php" method="post">
               <input type="hidden" name="select_theater" value="<?=  $show['select_theater'] ?>">
               <input type="hidden" name="select_screen" value="<?= $show['movie_story'] ?>">
               <input type="hidden" name="select_screen" value="<?= $show['select_screen']  ?>">
