@@ -109,7 +109,7 @@ if(!mysqli_close($Link)){
       
       <?php for($i=0;$i<$GuNumRows;$i++){ ?>
       
-    <div class="movie_block">
+    <div class="movie_block" aria-haspopup="true">
       <div class="movie_gazou"> <img src="images/hoshi.jpg" width="250px"> </div>
       <div class="movie_text">
         <h2 class="movie_contents"><?php print $GuRowAry[$i]["movie_name"]; ?></h2>
@@ -126,7 +126,7 @@ if(!mysqli_close($Link)){
           <li class="info_right"><?php print date('Y年n月j日', strtotime($GuRowAry[$i]["movie_start"])); ?>公開</li>
         </ul>
       </div>
-      <a href="movie_detail.php?num=<?php print $GuRowAry[$i]["movie_num"]; ?>">
+      <a href="movie_detail.php?num=<?php print $GuRowAry[$i]["movie_num"]; ?>" aria-haspopup="false">
       <div class="detail_button"> 詳細 </div>
     </a>
     </div>

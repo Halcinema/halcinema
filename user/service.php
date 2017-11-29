@@ -126,7 +126,6 @@ if(!mysqli_close($Link)){
 <?php 
     include("header.php"); ?>
 <body>
-    
     <div id="wrapper">
     <ul style="display: flex;">
 <a href="service.php" class="service_button" id="now"><li>サービス案内>></li></a><a href="ticket.php" class="service_button"><li>チケット案内>></li></a><a href="access.php" class="service_button"><li>アクセス方法・駐車場情報>></li></a>
@@ -232,8 +231,8 @@ if(!mysqli_close($Link)){
           <li>チュリトス（シナモン・チョコ）</li>
         </ul>
       </div>
+          <!--
       <div class="goodsbox">
-          
           <?php for($t=0;$t<$FtNumRows;$t++){ ?>
           
           <h3><?php print $FtRowAry[$t]["foods_type_name"]; ?><span class="english">TEST</span></h3>
@@ -251,8 +250,8 @@ if(!mysqli_close($Link)){
           <?php } ?>
           <?php } ?>
           
-          
       </div>
+          -->
     </div>
   </div>
     </div>
