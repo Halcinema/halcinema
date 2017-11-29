@@ -33,7 +33,7 @@ StyleSheet記述  -->
 </head>
 <body>
     <div id="wrapper">
-      <?php include("left.php"); ?>
+      <?php include("common.php"); ?>
         <div id="main">
           <h3>確認してね☆</h3>
               <h4>劇場</h4>

@@ -22,7 +22,7 @@ function diffTime($start,$end) {
 }
 
 //処理部
-$PageTitle = "上映管理";
+$pageTitle = "上映管理";
 
 //検索条件受け取り用変数宣言
 $SelectScreen = "";
@@ -104,23 +104,13 @@ mysqli_free_result($SqlRes);
 if(!mysqli_close($Link)){
   exit("MySQL切断エラー");
 }
-
-echo print_r($RowAry2);
-echo $RowAry2['movie_st'];
 ?>
 
 <!DOCTYPE html>
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="content-script-type" content="text/javascript">
-<meta http-equiv="content-style-type" content="text/css">
-<link rel="stylesheet" href="/halcinema/admin/css/reset.css" type="text/css" />
-<link rel="stylesheet" href="/halcinema/admin/css/common.css" type="text/css" />
-<title>映画のスケジュールを追加 | halcinema管理</title>
-</head>
+<?php include("../head.php") ?>
 <body>
     <div id="wrapper">
-      <?php include("left.php"); ?>
+      <?php include("common.php"); ?>
         <div id="main">
           <form class="" action="show_schedule_add.php" method="post" enctype="multipart/form-data">
             <h4>劇場</h4>
@@ -201,4 +191,3 @@ echo $RowAry2['movie_st'];
 ,<?php //diffTime($RowAry2[$i]['show_start'],$RowAry2[$i]['movie_st'])?>
 -->
 </html>
-
