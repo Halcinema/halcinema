@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <? include("../../../head.php"); ?>
-<body>
+<body class="account_create_chk">
     <div id="wrapper">
       <div id="contents">
             <p id="pan"><span class="pan_padding">会員情報の入力</span><span>&gt;</span><span id="now" class="pan_padding">会員情報の確認</span><span>&gt;</span><span class="pan_padding">登録完了</span></p>
