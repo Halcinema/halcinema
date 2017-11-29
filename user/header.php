@@ -40,7 +40,7 @@ if(!isset($MemMail)){
 	<div id="login" class="flex-container">
 	<?php if($MemMail == ""): ?>
 		<a href="http://localhost:1024/halcinema/user/account/login/index.php" id="lg">ログイン</a>
-		<a href="http://localhost:1024/halcinema/user/account/create_ac_input.php" id="mem">会員登録</a>
+		<a href="http://localhost:1024/halcinema/user/account/index.php" id="mem">会員登録</a>
     <?php else: ?>
         <p><?php print $MemName ?>さん</p>
         <a href="http://localhost:1024/halcinema/user/YYKtyuu_mypage.php" id="lg">マイページ</a>
