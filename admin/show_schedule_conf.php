@@ -16,22 +16,9 @@ $pageTitle = "ページ名";
 //$_SESSION = $_FILES['movie_img'];
 //echo $_SESSION ['movie_img'];
 $show = $_POST;
-echo $show['select_movie'];
 
 ?>
 <?php
-
-//時間を足し算する関数
-function diffTime($start,$end) {
-
-  $startSec = strtotime($start);
-  $endSec   = strtotime($end);
-
-  $diff = $endSec + $startSec;
-
-  return gmdate('H:i',$diff);
-
-}
 
 //  MySQL関連変数を外部ファイルで持たせる
 //  外部ファイルの読み込み
@@ -116,11 +103,6 @@ if(!mysqli_close($Link)){
   exit("MySQL切断エラー");
 }
 
-echo sprintf("%02d時間 %02d分", floor($RowAry3[0]['movie_sc']/60), $RowAry3[0]['movie_sc']%60);
-
-
-$endtime = diffTime($show['showtime-start'],$RowAry3[0]['movie_sc']);
-
 ?>
 
 <!DOCTYPE html>
@@ -128,28 +110,28 @@ $endtime = diffTime($show['showtime-start'],$RowAry3[0]['movie_sc']);
 <body>
     <div id="wrapper">
       <?php include("common.php"); ?>
-        <div id="main"><?= $RowAry3[0]['movie_num']?>
-          <h3>確認してね☆</h3>
-              <h4>劇場</h4>
-              <span><?= $RowAry[0]['the_name'] ?></span></br>
-              <h4>スクリーン</h4>
+        <div id="main">
+          <h3 class="admin-heading-1">入力情報確認</h3>
+              <h4 class="admin-heading-2">劇場</h4>
+              <span class="show"><?= $RowAry[0]['the_name'] ?></span></br>
+              <h4 class="admin-heading-2">スクリーン</h4>
               <span><?= $RowAry2[0]['scr_name']?></span></br>
-              <h4>上映映画</h4>
+              <h4 class="admin-heading-2">上映映画</h4>
               <span><?= $RowAry3[0]['movie_name'] ?></span></br>
-              <h4>上映日</h4>
+              <h4 class="admin-heading-2">上映日</h4>
               <span><?= $show['select_date'] ?></span></br>
-              <h4>上映開始時間</h4>
+              <h4 class="admin-heading-2">上映開始時間</h4>
               <span><?= $show['showtime-start'] ?></span></br>
-              <h4>上映終了時間</h4>
-              <span><?= $show['showtime-end'] ?></span></br>
+              <h4 class="admin-heading-2">上映終了時間</h4>
+              <span></span></br>
           <form class="" action="ins_show.php" method="post">
               <input type="hidden" name="select_theater" value="<?=  $show['select_theater'] ?>">
               <input type="hidden" name="select_screen" value="<?= $show['select_screen']  ?>">
               <input type="hidden" name="select_movie" value="<?= $show['select_movie']  ?>">
               <input type="hidden" name="select_date" value="<?= $show['select_date']  ?>">
               <input type="hidden" name="showtime-start" value="<?=$show['showtime-start'] ?>">
-              <input type="hidden" name="showtime-end" value="<?= $show['showtime-end'] ?>">
-              <input type="submit" name="" value="登録">
+              <input type="hidden" name="showtime-end" value="">
+              <p class="center"><input type="submit" name="" value="登録"></p>
           </form>
         </div>
     </div>
