@@ -219,7 +219,7 @@ if(!mysqli_close($Link)){
         </h4>
         <!--<?php print $GoRowAry[$i]["goods_detail"]; ?>-->値段
     </li>
-    <p class="shohin_more"><a href="#">商品をもっと見る</a></p>
+    <!--<p class="shohin_more"><a href="#">商品をもっと見る</a></p>-->
 </ul>
 </div>
     
@@ -339,7 +339,6 @@ if(!mysqli_close($Link)){
         <li aria-haspopup="true">画像が入ります<h3><?php print $GoRowAry[$i]["goods_name"]; ?></h3>&nbsp;&nbsp;<?php print $GoRowAry[$i]["goods_detail"]; ?>値段<a href="#"><div class="shohin_shosai" aria-haspopup="false">詳細を見る</div></a></li>
         <?php } ?>
     </ul>
-  <div id="goodsother">
     <h2 class="contents_name" id="service-free-rental">無料貸出サービス</h2>
       <div id="rental">
     <table id="service_list">
@@ -380,7 +379,6 @@ if(!mysqli_close($Link)){
       <li class="manner">ペット持ち込みについて</li>
       &nbsp;&nbsp;ペット持ち込みは禁止とさせていただきます。ただし盲導犬・聴導犬・介助犬については認定書を確認できれば入場できます。ペット連れでのご来場についても、劇場では預かりかねます。
     </ul>
-  </div>
 </section>    
     </div>
     <footer></footer>

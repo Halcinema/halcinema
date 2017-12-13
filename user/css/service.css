@@ -1,10 +1,11 @@
 @charset "utf-8";
 section{
-    line-height: 30px;
+    line-height: 30px; 
 }
 #goods_info{
     display: flex;
     flex: 1;
+    margin: auto !important;
 }#goods_info li{
     flex: 1;
 
@@ -30,8 +31,8 @@ section{
     text-align: center;
     background-position: top;
     background-repeat: no-repeat;
-    background-size: 100% 250px;
-    padding-top: 250px;
+    background-size: auto 275px;
+    padding-top: 275px;
 }#goods_info li p{
     text-align: left;
 }
@@ -41,7 +42,6 @@ section{
     display: flex;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
-    width: 1000px;
     -webkit-justify-content: flex-start; /* Safari */
     justify-content:         flex-start;
 	/*background-color:rgba(255,0,0,0.1);*/
@@ -64,7 +64,6 @@ section{
     opacity: 0.5;
 }
 .topic li{
-	width: 400px;
     margin: 0 40px;
     text-align: center;
 }.topic li p{
@@ -83,7 +82,7 @@ section{
 
 /************-------------------------------------------------新food-***/
 #food_list_frame{
-    border: 1px solid #000;
+    border: 5px solid #000;
     box-sizing: border-box;
     border-radius: 20px;
 }
@@ -102,16 +101,16 @@ section{
     -webkit-justify-content: flex-start; /* Safari */
     justify-content:         flex-start;
     
-    
+    text-align: center;
 }
 #foods_list img{
-    width: 100%;
+    width: 225px;
     height: 200px;
 	vertical-align: bottom;
 }
 #foods_list li{
+    min-width: 25%;
     position: relative;
-    width: 25%;
     border: 10px solid #fff;
     box-sizing: border-box;
 	-webkit-transition: border 0.25s linear;
@@ -234,13 +233,12 @@ section{
     display: flex;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
-    width: 1000px;
     -webkit-justify-content: flex-start; /* Safari */
     justify-content:         flex-start;
     
 }#goods_list li{
     position: relative;
-    width: 500px;
+    min-width: 50%;
     border: 10px solid #fff;
     box-sizing: border-box;
 	-webkit-transition: border 0.25s linear;
@@ -276,7 +274,7 @@ section{
     color: white;
 }
 #goodsother{
-	width: 1000px;
+    max-width: 1000px;
     float: left;
     
     
@@ -300,10 +298,12 @@ section{
     border: 20px solid #ccc;
     box-sizing: border-box;
     background-color: rgba(0,0,0,0.01);
+    max-width: 1000px;
 }#manner_list p{
     text-align: center;
     font-size: 1.5em;
     margin: 30px 0;
+    max-width: 1000px;
 }.manner{
 	font-size:1.25em;
 	padding:5px;
@@ -327,3 +327,28 @@ section{
 .aka{
     color: red;
 }
+
+
+
+/*flex*/
+
+@media screen and (max-width: 700px) {
+  #goods_info {
+    flex-direction: column;
+  }
+    .topic{
+    flex-direction: column;
+    }
+    #goods_info li{
+    max-width: 100%; 
+    }
+    #foods_list li{
+    min-width: 50%;
+    }
+    #goods_list{
+    flex-direction: column;
+    }
+    #goods_list li{
+    }
+}
+
