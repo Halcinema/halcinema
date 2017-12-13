@@ -8,7 +8,7 @@
 -----------------------------------------------------------------------------*/
 //  HTTPヘッダーで文字コードを指定
 header("Content-Type:text/html; charset=UTF-8");
-
+header('location: index.php');
 //処理部
 $PageTitle = "ページ名";
 $movie = $_POST;
@@ -54,11 +54,13 @@ if(!$SqlRes = mysqli_query($Link,$SQL)){
         $SQL);
 }
 //mysql_insert_id
-move_uploaded_file($_FILES['movie_img']['tmp_name'],"./images/".$_FILES['movie_img']['name']);
+//move_uploaded_file($_FILES['movie_img']['tmp_name'],"./images/".$_FILES['movie_img']['name']);
 
 //  MySQLとの切断
 if(!mysqli_close($Link)){
   exit("MySQL切断エラー");
 }
-echo $_FILES['movie_img']['name'];
+
+exit();//←忘れずに！
 ?>
+

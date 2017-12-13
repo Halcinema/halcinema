@@ -1,4 +1,5 @@
 <?php
+include('login_session.php');
 /*-----------------------------------------------------------------------------
   概要      :
             :
@@ -112,14 +113,15 @@ if(!mysqli_close($Link)){
     <div id="wrapper">
       <?php include("common.php"); ?>
         <div id="main">
+          <h3 class="admin-heading-1">映画スケジュール確認</h3>
           <form class="" action="show_schedule_add.php" method="post" enctype="multipart/form-data">
-            <h4>劇場</h4>
+            <h4 class="admin-heading-2">劇場</h4>
             <select class="theater" name="select_theater">
               <option value="1">名古屋</option>
               <option value="2">大阪</option>
               <option value="3">東京</option>
             </select>
-            <h4>スクリーン</h4>
+            <h4 class="admin-heading-2">スクリーン</h4>
             <select name="select_screen"t>
               <option value="101">Screen1</option>
               <option value="102">Screen2</option>
@@ -132,33 +134,33 @@ if(!mysqli_close($Link)){
               <option value="109">Screen9</option>
               <option value="110">Screen10</option>
             </select>
-              <h4>日時</h4>
+              <h4 class="admin-heading-2">日時</h4>
               <input type="date" name="select_date" value="<?php echo $SelectDate; ?>">
               <p class="center"><input type="submit" name="btn" value="スケージュール確認" ></p>
           </form>
-
-        <?php
-            if($NumRows != "0"){
-                for($i=0; $i<$NumRows; $i++) {
-                    echo $RowAry[$i]['movie_name'];
-                    echo $RowAry[$i]['show_enter'];
-                    echo $RowAry[$i]['show_start'];
-                    echo $RowAry[$i]['show_finish'];
-                }
-            }else{
-                echo "該当上映データは存在しません。";
-            }
-        ?>
-        <h3>映画のスケジュールを追加</h3>
+              <?php if($NumRows != "0"){ ?>
+                <table class="show-table center">
+                    <th>映画名</th><th>上映可能日時</th><th>上映予定日時</th><th>上映終了日時</th>
+                    <?php for($i=0; $i<$NumRows; $i++) { ?>
+                    <tr>
+                      <td><?php echo $RowAry[$i]['movie_name']; ?></td>
+                      <td><?php echo $RowAry[$i]['show_enter']; ?></td>
+                      <td><?php echo $RowAry[$i]['show_start']; ?></td>
+                      <td><?php echo $RowAry[$i]['show_finish']; ?></td>
+                    </tr>
+                     <?php } ?>
+                  </table>
+               <?php }?>
+        <h3 class="admin-heading-1">映画のスケジュールを追加</h3>
         <div class="">
           <form class="" action="show_schedule_conf.php" method="post">
-            <h4>劇場</h4>
+            <h4 class="admin-heading-2">劇場</h4>
             <select class="theater" name="select_theater">
               <option value="1">名古屋</option>
               <option value="2">大阪</option>
               <option value="3">東京</option>
             </select>
-            <h4>スクリーン</h4>
+            <h4 class="admin-heading-2">スクリーン</h4>
             <select name="select_screen"t>
               <option value="101">Screen1</option>
               <option value="102">Screen2</option>
@@ -171,15 +173,17 @@ if(!mysqli_close($Link)){
               <option value="109">Screen9</option>
               <option value="110">Screen10</option>
             </select>
-            <h4>映画</h4>
+            <h4 class="admin-heading-2">映画</h4>
             <select name="select_movie">
               <?php for($i=0; $i<$NumRows2; $i++) :?>
                 <option value="<?= $RowAry2[$i]['movie_num']?>"><?= $RowAry2[$i]['movie_name'] ?></option>
               <?php endfor ?>
             </select>
-              <h4>日時</h4>
+              <h4 class="admin-heading-2">上映日</h4>
               <input type="date" name="select_date" value="<?php echo $SelectDate; ?>"><br>
+              <h4 class="admin-heading-2">上映時間</h4>
               <input type="time" name="showtime-start"><br>
+              <h4 class="admin-heading-2">上映終了時間</h4>
               <input type="time" name="showtime-end"><br>
               <p class="center"><input type="submit" name="btn" value="スケジュールに追加する" ></p>
           </form>

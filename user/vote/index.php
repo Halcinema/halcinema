@@ -13,7 +13,7 @@ if($MemMail == ""){
 <body class="vote">
     <div id="wrapper">
        <?php include($_SERVER["DOCUMENT_ROOT"]."halcinema/user/header.php"); ?>
-       <p class="vote_test">test</p>
+       <p class="vote_test">テスト</p>
     </div><!-- /#wrapper -->
 </body>
 </html>
