@@ -28,7 +28,7 @@ $entertime = date('Y-m-d H:i:s', strtotime($entertime));
 $starttime = $show['select_date'].$show['showtime-start'];
 $starttime = date('Y-m-d H:i:s', strtotime($starttime));
 
-$endtime = "14:00";
+$endtime = $show['showtime-end'];
 $endtime = $show['select_date'].$endtime;
 $endtime = date('Y-m-d H:i:s', strtotime($endtime));
 //.$show['showtime-end']
@@ -42,7 +42,7 @@ function diffTime($start,$end) {
 
   $diff = $endSec - $startSec;
 
-  return gmdate('h:i',$diff);
+  return gmdate('H:i',$diff);
 
 }
 ?>

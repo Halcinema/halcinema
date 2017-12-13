@@ -11,6 +11,6 @@
     <ul class="admin_gnav_list">
         <li class="admin_gnav_list_item"><a href="/halcinema/admin/index.php"><i class="fa fa-tachometer" aria-hidden="true"></i>ダッシュボード</a></li>
         <li class="admin_gnav_list_item"><a href="/halcinema/admin/add_movie.php"><i class="fa fa-film" aria-hidden="true"></i>映画管理</a></li>
-        <li class="admin_gnav_list_item"><a href="/halcinema/admin/add_show_schedule.php"><i class="fa fa-list" aria-hidden="true"></i>上映管理</a></li>
+        <li class="admin_gnav_list_item"><a href="/halcinema/admin/show_schedule_add.php"><i class="fa fa-list" aria-hidden="true"></i>上映管理</a></li>
     </ul>
 </nav>

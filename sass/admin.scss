@@ -119,6 +119,56 @@
         }
     }
 }
+//共通
+.admin-heading-1{
+    font-size: 25px;
+    text-align: center;
+    margin:30px 0;
+}
+.admin-heading-2{
+    font-size: 1.2em;
+    text-align: center;
+    width:250px;
+    display: inline-block;
+    margin-bottom:50px;
+}
+.center{
+    text-align: center;
+    }
+
+.show-table{
+    margin:50px auto;
+}
+
+.show-table{
+    font-size:0.8em;
+    width:900px;
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+
+}
+.show-table thead th {
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #369;
+    border-bottom: 3px solid #036;
+}
+.show-table tbody th {
+    width: 100px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    background: #f3f6f7;
+}
+.show-table td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
 
 //映画追加
 .add_movie {
