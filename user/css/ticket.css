@@ -14,7 +14,10 @@
     /*background: -moz-linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.05) 80%, rgba(0,0,255,0.2) 100%); /* FF3.6-15 */
 	/*background: -webkit-linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.05) 80%, rgba(0,0,255,0.2) 100%); /* Chrome10-25,Safari5.1-6 */
     /*background:linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.05) 80%, rgba(0,0,255,0.2) 100%);*/
-
+    background-position: right;
+    background-size: 300px 100%;
+    background-repeat: no-repeat;
+    padding-right: 310px;
 }
 #ticket_box img{
     float: right;

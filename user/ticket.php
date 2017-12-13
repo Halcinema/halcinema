@@ -20,9 +20,8 @@
 <section class="clearfix">
     
     <ul id="ticket_box">
-        <li>
+        <li style="background-image:url(images/ticketbox.jpg);">
         <div id="ticket_info">
-        <img src="images/ticketbox.jpg">
         <h4 class="info_name">チケットボックス</h4>
         <p>チケットボックスはエントランスからロビーに入った正面にあります。モニターに映し出された上映時間、空席状況を確認いただきチケットをご購入ください。
             また、インターネットチケットをご購入済みの方はロビーに入って右側にあります自動発券機にて発券ください。
