@@ -66,14 +66,6 @@ if(!$FoSqlRes = mysqli_query($Link,$FO)){
         $FO);
 }
 
-$F_TYPE = "select * from t_foods_type";
-if(!$FtSqlRes = mysqli_query($Link,$F_TYPE)){
-  //  クエリー送信失敗
-  exit("MySQLクエリー送信エラー<br />" .
-        mysqli_error($Link) . "<br />" .
-        $F_TYPE);
-}
-
 //  連想配列への抜出（全件配列に格納）
 while($GoRow = mysqli_fetch_array($GoSqlRes)){
   //  データが存在する間処理される
@@ -84,20 +76,11 @@ while($FoRow = mysqli_fetch_array($FoSqlRes)){
   //  データが存在する間処理される
   $FoRowAry[] = $FoRow;
 }
-//  連想配列への抜出（全件配列に格納）
-while($FtRow = mysqli_fetch_array($FtSqlRes)){
-  //  データが存在する間処理される
-  $FtRowAry[] = $FtRow;
-}
-
 //  抜き出されたレコード件数を求める
 $GoNumRows = mysqli_num_rows($GoSqlRes);
 
 //  抜き出されたレコード件数を求める
 $FoNumRows = mysqli_num_rows($FoSqlRes);
-
-//  抜き出されたレコード件数を求める
-$FtNumRows = mysqli_num_rows($FtSqlRes);
 
 //  MySQLのメモリ解放(selectの時のみ)
 mysqli_free_result($GoSqlRes);
@@ -133,13 +116,11 @@ if(!mysqli_close($Link)){
 <h1 class="page_name" style="line-height: 30px;">サービス案内</h1>
 <section class="clearfix">
 <ul id="goods_info">
-    <li>
-        <img src="images/consession.jpg">
+    <li style="background-image:url(images/consession.jpg);">
         <h4 class="info_name">コンセッション</h4>
         <p>&nbsp;&nbsp;映画の定番ポップコーンやフィッシュ＆チップスなど、豊富なフード・ドリンクをご用意しています。上映開始までの時間はロビー内のカフェコーナーで、ゆっくり寛いでお召し上がりください。また、映画の予約の際に一緒に注文すると、店頭で受けとれ、割引になります。</p>
     </li>
-    <li>
-        <img src="images/store.jpg">
+    <li style="background-image:url(images/store.jpg);">
         <h4 class="info_name">ストア</h4>
         <p>&nbsp;&nbsp;各映画のパンフレット・キャラクターグッズ、ＤＶＤやサウンドトラックなど充実した品揃えでお待ちしております。また、各種映画の前売券もこちらで取り扱っております。商品情報もぜひご覧ください。</p>
     </li>
@@ -158,10 +139,92 @@ if(!mysqli_close($Link)){
 <h2 class="contents_name" id="service-osusume">おすすめ情報</h2>
     
 <ul class="topic">
-    <a href="#"><li><img src="images/lemonade.jpg" width="400px"><p>シュワッとおいしい！<br>プレミアムソーダ・レモネード販売中！</p></li></a>
-    <a href="#"><li><img src="images/mango.jpg" width="400px"><p>GODIVAから期間限定！<br>ショコリキサー販売中！</p></li></a>
+    <a href="#"><li>
+            <img src="images/lemonade.jpg" width="400px">
+            <p>
+                シュワッとおいしい！<br>プレミアムソーダ・レモネード販売中！
+            </p>
+    </li></a>
+    <a href="#"><li>
+            <img src="images/mango.jpg" width="400px">
+            <p>
+                GODIVAから期間限定！<br>ショコリキサー販売中！
+            </p>
+    </li></a>
 </ul>
     
+    
+    
+<h2 class="contents_name" id="service-food">フード</h2>
+画像にマウスカーソルを合わせるかタッチをすると説明が表示されます。
+<div id="food_list_frame">
+    <h3>商品一覧</h3>
+<ul id="foods_list">
+    <li aria-haspopup="true">
+        <div class="message-function">
+        <div class="message">
+            <!--<?php print $GoRowAry[$i]["goods_detail"]; ?>-->
+            人気商品です<br>
+            Rサイズ/Lサイズから選べます。
+        </div>
+        <img src="images/food/cola.jpg">
+        </div>
+        <h4>
+            <!--<?php print $GoRowAry[$i]["goods_name"]; ?>-->コーラ
+        </h4>
+        <div>
+            <!--<?php print $GoRowAry[$i]["goods_detail"]; ?>-->値段
+        </div>
+        <div>
+            <!--<?php print $GoRowAry[$i]["goods_detail"]; ?>-->Rサイズ/Lサイズ
+        </div>
+    </li>
+    <li aria-haspopup="true">
+        <div class="message-function">
+        <div class="message">
+            定番の商品です<br>
+            Rサイズ、Lサイズから選べます。
+        </div>
+        <img src="images/food/popcorn.jpg">
+        </div>
+        <h4>
+            <!--<?php print $GoRowAry[$i]["goods_name"]; ?>-->ポップコーン
+        </h4>
+        <!--<?php print $GoRowAry[$i]["goods_detail"]; ?>-->値段
+    </li>
+    <li aria-haspopup="true">
+        <div class="message-function">
+        <div class="message">
+            定番の商品です<br>
+            ホットとアイスがあります。
+        </div>
+        <img src="images/food/coffee.jpg">
+        </div>
+        <h4>
+            <!--<?php print $GoRowAry[$i]["goods_name"]; ?>-->コーヒー
+        </h4>
+        <!--<?php print $GoRowAry[$i]["goods_detail"]; ?>-->値段
+    </li>
+    <li aria-haspopup="true">
+        
+        <div class="message-function">
+        <div class="message">
+            甘くておいしいお菓子です。<br>
+            プレーンとチョコがあります。
+        </div>
+        <img src="images/food/tyurosu.jpg">
+        </div>
+        <h4>
+            <!--<?php print $GoRowAry[$i]["goods_name"]; ?>-->チュロス
+        </h4>
+        <!--<?php print $GoRowAry[$i]["goods_detail"]; ?>-->値段
+    </li>
+    <p class="shohin_more"><a href="#">商品をもっと見る</a></p>
+</ul>
+</div>
+    
+    
+<!-------------------------------------------------------------------------------------旧フード
 <h2 class="contents_name" id="service-food">フード</h2>
     当劇場のコンセッション（売店）でご購入頂いた商品のみシアター内にお持込頂けます。<br>
 それ以外の飲食物の持ち込みはご遠慮下さい。
@@ -231,7 +294,6 @@ if(!mysqli_close($Link)){
           <li>チュリトス（シナモン・チョコ）</li>
         </ul>
       </div>
-          <!--
       <div class="goodsbox">
           <?php for($t=0;$t<$FtNumRows;$t++){ ?>
           
@@ -251,15 +313,14 @@ if(!mysqli_close($Link)){
           <?php } ?>
           
       </div>
-          -->
     </div>
   </div>
     </div>
-    </div>
+    </div>------------->
     
     <h2 class="contents_name" id="service-goods">グッズ</h2>
     
-    <a href="#">HALシネマ公式SHOPはこちら！</a>
+    <a href="#" style="text-decoration:none;"><p style="color:white;background-color:orange;text-align:center;border-radius:25px;line-height:30px;">HALシネマ公式SHOPはこちら！</p></a>
     
     <p>おすすめ商品の紹介です。</p>
     <ul id="goods_list"><!--
@@ -275,25 +336,25 @@ if(!mysqli_close($Link)){
         
         
         <?php for($i=0;$i<$GoNumRows;$i++){ ?>
-        <li>画像が入ります<h3><?php print $GoRowAry[$i]["goods_name"]; ?></h3>&nbsp;&nbsp;<?php print $GoRowAry[$i]["goods_detail"]; ?>値段<a href="#"><div class="shohin_shosai">詳細を見る</div></a></li>
+        <li aria-haspopup="true">画像が入ります<h3><?php print $GoRowAry[$i]["goods_name"]; ?></h3>&nbsp;&nbsp;<?php print $GoRowAry[$i]["goods_detail"]; ?>値段<a href="#"><div class="shohin_shosai" aria-haspopup="false">詳細を見る</div></a></li>
         <?php } ?>
     </ul>
   <div id="goodsother">
     <h2 class="contents_name" id="service-free-rental">無料貸出サービス</h2>
       <div id="rental">
     <table id="service_list">
-        <tr class="service"><td>チャイルドシート</td><td>
-      &nbsp;&nbsp;・ホワイエ入り口にて係員にお申し出ください。</td></tr>
-      <tr class="service"><td>膝掛け用ブランケット</td><td>
-      &nbsp;&nbsp;・ホワイエ入り口にて係員にお申し出ください。※数に限りがございます。ご了承下さい。</td></tr>
-      <tr class="service"><td>難聴者向けヘッドフォン </td><td>
-      &nbsp;&nbsp;・入場時に係員にお申し出下さい。※数に限りがございます。ご了承下さい。</td></tr>
+        <tr class="service"><th>チャイルドシート</th><td><img src="images/childseat.png" style="float:right; height:100px;">
+      ・ホワイエ入り口にて係員にお申し出ください。</td></tr>
+      <tr class="service"><th>膝掛け用ブランケット</th><td><img src="images/brancket.jpg" style="float:right; height:100px;">
+      ・ホワイエ入り口にて係員にお申し出ください。<br><span class="aka">※数に限りがございます。ご了承下さい。</span></td></tr>
+      <tr class="service"><th>難聴者向けヘッドフォン </th><td><img src="images/goo_059.jpg" style="float:right; height:100px;">
+      ・入場時に係員にお申し出下さい。<br><span class="aka">※数に限りがございます。ご了承下さい。</span></td></tr>
     </table>
           </div>
       <h2 class="contents_name" id="service-manner">鑑賞マナー向上への取り組み</h2>
       &nbsp;&nbsp;すべてのお客様が映画を楽しむために、守っていただきたいマナーがあります。ハルシネマのスタッフもマナー向上のお手伝いをいたします。
-      何かありましたらスタッフに声をおかけください。
-      ※他のお客様の迷惑になった場合は、ご退席していただくこともございます。
+      何かありましたらスタッフに声をおかけください。<br>
+      <span class="aka">※他のお客様の迷惑になった場合は、ご退席していただくこともございます。</span>
     <ul id="manner_list">
         <p>守っていただきたいマナーリスト</p>
       <li class="manner">禁煙</li>
