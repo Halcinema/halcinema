@@ -101,11 +101,11 @@ if(!mysqli_close($Link)){
 
 <body>
 <?php include("header.php"); ?>
-        <div id="wrapper" style="width:1200px;">
+        <div id="wrapper" style="width:1000px;">
 <h1 class="page_name">公開予定の映画</h1>
-<section class="clearfix" style="width:1200px;">
+<section class="clearfix" style="width:1000px;">
   <!--<div id="button"><a href="movie_now.php" class="change">上映中の映画>></a><a href="movie_schedule.php" class="change">公開予定の映画>></a> </div>-->
-  <div id="movie_contents" style="width:1200px;">
+  <div id="movie_contents">
       
       <?php for($i=0;$i<$GuNumRows;$i++){ ?>
       
