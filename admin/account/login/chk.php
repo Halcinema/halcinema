@@ -1,12 +1,4 @@
 <?php
-/*-----------------------------------------------------------------------------
-  概要      :
-            :
-  作成者    :
-  作成日    :
-  更新履歴  :
------------------------------------------------------------------------------*/
-//  HTTPヘッダーで文字コードを指定
 header("Content-Type:text/html; charset=UTF-8");
 //処理部
 
@@ -16,9 +8,9 @@ $Pass = "";
 if(isset($_POST["btn"])){
     $Num = $_POST["num"];
     $Pass = $_POST["pass"];
-    
-    include("../../mysqlenv.php");
-    
+
+    include($_SERVER['DOCUMENT_ROOT']."/halcinema/admin/mysqlenv.php");
+
     //  MySQLとの接続開始
     if(!$Link = mysqli_connect($HOST,$USER,$PASS)){
       //  うまく接続できなかった
@@ -60,24 +52,22 @@ if(isset($_POST["btn"])){
     if(!mysqli_close($Link)){
       exit("MySQL切断エラー");
     }
-    
+
     if($NumRow != 0){
         if($Row["admin_pass"]==$Pass){
             session_start();
-            $_SESSION["AdminNum"] = $Row["admin_num"];
-            $_SESSION["AdminName"] = $Row["admin_fk"].$Row["admin_gk"];
-            $_SESSION["AdminTheName"] = $Row["the_name"];
-            header("Location: /halcinema/admin/index.php");
-            exit;
+            $_SESSION["admin"]["adminNum"] = $Row["admin_num"];
+            $_SESSION["admin"]["adminName"] = $Row["admin_name_kanji"];
+            $_SESSION["admin"]["adminTheName"] = $Row["the_name"];
+            header("Location: /halcinema/admin/");
+            exit();
         }else{
-            $msg = "ログイン失敗：組み合わせが誤っています";
-            header("Location: /halcinema/admin/account/login/index.php?msg=".$msg);
-            exit;
+            header("Location: /halcinema/admin/account/login/?err=1");
+            exit();
         }
     }else{
-        $msg = "ログイン失敗：該当データは存在しません";
-        header("Location: /halcinema/admin/account/login/index.php?msg=".$msg);
-        exit;
+        header("Location: /halcinema/admin/account/login/?err=2");
+        exit();
     }
 }
 ?>
