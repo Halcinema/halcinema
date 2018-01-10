@@ -9,7 +9,7 @@ include('login_session.php');
 -----------------------------------------------------------------------------*/
 //  HTTPヘッダーで文字コードを指定
 header("Content-Type:text/html; charset=UTF-8");
-
+/*
 //時間を引き算する関数
 function diffTime($start,$end) {
 
@@ -21,6 +21,7 @@ function diffTime($start,$end) {
   return gmdate('h:i',$diff);
 
 }
+*/
 
 //処理部
 $pageTitle = "上映管理";
@@ -183,8 +184,6 @@ if(!mysqli_close($Link)){
               <input type="date" name="select_date" value="<?php echo $SelectDate; ?>"><br>
               <h4 class="admin-heading-2">上映時間</h4>
               <input type="time" name="showtime-start"><br>
-              <h4 class="admin-heading-2">上映終了時間</h4>
-              <input type="time" name="showtime-end"><br>
               <p class="center"><input type="submit" name="btn" value="スケジュールに追加する" ></p>
           </form>
         </div>
