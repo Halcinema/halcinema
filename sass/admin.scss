@@ -11,7 +11,11 @@
 /* アクセントカラー */ $accentColor: crimson;
 /* ベーステキストカラー */ $baseTextColor: #222222;
 /* アクセントテキストカラー */ $accentTextColor: crimson;
-
+a,p,h1,h2,h3,h4,label,input,select,td,th,li{
+    font-family: YuGothic,'Yu Gothic',sans-serif!important;
+    line-height: 1.5;
+    letter-spacing:0.05rem;
+}
 //ログイン
 .admin_login{
     background-color: #222222;
@@ -48,6 +52,7 @@
 
 //ヘッダー、グローバルナビゲーション
 .admin{
+
     &_header{
         display: flex;
         position: fixed;
@@ -120,6 +125,12 @@
     }
 }
 //共通
+textarea:focus{
+    outline: none;
+}
+input:focus {
+    outline: none;
+}
 .admin-heading-1{
     font-size: 25px;
     text-align: center;
@@ -170,6 +181,54 @@
     border-bottom: 1px solid #ccc;
 }
 
+
+/*テストよう*/
+.form-box{
+    margin-bottom:30px; 
+}
+input[type="text"].textform{
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-bottom:2px solid #545;
+    border-radius: 0px;
+    font-size:1.3rem;
+    height:40px;
+    width:500px;
+}
+input[type="date"].dateform{
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-radius: 0px;
+    width:400px;
+}
+::-webkit-input-placeholder{
+  color:#ccc;
+}
+h4.tes{
+    width:3rem;
+    margin-bottom:10px!important;
+    text-align: left !important;
+    font-size:0.9rem!important;
+}
+textarea{
+    color:#545454;
+}
+.textarea{
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-bottom:2px solid #545;
+    border-radius: 0px;
+    color:#545454;
+    font-size:1.3rem;
+    height:80px;
+    width:500px;
+}
+
+
+
 //映画追加
 .add_movie {
     h3{
@@ -179,7 +238,7 @@
     }
     h4{
       width:10em;
-      display: inline-block;
+      display: block;
       margin-bottom:50px;
     }
     #text_area{
@@ -199,7 +258,6 @@
 
     }
     textarea{
-      margin-bottom:50px;
     }
     .center{
       text-align: center;
