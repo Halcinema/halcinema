@@ -20,7 +20,7 @@ $showid = $show['select_date'].$show['showtime-start'].$show['select_screen'];
 
 $showid = str_replace(('-'),'', $showid);
 $showid = str_replace((':'),'', $showid);
-echo $showid;
+
 $entertime = diffTime($a,$show['showtime-start']);
 $entertime = $show['select_date'].$entertime;
 $entertime = date('Y-m-d H:i:s', strtotime($entertime));
@@ -29,8 +29,8 @@ $starttime = $show['select_date'].$show['showtime-start'];
 $starttime = date('Y-m-d H:i:s', strtotime($starttime));
 
 $endtime = $show['showtime-end'];
-$endtime = $show['select_date'].$endtime;
-$endtime = date('Y-m-d H:i:s', strtotime($endtime));
+// $endtime = $show['select_date'].$endtime;
+// $endtime = date('Y-m-d H:i:s', strtotime($endtime));
 //.$show['showtime-end']
 
 
@@ -85,6 +85,24 @@ if(!$SqlRes = mysqli_query($Link,$SQL)){
   exit("MySQLクエリー送信エラー<br />" .
         mysqli_error($Link) . "<br />" .
         $SQL);
+}
+
+$insConSql = "insert into t_scon values(
+'".$showid."',
+'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',
+'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',
+'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',
+'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',
+'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',
+'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',
+'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',
+'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',
+'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',
+'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'
+)";
+
+if(!$SqlRes = mysqli_query($Link,$insConSql)){
+  exit("MySQLクエリー送信エラー<br />".mysqli_error($Link)."<br />".$insConSql);
 }
 //mysql_insert_id
 //move_uploaded_file($_FILES['movie_img']['tmp_name'],"./images/".$_FILES['movie_img']['name']);
