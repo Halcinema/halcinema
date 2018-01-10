@@ -17,6 +17,11 @@ $pageTitle = "ページ名";
 //echo $_SESSION ['movie_img'];
 $show = $_POST;
 
+//上映開始日時データフォーマット処理
+$replaceDatetime = str_replace('-', '', $show['select_date']);
+$replaceDatetime .= str_replace(':', '', $show['showtime-start']);
+$formatDatetime = date('Y/m/d H:i:s', strtotime($replaceDatetime));
+
 ?>
 <?php
 
@@ -103,6 +108,8 @@ if(!mysqli_close($Link)){
   exit("MySQL切断エラー");
 }
 
+$addDatetime = date("Y/m/d H:i:s", strtotime($formatDatetime."+".$RowAry3[0]["movie_st"]."minute"));
+
 ?>
 
 <!DOCTYPE html>
@@ -123,7 +130,7 @@ if(!mysqli_close($Link)){
               <h4 class="admin-heading-2">上映開始時間</h4>
               <span><?= $show['showtime-start'] ?></span></br>
               <h4 class="admin-heading-2">上映終了時間</h4>
-              <span></span></br>
+              <span><?= $addDatetime ?></span></br>
           <form class="" action="ins_show.php" method="post">
               <input type="hidden" name="select_theater" value="<?=  $show['select_theater'] ?>">
               <input type="hidden" name="select_screen" value="<?= $show['select_screen']  ?>">
