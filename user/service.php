@@ -219,6 +219,21 @@ if(!mysqli_close($Link)){
         </h4>
         <!--<?php print $GoRowAry[$i]["goods_detail"]; ?>-->値段
     </li>
+    <?php for($i=0;$i<$FoNumRows;$i++){ ?>
+    <li aria-haspopup="true">
+        
+        <div class="message-function">
+        <div class="message">
+           説明が入ります
+        </div>
+        <img src="../admin/foods/upload/<?php print $FoRowAry[$i]["foods_img"]; ?>">
+        </div>
+        <h4>
+            <?php print $FoRowAry[$i]["foods_name"]; ?>
+        </h4>
+        <?php print $FoRowAry[$i]["foods_price"]; ?>円
+    </li>
+    <?php } ?>
     <!--<p class="shohin_more"><a href="#">商品をもっと見る</a></p>-->
 </ul>
 </div>
@@ -336,7 +351,8 @@ if(!mysqli_close($Link)){
         
         
         <?php for($i=0;$i<$GoNumRows;$i++){ ?>
-        <li aria-haspopup="true">画像が入ります<h3><?php print $GoRowAry[$i]["goods_name"]; ?></h3>&nbsp;&nbsp;<?php print $GoRowAry[$i]["goods_detail"]; ?>値段<a href="#"><div class="shohin_shosai" aria-haspopup="false">詳細を見る</div></a></li>
+        <li aria-haspopup="true"><img src="../admin/goods/upload/<?php print $GoRowAry[$i]["goods_img"]; ?>" style="max-width:480px;height:300px;vertical-align: bottom;"><h3><?php print $GoRowAry[$i]["goods_name"]; ?></h3>&nbsp;&nbsp;値段<?php print $GoRowAry[$i]["goods_price"]; ?>円
+            <a href="#"><div class="shohin_shosai" aria-haspopup="false">詳細を見る</div></a></li>
         <?php } ?>
     </ul>
     <h2 class="contents_name" id="service-free-rental">無料貸出サービス</h2>
