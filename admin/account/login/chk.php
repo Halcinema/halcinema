@@ -59,6 +59,7 @@ if(isset($_POST["btn"])){
             $_SESSION["admin"]["adminNum"] = $Row["admin_num"];
             $_SESSION["admin"]["adminName"] = $Row["admin_name_kanji"];
             $_SESSION["admin"]["adminTheName"] = $Row["the_name"];
+            $_SESSION["admin"]["adminTheNum"] = $Row["the_num"];
             header("Location: /halcinema/admin/");
             exit();
         }else{

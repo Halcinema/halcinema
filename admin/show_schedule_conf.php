@@ -137,7 +137,7 @@ $addDatetime = date("Y/m/d H:i:s", strtotime($formatDatetime."+".$RowAry3[0]["mo
               <input type="hidden" name="select_movie" value="<?= $show['select_movie']  ?>">
               <input type="hidden" name="select_date" value="<?= $show['select_date']  ?>">
               <input type="hidden" name="showtime-start" value="<?=$show['showtime-start'] ?>">
-              <input type="hidden" name="showtime-end" value="">
+              <input type="hidden" name="showtime-end" value="<?= $addDatetime ?>">
               <p class="center"><input type="submit" name="" value="登録"></p>
           </form>
         </div>

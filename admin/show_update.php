@@ -23,6 +23,8 @@ function diffTime($start,$end) {
 }
 */
 
+$show_id = $_GET['showid'];
+$movie_num = $_GET['movienum'];
 //処理部
 $pageTitle = "上映管理";
 
@@ -67,7 +69,7 @@ if(!mysqli_select_db($Link,$DB)){
         $DB);
 }
 //  クエリー送信(選択クエリー)
-$SQL = "select t_show.*, t_movie.* from t_show, t_movie where scr_id = ".$SelectScreen."  AND DATE_FORMAT(show_start, '%Y-%m-%d') = '".$SelectDate."' AND t_show.movie_num = t_movie.movie_num order by show_start";
+$SQL = "select * from t_show where".$show_id;
 if(!$SqlRes = mysqli_query($Link,$SQL)){
   //  クエリー送信失敗
   exit("MySQLクエリー送信エラー<br />" .
@@ -99,6 +101,23 @@ while($Row = mysqli_fetch_array($SqlRes)){
 }
 
 $NumRows2 = mysqli_num_rows($SqlRes);
+
+$SQL3 = "select * from t_screen where the_num = '".$AdminTheNum."'";
+
+if(!$SqlRes = mysqli_query($Link,$SQL3)){
+  //  クエリー送信失敗
+  exit("MySQLクエリー送信エラー<br />" .
+        mysqli_error($Link) . "<br />" .
+        $SQL3);
+}
+
+while($Row = mysqli_fetch_array($SqlRes)){
+  //  データが存在する間処理される
+  $RowAry3[] = $Row;
+}
+
+$NumRows3 = mysqli_num_rows($SqlRes);
+
 //  MySQLのメモリ解放(selectの時のみ)
 mysqli_free_result($SqlRes);
 
@@ -106,6 +125,8 @@ mysqli_free_result($SqlRes);
 if(!mysqli_close($Link)){
   exit("MySQL切断エラー");
 }
+$showdate = date('Y-m-d', strtotime($RowAry[0]['show_start']));
+$showtime = date('H:i',strtotime($RowAry[0]['show_start']));
 ?>
 
 <!DOCTYPE html>
@@ -114,49 +135,11 @@ if(!mysqli_close($Link)){
     <div id="wrapper">
       <?php include("common.php"); ?>
         <div id="main">
-          <h3 class="admin-heading-1">映画スケジュール確認</h3>
-          <form class="" action="show_schedule_add.php" method="post" enctype="multipart/form-data">
-            <h4 class="admin-heading-2">劇場</h4>
-            <select class="theater" name="select_theater">
-              <option value="1">名古屋</option>
-              <option value="2">大阪</option>
-              <option value="3">東京</option>
-            </select>
-            <h4 class="admin-heading-2">スクリーン</h4>
-            <select name="select_screen"t>
-              <option value="101">Screen1</option>
-              <option value="102">Screen2</option>
-              <option value="103">Screen3</option>
-              <option value="104">Screen4</option>
-              <option value="105">Screen5</option>
-              <option value="106">Screen6</option>
-              <option value="107">Screen7</option>
-              <option value="108">Screen8</option>
-              <option value="109">Screen9</option>
-              <option value="110">Screen10</option>
-            </select>
-              <h4 class="admin-heading-2">日時</h4>
-              <input type="date" name="select_date" value="<?php echo $SelectDate; ?>">
-              <p class="center"><input type="submit" name="btn" value="スケージュール確認" ></p>
-          </form>
-              <?php if($NumRows != "0"){ ?>
-                <table class="show-table center">
-                    <th>映画名</th><th>上映可能日時</th><th>上映予定日時</th><th>上映終了日時</th><th>更新</th><th>削除</th>
-                    <?php for($i=0; $i<$NumRows; $i++) { ?>
-                    <tr>
-                      <td><?php echo $RowAry[$i]['movie_name']; ?></td>
-                      <td><?php echo $RowAry[$i]['show_enter']; ?></td>
-                      <td><?php echo $RowAry[$i]['show_start']; ?></td>
-                      <td><?php echo $RowAry[$i]['show_finish']; ?></td>
-                      <td><a href="show_update.php?showid=<?=$RowAry[$i]['show_id'];?>&movienum=<?= $RowAry[$i]['movie_num'] ?>">更新</a></td>
-                      <td><a href="show_delete.php?showid=<?=$RowAry[$i]['show_id'];?>">削除</td>
-                    </tr>
-                     <?php } ?>
-                  </table>
-               <?php }?>
-        <h3 class="admin-heading-1">映画のスケジュールを追加</h3>
+        <h3 class="admin-heading-1">スケジュール変更</h3>
+        <h4> スケジュールID:<?= $RowAry[0]['show_id'] ?></h4>
+        <h4><?= $RowAry[0]['show_start'] ?>から上映</h4>
         <div class="">
-          <form class="" action="show_schedule_conf.php" method="post">
+          <form class="" action="show_update_update.php" method="post">
             <h4 class="admin-heading-2">劇場</h4>
             <select class="theater" name="select_theater">
               <option value="1">名古屋</option>
@@ -164,28 +147,25 @@ if(!mysqli_close($Link)){
               <option value="3">東京</option>
             </select>
             <h4 class="admin-heading-2">スクリーン</h4>
-            <select name="select_screen"t>
-              <option value="101">Screen1</option>
-              <option value="102">Screen2</option>
-              <option value="103">Screen3</option>
-              <option value="104">Screen4</option>
-              <option value="105">Screen5</option>
-              <option value="106">Screen6</option>
-              <option value="107">Screen7</option>
-              <option value="108">Screen8</option>
-              <option value="109">Screen9</option>
-              <option value="110">Screen10</option>
+            <select name="select_screen">
+              <?php for($i =0; $i<$NumRows3; $i++): ?>
+                <option value="<?= $RowAry3[$i]['scr_id'] ?>" <?php if($RowAry3[$i]['scr_id'] == $RowAry[0]['scr_id']){ echo 'selected';} ?>>
+                  <?= $RowAry3[$i]['scr_name'] ?>
+                  </option>
+              <?php endfor; ?>
             </select>
             <h4 class="admin-heading-2">映画</h4>
             <select name="select_movie">
               <?php for($i=0; $i<$NumRows2; $i++) :?>
-                <option value="<?= $RowAry2[$i]['movie_num']?>"><?= $RowAry2[$i]['movie_name'] ?></option>
+                <option value="<?= $RowAry2[$i]['movie_num']?>" <?php if($RowAry[0]['movie_num'] == $RowAry2[$i]['movie_num']){ echo 'selected';} ?>><?= $RowAry2[$i]['movie_name'] ?></option>
               <?php endfor ?>
             </select>
               <h4 class="admin-heading-2">上映日</h4>
-              <input type="date" name="select_date" value="<?php echo $SelectDate; ?>"><br>
+              <input type="date" name="select_date" value="<?= $showdate; ?>"><br>
               <h4 class="admin-heading-2">上映時間</h4>
-              <input type="time" name="showtime-start"><br>
+              <input type="time" name="showtime-start" value="<?= $showtime; ?>"><br>
+              <input type="hidden" name="get_showid" value="<?= $show_id ?>" >
+              <input type="hidden" name="movie_num" value="<?= $movie_num ?>" >
               <p class="center"><input type="submit" name="btn" value="スケジュールに追加する" ></p>
           </form>
         </div>
