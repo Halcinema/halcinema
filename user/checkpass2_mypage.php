@@ -34,7 +34,7 @@
  
  <div id="checkpass">
  
- <form action="Passchk_mypage.php" method="POST">
+ <form action="Passchk_mypage.php" method="GET">
  <p>本人確認のため、この会員のパスワードを入力してください。</p>
  <p id="msg"><?php if(isset($msg)){ print $msg; } ?></p>
  <input type="password" id="pass" name="pass" value="" />

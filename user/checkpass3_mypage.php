@@ -1,8 +1,9 @@
 <?php Include("mypage_session.php") ?>
 <?php
   if(isset($_GET["msg"])){
-  $msg = $_GET["msg"];
+  	$msg = $_GET["msg"];
   }
+  $show_id  = $_GET["show_id"];
 ?>
 
 <!DOCTYPE html>
@@ -34,11 +35,12 @@
  
  <div id="checkpass">
  
- <form action="Passchk_mypage.php" method="POST">
+ <form action="Passchk_mypage.php" method="GET">
  <p>本人確認のため、この会員のパスワードを入力してください。</p>
  <p id="msg"><?php if(isset($msg)){ print $msg; } ?></p>
  <input type="password" id="pass" name="pass" value="" />
  <input type="hidden" name="flg" value="3" />
+ <input type="hidden" name="show_id" value="<?php print $show_id; ?>" />
  <input type="submit" id="txtsubmit" value="確認" />
  </form>
  

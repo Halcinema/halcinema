@@ -37,7 +37,7 @@ if(!mysqli_select_db($Link,$DB)){
  inner join t_movie on t_show.movie_num = t_movie.movie_num)
  inner join t_screen on t_show.scr_id = t_screen.scr_id)
  inner join t_theater on t_screen.the_num = t_theater.the_num
- where mem_mail = 'test@hal.ac.jp' and show_finish < now();
+ where mem_mail = 'test@hal.ac.jp' and show_finish > now();
  
  映画名:[t_movie movie_name]
  上映場所：[t_theater the_name]
@@ -52,7 +52,7 @@ $SQL .= " (((t_reservation inner join t_show on t_reservation.show_id = t_show.s
 $SQL .= " inner join t_movie on t_show.movie_num = t_movie.movie_num)";
 $SQL .= " inner join t_screen on t_show.scr_id = t_screen.scr_id)";
 $SQL .= " inner join t_theater on t_screen.the_num = t_theater.the_num";
-$SQL .= " where mem_mail = '". $MemMail ."' and show_finish < now()";
+$SQL .= " where mem_mail = '". $MemMail ."' and show_finish > now()";
 
 
 if(!$SqlRes = mysqli_query($Link,$SQL)){
@@ -174,9 +174,14 @@ if(!mysqli_close($Link)){
  </div>
   
   <div id="kensuu">
-  <p>全ての予約上映映画件数：<?php print $NumRows; ?>件</p>
+  <p>予約中の上映映画件数：<?php print $NumRows; ?>件</p>
   </div>
   
+<?php if($NumRows == 0){ ?>
+
+<div id="eiga2"><p>予約中の上映映画はありません。</p></div>
+
+<?php }else{ ?>
   
 <?php for($i=0; $i<$NumRows; $i++){ ?>
   
@@ -199,7 +204,8 @@ if(!mysqli_close($Link)){
   </div>
   
 <?php } ?>
-  
+
+<?php } ?>
   
  <div id="page">
    <span><a href="#">前のページ</a></span>

@@ -50,6 +50,7 @@ table tr td {
 	padding-top: 25px;
 	padding-left: 15px;
 	clear: none;
+	line-height: 200%;
 }
 table tr #hutoi {
 	font-weight: bolder;
@@ -85,7 +86,7 @@ table tr #hutoi {
 
 #YYkdel input {
 	margin-left: 10px;
-	width: 80px;
+	width: 90px;
 	height: 35px;
 	font-size: 17px;
 	text-align: center;
