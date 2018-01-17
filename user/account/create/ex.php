@@ -1,9 +1,7 @@
 <?php
 $pageTitle = "登録完了 | 新規会員登録";
-$mem_fk = "";
-$mem_gk = "";
-$mem_ff = "";
-$mem_gf = "";
+$mem_name_kanji = "";
+$mem_name_furigana = "";
 $mem_sex = "";
 $mem_birth = "";
 $mem_tel = "";
@@ -14,10 +12,8 @@ $mem_add = "";
 $mem_mail = "";
 $mem_pass = "";
 if(isset($_POST["next"])){
-    $mem_fk = $_POST["mem_fk"];
-    $mem_gk = $_POST["mem_gk"];
-    $mem_ff = $_POST["mem_ff"];
-    $mem_gf = $_POST["mem_gf"];
+    $mem_name_kanji = $_POST["mem_name_kanji"];
+    $mem_name_furigana = $_POST["mem_name_furigana"];
     $mem_sex = $_POST["mem_sex"];
     $mem_birth = $_POST["mem_birth"];
     $mem_tel = $_POST["mem_tel"];
@@ -29,7 +25,7 @@ if(isset($_POST["next"])){
     $mem_pass = $_POST["mem_pass"];
 }
 
-include("../../mysqlenv.php");
+include($_SERVER['DOCUMENT_ROOT'].'/halcinema/user/mysqlenv.php');
 
 if(!$Link = mysqli_connect($HOST,$USER,$PASS)){
     exit("MySQL接続エラー<br />" . mysqli_connect_error());
@@ -45,7 +41,7 @@ if(!mysqli_select_db($Link,$DB)){
 }
 
     $SQL = "insert into t_member";
-    $SQL .= " values('".$mem_mail."', '".$mem_pass."', '".$mem_fk."', '".$mem_gk."', '".$mem_ff."', '".$mem_gk."', '".$mem_sex."', '".$mem_birth."', '".$mem_post."', '".$mem_pref."', '".$mem_city."', '".$mem_add."', '".$mem_tel."', now())";
+    $SQL .= " values('".$mem_mail."', '".$mem_pass."', '".$mem_name_kanji."', '".$mem_name_furigana."', '".$mem_sex."', '".$mem_birth."', '".$mem_post."', '".$mem_pref."', '".$mem_city."', '".$mem_add."', '".$mem_tel."', now())";
     if(!$SqlRes = mysqli_query($Link,$SQL)){
         exit("MySQLクエリー送信エラー<br />" . mysqli_error($Link) . "<br />" . $SQL);
     }
@@ -53,17 +49,21 @@ if(!mysqli_select_db($Link,$DB)){
 if(!mysqli_close($Link)){
   exit("MySQL切断エラー");
 }
+
+session_start();
+$_SESSION["MemMail"] = $mem_mail;
+$_SESSION["MemName"] = $mem_name_kanji;
 ?>
 <!DOCTYPE html>
 <html lang="ja">
-<?php include("../../../head.php"); ?>
-<body class="account_create_ex">
-    <div id="wrapper">
-        <div id="contents">
-            <p id="pan"><span class="pan_padding">会員情報の入力</span><span>&gt;</span><span class="pan_padding">会員情報の確認</span><span>&gt;</span><span id="now" class="pan_padding">登録完了</span></p>
-                <h1>会員登録が完了しました。</h1>
-                <a href="../../index.php">トップページへ戻る</a>
-        </div>
-    </div>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/halcinema/head.php'); ?>
+<body class="ac">
+    <ul class="ac-breadcrumbs">
+        <li class="ac-breadcrumbs__item">会員情報の入力</li>
+        <li class="ac-breadcrumbs__item">会員情報の確認</li>
+        <li class="ac-breadcrumbs__item ac-breadcrumbs__item--now">登録完了</li>
+    </ul>
+        <h1 class="ac__title">会員登録が完了しました。</h1>
+        <a href="/halcinema/user/">トップページへ戻る</a>
 </body>
 </html>

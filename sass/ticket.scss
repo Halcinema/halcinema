@@ -3,6 +3,32 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
+ @mixin formInput($bgColor, $border, $width, $height, $fontSize, $textColor, $textIndent) {
+     background-color: $bgColor;
+     border: $border;
+     border-radius: 3px;
+     width: $width;
+     height: $height;
+     font-size: $fontSize;
+     color: $textColor;
+     text-indent: $textIndent;
+ }
+
+ @mixin button($bgColor, $border, $width, $height, $fontSize, $textColor) {
+     display: block;
+     background-color: $bgColor;
+     border: $border;
+     border-radius: 3px;
+     padding: 0 10px;
+     width: $width;
+     height: $height;
+     color: $textColor;
+     text-align: center;
+     font-size: $fontSize;
+     line-height: $height;
+ }
+
+
 //上映一覧
 .cinema_schedule {
     padding: 0 50px;
@@ -715,4 +741,75 @@
     height: 50px !important;
     font-size: 20px;
     margin: 0 0 20px 0;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    &__title {
+        margin-bottom: 50px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    &-form {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+        &__text {
+            display: block;
+            @include formInput(#fff, (solid 1px #808080), 400px, 50px, 2em, #808080, 1em);
+            margin-bottom: 30px;
+        }
+        &__submit {
+            @include formInput(#34495e, none, 400px, 50px, 2em, #fff, none);
+            &:hover {
+                @include formInput(#2c3e50, none, 400px, 50px, 2em, #fff, none);
+            }
+        }
+    }
+}
+
+.ac {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &-breadcrumbs {
+        display: flex;
+        margin: 50px 0;
+        &__item {
+            font-size: 20px;
+            &:not(:last-child)::after {
+                content: '\003e';
+                margin: 0 10px;
+            }
+            &--now {
+                border-bottom: solid 1px #808080;
+            }
+        }
+    }
+    &__title {
+        margin-bottom: 50px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    &-form {
+        &__section {
+            margin-bottom: 50px;
+        }
+        &__text {
+            display: block;
+            @include formInput(#fff, (solid 1px #808080), 400px, 50px, 2em, #808080, 1em);
+            margin-bottom: 30px;
+        }
+        &__submit {
+            @include formInput(#34495e, none, 400px, 50px, 2em, #fff, none);
+            &:hover {
+                @include formInput(#2c3e50, none, 400px, 50px, 2em, #fff, none);
+            }
+        }
+    }
 }
