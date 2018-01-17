@@ -6,7 +6,6 @@
 @charset "utf-8";
 
 //変数定義
-/* ヘッダーの高さ */ $adminHeaderHeight: 80px;
 /* ベースカラー */ $baseColor: #222222;
 /* アクセントカラー */ $accentColor: crimson;
 /* ベーステキストカラー */ $baseTextColor: #222222;
@@ -14,5 +13,122 @@
 
 //人気投票
 .vote{
-    
+  #vote{
+  	text-align: center;
+  	margin:0px auto;
+  	width:1180px;
+  }
+  #vote section{
+  	padding:20px;
+  	display: inline-block;
+  	text-align: center;
+  	margin: 10px 10px;
+  	width: 30%;
+  }
+  #vote section img{
+  	display: inline-block;
+  	width:100%;
+  }
+  #vote section .next_btn{
+
+
+  	color: #6A91C1;
+  	display: inline-block;
+  	margin:10px 10px;
+  	text-align:center;
+
+  }
+  #vote section .next_btn a{
+  	display: block;
+  	border:1px solid #6A91C1;
+  		border-radius: 10px;
+  	text-decoration: none;
+  	padding:15px 30px;
+
+  }
+  .next_btn,
+  .next_btn::before,
+  .next_btn::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+  }
+  .next_btn::before,
+  .next_btn::after {
+    position: absolute;
+    z-index: -1;
+    display: block;
+    content: '';
+  }
+  .next_btn :hover{
+  	border-radius: 10px;
+  	background-color: #6A91C1;
+  	color:#fff;
+  }
+  #vote .detail{
+  	display: inline-block;
+
+  }
+  #vote .detail dt{;
+  	margin:20px 0;
+  }
+  #vote .detail dd{
+  }
+  h1{
+  	color:#fff;
+  }
+  h2 {
+  	width:70%;
+  	border-bottom:1px #6A91C1 solid;
+  	position: relative;
+  	padding: 10px 5px 10px 55px;
+  	font-size: 20px;
+  	color: #6A91C1;
+  	margin-left:100px;
+  	margin-bottom:40px;
+  	font-size:1.5em;
+
+  }
+  h2::before{
+  	font-family: FontAwesome;
+  	display: inline-block;
+  	line-height: 40px;
+  	position: absolute;
+  	padding: 0em;
+  	color: white;
+  	background: #6A91C1;
+  	font-weight: normal;
+  	width: 60px;
+  	height: 60px;
+  	line-height: 60px;
+  	left: -1.35em;
+  	top: 50%;
+  	text-align: center;
+  	-moz-transform: translateY(-50%);
+  	-webkit-transform: translateY(-50%);
+  	-ms-transform: translateY(-50%);
+  	transform: translateY(-50%);
+  	border: solid 3px white;
+  	border-radius: 50%;
+  }
+  h2:before {
+  content: "\f03d";
+  }
+
+  h3 {
+  	color:#516C8D;
+  	font-size:1.7em;
+  	letter-spacing: 8px;
+  	margin-top:10px;
+  	margin-bottom:20px;
+    padding: 0.4em 0;
+
+  }
+
+
+
+
+
 }
