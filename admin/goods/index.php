@@ -119,35 +119,6 @@ if(!mysqli_close($Link)){
                 
             <?php } ?>
             </ul>
-            <a href="/halcinema/admin/foods/add/">フード登録</a>
-            <!--ここにフード一覧を表示-->
-            <ul>
-            <?php for($i=0;$i<$FoNumRows;$i++){ ?>
-                <li>
-                    <h4>
-                    <a href="../foods/detail.php?num=<?php print $FoRowAry[$i]["foods_num"] ?>">
-                        <?php print $FoRowAry[$i]["foods_name"] ?>
-                    </a>
-                    </h4>
-                    <p>
-                        <?php print $FoRowAry[$i]["foods_price"] ?>
-                    </p>
-                    
-                    <img src="../foods/upload/<?php print $FoRowAry[$i]["foods_img"] ?>" width="200px" height="150px">
-                    <!--<?php print $FoRowAry[$i]["movie_num"] ?>-->
-                    <p>
-                <a href="../foods/update/index.php?num=<?php print $FoRowAry[$i]["foods_num"] ?>">
-                    編集
-                </a>
-                <a href="../foods/delete/index.php?num=<?php print $FoRowAry[$i]["foods_num"] ?>">
-                    削除
-                </a>
-                    </p>
-                </li>
-                
-                
-            <?php } ?>
-            </ul>
         </div>
     </div>
 </body>
