@@ -97,7 +97,7 @@
 								 <img src="imges/goods.png">
 							 <p>映画の投票を受け付けています。</p>
 								<p>詳しくは下記のリンクから。</p>
-							 <a href="/halcinema/user/vote/">投票ページへ移動</a>
+							 <a href="/halcinema/user/vote.php">投票ページへ移動</a>
 						</section>
 					 </div>
 	   	     <div id="form"><span>※会員登録、ログインはこちらから</span><a href="create_ac_input.php">新規会員登録</a><a href="login.php">ログイン</a></div>
