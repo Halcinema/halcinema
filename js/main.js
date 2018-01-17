@@ -27,6 +27,11 @@ $(function(){
         }
     }
 
+    //ユーザーアカウント新規作成フォーム送信先制御
+    $(".js-go-create-index").on("click",function(){
+        $("form").attr("action","/halcinema/user/account/create/");
+    });
+
     $(".go_select_ticket").on("click",function(){
         window.sessionStorage.setItem(['ssSeatCnt'],[seatCnt]);
         if(seatCnt == 0){

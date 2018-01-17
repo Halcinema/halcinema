@@ -24,9 +24,9 @@ if(isset($_POST["reurl"])){
 if(isset($_POST["next"])){
     $Email = $_POST["email"];
     $Pass = $_POST["pass"];
-    
+
     include("../../mysqlenv.php");
-    
+
     //  MySQLとの接続開始
     if(!$Link = mysqli_connect($HOST,$USER,$PASS)){
       //  うまく接続できなかった
@@ -67,12 +67,12 @@ if(isset($_POST["next"])){
     if(!mysqli_close($Link)){
       exit("MySQL切断エラー");
     }
-    
+
     if($NumRow != 0){
         if($Row["mem_pass"]==$Pass){
             session_start();
             $_SESSION["MemMail"] = $Row["mem_mail"];
-            $_SESSION["MemName"] = $Row["mem_fk"].$Row["mem_gk"];
+            $_SESSION["MemName"] = $Row["mem_name_kanji"];
             header("Location: ".$ReUrl);
             exit;
         }else{
