@@ -1,7 +1,11 @@
 <?php Include("mypage_session.php") ?>
 <?php
- $pass = $_POST["pass"];
- $flg = $_POST["flg"];
+ $pass = $_GET["pass"];
+ $flg = $_GET["flg"];
+ 
+ if(isset($_GET["show_id"])){
+ 	$show_id  = $_GET["show_id"];
+ }
  
  //  MySQL関連変数を外部ファイルで持たせる
  //  外部ファイルの読み込み
@@ -92,7 +96,7 @@ $NumRows = mysqli_num_rows($SqlRes);
           }
 
           if($flg == 3){
-           $url = "Location: /halcinema/user/YYKdel_mypage.php";
+           $url = "Location: /halcinema/user/YYKdel_mypage.php?show_id=".$show_id;
            header($url);
            exit();
           }
@@ -102,8 +106,12 @@ $NumRows = mysqli_num_rows($SqlRes);
      
      $msg = "パスワードが未入力、もしくは間違えています。";
      $url = "Location: /halcinema/user/checkpass".$flg."_mypage.php?msg=".$msg."";
+     
+     if($flg == 3){
+     	$url = "Location: /halcinema/user/checkpass".$flg."_mypage.php?msg=".$msg."&show_id=".$show_id;
+     }
+     
      header($url);
      exit();
      
 ?>
-

@@ -10,6 +10,16 @@
 	padding-bottom: 5px;
 	height: 270px;
 }
+
+#wrapper #contents #eiga2 {
+	margin:30px 200px;
+	padding:40px 0 0 0;
+	text-align:center;
+	border-radius: 5px;
+	height: 100px;
+	font-size:24px;
+}
+
 #contents #eiga h4 {
 	margin-top: 5px;
 	margin-left: 10px;
@@ -34,6 +44,9 @@
 	margin-right: 10px;
 	color: #007CFF;
 }
+
 #contents #eiga #syousai_miru {
 	padding-top: 20px;
 }
+
+

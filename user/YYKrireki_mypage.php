@@ -177,29 +177,35 @@ if(!mysqli_close($Link)){
   <p>全ての予約上映映画件数：<?php print $NumRows; ?>件</p>
   </div>
   
+  <?php if($NumRows == 0){ ?>
+
+  <div id="eiga2"><p>予約中の上映映画はありません。</p></div>
+
+  <?php }else{ ?>
   
 <?php for($i=0; $i<$NumRows; $i++){ ?>
   
   <div id="eiga">
   <h4><?php print $RowAry[$i]["movie_name"]; ?></h4>
   <p><img src="images/eiga1.jpg" alt="eiga1"></p>
-  <p>上映場所：HALシネマ<?php print $RowAry[$i]["the_name"]; ?></p>
+  <p>上映場所：HALシネマ<?php print htmlspecialchars($RowAry[$i]["the_name"]); ?></p>
   <p>上映日時：<?php echo date('Y',strtotime($RowAry[$i]["show_start"]))."年".date('m',strtotime($RowAry[$i]["show_start"]))."月".date('d',strtotime($RowAry[$i]["show_start"]))."日　".date('H',strtotime($RowAry[$i]["show_start"]))."時".date('i',strtotime($RowAry[$i]["show_start"]))."分～".date('H',strtotime($RowAry[$i]["show_finish"]))."時".date('i',strtotime($RowAry[$i]["show_finish"]))."分"; ?></p>
-  <p>上映スクリーン：<?php print $RowAry[$i]["scr_name"]; ?></p>
+  <p>上映スクリーン：<?php print htmlspecialchars($RowAry[$i]["scr_name"]); ?></p>
   <p>予約席：
   <?php
   	for($ii=0; $ii<$NumRows2; $ii++){
   		if($RowAry2[$ii]["show_id"] == $RowAry[$i]["show_id"]){
-  			print $RowAry2[$ii]["res_seat"]."　";
+  			print htmlspecialchars($RowAry2[$ii]["res_seat"])."　";
   		}
   	}
   ?>
   </p>
-	  <div id="syousai_miru"><p><a href="YYKsyousai_mypage.php">詳細を見る</a></p></div>
+	  <div id="syousai_miru"><p><a href="YYKsyousai_mypage.php?show_id=<?php print $RowAry[$i]["show_id"]; ?>">詳細を見る</a></p></div>
   </div>
   
 <?php } ?>
   
+<?php } ?>
   
  <div id="page">
    <span><a href="#">前のページ</a></span>
