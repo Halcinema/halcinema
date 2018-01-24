@@ -47,10 +47,8 @@ while($Row = mysqli_fetch_array($SqlRes)){
 
 $RowAry[0]["mem_mail"]
 $RowAry[0]["mem_pass"]
-$RowAry[0]["mem_fk"]
-$RowAry[0]["mem_gk"]
-$RowAry[0]["mem_ff"]
-$RowAry[0]["mem_gf"]
+$RowAry[0]["mem_name_kanji"]
+$RowAry[0]["mem_name_furigana"]
 $RowAry[0]["mem_sex"]
 $RowAry[0]["mem_birth"]
 $RowAry[0]["mem_post"]
@@ -117,7 +115,7 @@ if(!mysqli_close($Link)){
     <td id="hutoi">メールアドレス　　　　</td><td><?php print htmlspecialchars($RowAry[0]["mem_mail"]); ?></td>
    </tr>
    <tr>
-    <td id="hutoi">名前　</td><td><ruby><?php print htmlspecialchars($RowAry[0]["mem_fk"]); ?><rt><?php print htmlspecialchars($RowAry[0]["mem_ff"]); ?></rt></ruby>　<ruby><?php print htmlspecialchars($RowAry[0]["mem_gk"]); ?><rt><?php print htmlspecialchars($RowAry[0]["mem_gf"]); ?></rt></ruby></td>
+    <td id="hutoi">名前　</td><td><ruby><?php print htmlspecialchars($RowAry[0]["mem_name_kanji"]); ?><rt><?php print htmlspecialchars($RowAry[0]["mem_name_furigana"]); ?></rt></ruby></td>
    </tr>
    <tr>
     <td id="hutoi">性別　</td>
