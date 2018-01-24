@@ -134,7 +134,7 @@ $pageTitle = "管理／グッズ管理／グッズ登録／完了";
             追加完了しました
             <!--/halcinema/admin/goods/への遷移リンクを設置-->
             <a href="/halcinema/admin/foods/add/index.php">さらに追加する</a>
-            <a href="/halcinema/admin/goods/index.php">登録一覧に戻る</a>
+            <a href="/halcinema/admin/foods/index.php">登録一覧に戻る</a>
         </div>
     </div>
 </body>
