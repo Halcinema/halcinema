@@ -101,11 +101,12 @@ if(!mysqli_close($Link)){
                         </a>
                     </h4>
                     <p>
-                        <?php print $GoRowAry[$i]["goods_price"] ?>
+                        <?php print $GoRowAry[$i]["goods_price"] ?>円
                     </p>
-                    
-                    <img src="upload/<?php print $GoRowAry[$i]["goods_img"] ?>" width="200px" height="150px">
-                    <!--<?php print $GoRowAry[$i]["movie_num"] ?>-->
+                    <div class="admin_goods_img" style="background-image: url(upload/<?php print $GoRowAry[$i]["goods_img"] ?>);">
+                    </div>
+                    <!--<img src="upload/<?php print $GoRowAry[$i]["goods_img"] ?>" width="200px" height="150px">
+                    <?php print $GoRowAry[$i]["movie_num"] ?>-->
                     <p>
                 <a href="update/index.php?num=<?php print $GoRowAry[$i]["goods_num"] ?>">
                     編集
@@ -124,6 +125,16 @@ if(!mysqli_close($Link)){
 </body>
 </html>
 <style>
+    .admin_goods_img{
+        background-size: auto 150px;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 200px;
+        height: 150px;
+    }
+    .admin_goods_img:hover{
+        background-size: 200px auto; 
+    }
     .goods_index ul{
         display: flex;
         flex-wrap: wrap;
@@ -133,6 +144,9 @@ if(!mysqli_close($Link)){
     }
     .goods_index ul li:hover{
         border-color: red;
+    }
+    .goods_index ul li img{
+        vertical-align: bottom;
     }
 
 </style>

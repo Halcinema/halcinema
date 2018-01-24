@@ -103,7 +103,7 @@ enctype="multipart/form-data">
                     <br />
                     <h4 class="admin-heading-2">保存画像名</h4>
                     <input type="text" name="savename" class="savename_form" disabled><br>
-                  <p class="center"><input type="submit" name="" value="追加" ></p>
+                  <p class="center"><input type="submit" name="" value="変更" ></p>
             </form>
         </div>
     </div>
