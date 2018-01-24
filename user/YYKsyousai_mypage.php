@@ -1,6 +1,6 @@
 <?php Include("mypage_session.php") ?>
 <?php
-$show_id = $_GET["show_id"];
+$res_num = $_GET["res_num"];
 
 //  MySQL関連変数を外部ファイルで持たせる
 //  外部ファイルの読み込み
@@ -53,7 +53,7 @@ $SQL .= " (((t_reservation inner join t_show on t_reservation.show_id = t_show.s
 $SQL .= " inner join t_movie on t_show.movie_num = t_movie.movie_num)";
 $SQL .= " inner join t_screen on t_show.scr_id = t_screen.scr_id)";
 $SQL .= " inner join t_theater on t_screen.the_num = t_theater.the_num";
-$SQL .= " where mem_mail = '". $MemMail ."' and t_reservation.show_id = '". $show_id ."' ";
+$SQL .= " where mem_mail = '". $MemMail ."' and t_reservation.res_num = '". $res_num ."' ";
 
 
 if(!$SqlRes = mysqli_query($Link,$SQL)){
@@ -103,7 +103,7 @@ mysqli_free_result($SqlRes);
 $SQL  = "select show_id,res_seat,ticket_name,ticket_price";
 $SQL .= " from";
 $SQL .= " t_reservation inner join t_ticket on t_ticket.ticket_num = t_reservation.ticket_num";
-$SQL .= " where mem_mail = '". $MemMail ."' and t_reservation.show_id = '". $show_id ."';";
+$SQL .= " where mem_mail = '". $MemMail ."' and t_reservation.res_num = '". $res_num ."';";
 
 if(!$SqlRes = mysqli_query($Link,$SQL)){
   //  クエリー送信失敗
