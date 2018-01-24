@@ -247,14 +247,25 @@ section{
 	-o-transition: border 0.25s linear;
     transition: border 0.25s linear;
     padding-bottom: 30px;
-}#goods_list li h3{
+}#goods_list li .goods_img_box{
+    max-width:480px;
+    height:300px;
+    vertical-align:bottom;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#goods_list li h3{
     border: 1px solid #B4DAED;
     text-align: center;
 }#goods_list li:hover{
     border:10px solid #B4DAED;
 }#goods_list li a{
     text-decoration: none;
-}.shohin_shosai{
+}
+
+.shohin_shosai{
     width: 100%;
     position: absolute;
     bottom:0px;
