@@ -116,12 +116,6 @@ if(!mysqli_close($Link)){
         <div id="main">
           <h3 class="admin-heading-1">映画スケジュール確認</h3>
           <form class="" action="show_schedule_add.php" method="post" enctype="multipart/form-data">
-            <h4 class="admin-heading-2">劇場</h4>
-            <select class="theater" name="select_theater">
-              <option value="1">名古屋</option>
-              <option value="2">大阪</option>
-              <option value="3">東京</option>
-            </select>
             <h4 class="admin-heading-2">スクリーン</h4>
             <select name="select_screen"t>
               <option value="101">Screen1</option>
@@ -157,12 +151,6 @@ if(!mysqli_close($Link)){
         <h3 class="admin-heading-1">映画のスケジュールを追加</h3>
         <div class="">
           <form class="" action="show_schedule_conf.php" method="post">
-            <h4 class="admin-heading-2">劇場</h4>
-            <select class="theater" name="select_theater">
-              <option value="1">名古屋</option>
-              <option value="2">大阪</option>
-              <option value="3">東京</option>
-            </select>
             <h4 class="admin-heading-2">スクリーン</h4>
             <select name="select_screen"t>
               <option value="101">Screen1</option>

@@ -7,7 +7,7 @@
   更新履歴  :
 -----------------------------------------------------------------------------*/
 //  HTTPヘッダーで文字コードを指定
-header("Content-Type:text/html; charset=UTF-8");
+//header("Content-Type:text/html; charset=UTF-8");
 
 //処理部
 $PageTitle = "ページ名";
@@ -45,9 +45,7 @@ function diffTime($start,$end) {
   return gmdate('H:i',$diff);
 
 }
-?>
 
-<?php
 //  MySQL関連変数を外部ファイルで持たせる
 //  外部ファイルの読み込み
 include("mysqlenv.php");
@@ -76,9 +74,6 @@ if(!mysqli_select_db($Link,$DB)){
 }
 //  クエリー送信(選択クエリー)
 $SQL = "insert into t_show (show_id,movie_num,scr_id,show_enter,show_start,show_finish)";
-// $SQL .= " ('" . $movie[movie_title]. "','" . $movie[movie_story]. "','" . $movie[movie_sc]. "','" . $movie[running]. "','" . $movie['aa']. "','" . $buid . "','" . $buid . "')";
-// $SQL .= " vlues('" . $movie['movie_title']. "'," . $movie['movie_title']. "')";
-
 $SQL .= " values('".$showid."', ' ".$show['select_movie']." ',' ".$show['select_screen']." ',' ".$entertime." ',' ".$starttime." ',' ".$endtime." ')";
 if(!$SqlRes = mysqli_query($Link,$SQL)){
   //  クエリー送信失敗
@@ -111,5 +106,7 @@ if(!$SqlRes = mysqli_query($Link,$insConSql)){
 if(!mysqli_close($Link)){
   exit("MySQL切断エラー");
 }
+
+header('Location: show_schedule_add.php');
 //echo $_FILES['movie_img']['name'];
 ?>
