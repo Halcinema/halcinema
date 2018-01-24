@@ -28,6 +28,16 @@
      line-height: $height;
  }
 
+.ticket-form {
+    &__submit {
+        &--blue {
+            @include formInput(#34495e, none, 500px, 50px, 2em, #fff, none);
+            &:hover {
+                @include formInput(#2c3e50, none, 500px, 50px, 2em, #fff, none);
+            }
+        }
+    }
+}
 
 //上映一覧
 .cinema_schedule {

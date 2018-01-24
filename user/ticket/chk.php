@@ -58,7 +58,7 @@ if(isset($_POST["pay"])){
                 </section>
                 <form action="ex.php" method="post">
                     <div class="chk_btn">
-                        <input class="chk_btn_red" type="submit" name="buy_confirm" value="購入確定">
+                        <input class="ticket-form__submit--blue" type="submit" name="buy_confirm" value="購入確定">
                     </div>
                     <div class="chk_btn">
                     <?php if($MemMail != ""){ ?>
