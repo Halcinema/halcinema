@@ -47,10 +47,8 @@ while($Row = mysqli_fetch_array($SqlRes)){
 
 $RowAry[0]["mem_mail"]
 $RowAry[0]["mem_pass"]
-$RowAry[0]["mem_fk"]
-$RowAry[0]["mem_gk"]
-$RowAry[0]["mem_ff"]
-$RowAry[0]["mem_gf"]
+$RowAry[0]["mem_name_kanji"]
+$RowAry[0]["mem_name_furigana"]
 $RowAry[0]["mem_sex"]
 $RowAry[0]["mem_birth"]
 $RowAry[0]["mem_post"]
@@ -75,46 +73,40 @@ if(!mysqli_close($Link)){
 
 
 //データベースから出したデータを格納
-  $mail        = $RowAry[0]["mem_mail"];
-  $pass        = $RowAry[0]["mem_pass"];
-  $myouji      = $RowAry[0]["mem_fk"];
-  $myouji_huri = $RowAry[0]["mem_ff"];
-  $namae       = $RowAry[0]["mem_gk"];
-  $namae_huri  = $RowAry[0]["mem_gf"];
-  $yuubinn1    = substr($RowAry[0]["mem_post"],0,3);
-  $yuubinn2    = substr($RowAry[0]["mem_post"],4,4);
-  $ken         = $RowAry[0]["mem_pref"];
-  $tyou        = $RowAry[0]["mem_city"];
-  $banchi      = $RowAry[0]["mem_add"];
-  $denwa       = $RowAry[0]["mem_tel"];
+  $mail              = $RowAry[0]["mem_mail"];
+  $pass              = $RowAry[0]["mem_pass"];
+  $mem_name_kanji    = $RowAry[0]["mem_name_kanji"];
+  $mem_name_furigana = $RowAry[0]["mem_name_furigana"];
+  $yuubinn1          = substr($RowAry[0]["mem_post"],0,3);
+  $yuubinn2          = substr($RowAry[0]["mem_post"],4,4);
+  $ken               = $RowAry[0]["mem_pref"];
+  $tyou              = $RowAry[0]["mem_city"];
+  $banchi            = $RowAry[0]["mem_add"];
+  $denwa             = $RowAry[0]["mem_tel"];
 
 
 //入力チェックからの値の受け取り
 if(isset($_GET["mail"])){
-  $mail        = $_GET["mail"];
-  $pass        = $_GET["pass"];
-  $myouji      = $_GET["myouji"];
-  $myouji_huri = $_GET["myouji_huri"];
-  $namae       = $_GET["namae"];
-  $namae_huri  = $_GET["namae_huri"];
-  $yuubinn1    = $_GET["yuubinn1"];
-  $yuubinn2    = $_GET["yuubinn2"];
-  $ken         = $_GET["ken"];
-  $tyou        = $_GET["tyou"];
-  $banchi      = $_GET["banchi"];
-  $denwa       = $_GET["denwa"];
+  $mail              = $_GET["mail"];
+  $pass              = $_GET["pass"];
+  $mem_name_kanji    = $_GET["mem_name_kanji"];
+  $mem_name_furigana = $_GET["mem_name_furigana"];
+  $yuubinn1          = $_GET["yuubinn1"];
+  $yuubinn2          = $_GET["yuubinn2"];
+  $ken               = $_GET["ken"];
+  $tyou              = $_GET["tyou"];
+  $banchi            = $_GET["banchi"];
+  $denwa             = $_GET["denwa"];
   
-  $EMmail        = $_GET["EMmail"];
-  $EMpass        = $_GET["EMpass"];
-  $EMmyouji      = $_GET["EMmyouji"];
-  $EMmyouji_huri = $_GET["EMmyouji_huri"];
-  $EMnamae       = $_GET["EMnamae"];
-  $EMnamae_huri  = $_GET["EMnamae_huri"];
-  $EMyuubinn     = $_GET["EMyuubinn"];
-  $EMken         = $_GET["EMken"];
-  $EMtyou        = $_GET["EMtyou"];
-  $EMbanchi      = $_GET["EMbanchi"];
-  $EMdenwa       = $_GET["EMdenwa"];
+  $EMmail              = $_GET["EMmail"];
+  $EMpass              = $_GET["EMpass"];
+  $EMmem_name_kanji    = $_GET["EMmem_name_kanji"];
+  $EMmem_name_furigana = $_GET["EMmem_name_furigana"];
+  $EMyuubinn           = $_GET["EMyuubinn"];
+  $EMken               = $_GET["EMken"];
+  $EMtyou              = $_GET["EMtyou"];
+  $EMbanchi            = $_GET["EMbanchi"];
+  $EMdenwa             = $_GET["EMdenwa"];
 }
 
 ?>
@@ -159,16 +151,10 @@ if(isset($_GET["mail"])){
     <td>パスワード(英数字のみ)</td><td><input type="password" name="pass" id="pass" value="<?php print htmlspecialchars($pass); ?>" /><div id="err"><?php if(isset($EMpass)){ print htmlspecialchars($EMpass); } ?></div></td>
    </tr>
    <tr>
-    <td>姓</td><td><input type="text" name="myouji" id="myouji" value="<?php print htmlspecialchars($myouji); ?>" /><div id="err"><?php if(isset($EMmyouji)){ print htmlspecialchars($EMmyouji); } ?></div></td>
+    <td>名前</td><td><input type="text" name="mem_name_kanji" id="mem_name_kanji" value="<?php print htmlspecialchars($mem_name_kanji); ?>" /><div id="err"><?php if(isset($EMmem_name_kanji)){ print htmlspecialchars($EMmem_name_kanji); } ?></div></td>
    </tr>
    <tr>
-    <td>姓(フリガナ)</td><td><input type="text" name="myouji_huri" id="myouji_hurigana" value="<?php print htmlspecialchars($myouji_huri) ?>" /><div id="err"><?php if(isset($EMmyouji_huri)){ print htmlspecialchars($EMmyouji_huri); } ?></div></td>
-   </tr>
-   <tr>
-    <td>名</td><td><input type="text" name="namae" id="name" value="<?php print htmlspecialchars($namae); ?>" /><div id="err"><?php if(isset($EMnamae)){ print htmlspecialchars($EMnamae); } ?></div></td>
-   </tr>
-   <tr>
-    <td>名(フリガナ)</td><td><input type="text" name="namae_huri" id="namae_hurigana" value="<?php print htmlspecialchars($namae_huri); ?>" /><div id="err"><?php if(isset($EMnamae_huri)){ print htmlspecialchars($EMnamae_huri); } ?></div></td>
+    <td>名前(フリガナ)</td><td><input type="text" name="mem_name_furigana" id="mem_name_furigana" value="<?php print htmlspecialchars($mem_name_furigana) ?>" /><div id="err"><?php if(isset($EMmem_name_furigana)){ print htmlspecialchars($EMmem_name_furigana); } ?></div></td>
    </tr>
    <tr>
     <td>性別</td>

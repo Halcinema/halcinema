@@ -3,19 +3,17 @@
 header("Content-Type:text/html; charset=UTF-8");
 Include("mypage_session.php");
 
- $mail        = $_GET["mail"];
- $pass        = $_GET["pass"];
- $myouji      = $_GET["myouji"];
- $myouji_huri = $_GET["myouji_huri"];
- $namae       = $_GET["namae"];
- $namae_huri  = $_GET["namae_huri"];
- $yuubinn1    = $_GET["yuubinn1"];
- $yuubinn2    = $_GET["yuubinn2"];
- $ken         = $_GET["ken"];
- $tyou        = $_GET["tyou"];
- $banchi      = $_GET["banchi"];
- $denwa       = $_GET["denwa"];
- $errflg      = 0;
+ $mail              = $_GET["mail"];
+ $pass              = $_GET["pass"];
+ $mem_name_kanji    = $_GET["mem_name_kanji"];
+ $mem_name_furigana = $_GET["mem_name_furigana"];
+ $yuubinn1          = $_GET["yuubinn1"];
+ $yuubinn2          = $_GET["yuubinn2"];
+ $ken               = $_GET["ken"];
+ $tyou              = $_GET["tyou"];
+ $banchi            = $_GET["banchi"];
+ $denwa             = $_GET["denwa"];
+ $errflg            = 0;
 
 //変更前のメールアドレス
  $MemMail = $_GET["MemMail"];
@@ -25,15 +23,21 @@ Include("mypage_session.php");
 //メールアドレス
  $EMmail = "";
  $match_string = "|^[a-zA-Z0-9.-]+@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9-]+)*$|";
- if($mail == ""){
+if($mail == ""){
   $EMmail = "未入力です。";
   $errflg = 1;
- }else if(preg_match($match_string,$mail)){
- //↑ 整合性チェック ↑
-  
+}else if(!preg_match($match_string,$mail)){
+	$EMmail = "メールアドレスの正規表現が正しくありません。";
+	$errflg = 1;
+}else if(mb_strlen($mail) > 100){
+	$EMpass = "100文字までです";
+    $errflg = 1;
+}else if($mail != $MemMail){
+
 //  MySQL関連変数を外部ファイルで持たせる
 //  外部ファイルの読み込み
 include("mysqlenv.php");
+
 //  MySQLとの接続開始
 if(!$Link = mysqli_connect
             ($HOST,$USER,$PASS)){
@@ -41,6 +45,7 @@ if(!$Link = mysqli_connect
   exit("MySQL接続エラー<br />" . 
     mysqli_connect_error());
 }
+
 //  クエリー送信(文字コード)
 $SQL = "set names utf8";
 if(!mysqli_query($Link,$SQL)){
@@ -48,6 +53,7 @@ if(!mysqli_query($Link,$SQL)){
   exit("MySQLクエリー送信エラー<br />" .
         $SQL);
 }
+
 //  MySQLデータベース選択
 if(!mysqli_select_db($Link,$DB)){
   //  MySQLデータベース選択失敗
@@ -62,19 +68,20 @@ if(!$SqlRes = mysqli_query($Link,$SQL)){
         mysqli_error($Link) . "<br />" .
         $SQL);
 }
+
 //  連想配列への抜出（全件配列に格納）
 while($Row = mysqli_fetch_array($SqlRes)){
   //  データが存在する間処理される
   $RowAry[] = $Row;
 }
+
 /*********************************
 抜き出された連想配列(二次元配列)
+
 $RowAry[0]["mem_mail"]
 $RowAry[0]["mem_pass"]
-$RowAry[0]["mem_fk"]
-$RowAry[0]["mem_gk"]
-$RowAry[0]["mem_ff"]
-$RowAry[0]["mem_gf"]
+$RowAry[0]["mem_name_kanji"]
+$RowAry[0]["mem_name_furigana"]
 $RowAry[0]["mem_sex"]
 $RowAry[0]["mem_birth"]
 $RowAry[0]["mem_post"]
@@ -85,28 +92,28 @@ $RowAry[0]["mem_tel"]
 $RowAry[0]["mem_reg"]
 ...
 **********************************/
+
 //  抜き出されたレコード件数を求める
 $NumRows = mysqli_num_rows($SqlRes);
+
 //  MySQLのメモリ解放(selectの時のみ)
 mysqli_free_result($SqlRes);
+
 //  MySQLとの切断
 if(!mysqli_close($Link)){
   exit("MySQL切断エラー");
 }
 
-  //メールアドレスの存在チェック
-  for($i=0;$i<$NumRows;$i++){
-   if($mail == $RowAry[$i]["mem_mail"]){
-      $EMmail = "既に存在しているメールアドレスのため、このメールアドレスに変更できません。";
-      $errflg = 1;
-   }
-  }
-
-}else{
-  $EMmail = "メールアドレスの正規表現が正しくありません。";
-  $errflg = 1;
+for($i=0;$i<$NumRows;$i++){
+	if($mail == $RowAry[$i]["mem_mail"]){
+		$EMmail = "既に存在しているメールアドレスがあるため、このメールアドレスに変更することは出来ません。";
+        $errflg = 1;
+	}
 }
- 
+
+
+}
+
 
 //パスワード
  $EMpass = "";
@@ -124,57 +131,30 @@ if(!mysqli_close($Link)){
  }
 
 
-//名字
- $EMmyouji = "";
-
- if($myouji == ""){
-     $EMmyouji = "未入力です。";
-     $errflg = 1;
- }else if(mb_strlen($myouji) > 10){
-     $EMmyouji = "10文字までです";
-     $errflg = 1;
- }
-
-
-//名字（フリガナ）
- $EMmyouji_huri = "";
- $match_string3 = "/[^ァ-ヶー]/u";
-
- if($myouji_huri == ""){
-     $EMmyouji_huri = "未入力です。";
-     $errflg = 1;
- }else if(preg_match($match_string3,$myouji_huri)){
-     $EMmyouji_huri = "全角カタカナのみです。";
-     $errflg = 1;
- }else if(mb_strlen($myouji_huri) > 10){
-     $EMmyouji_huri = "10文字までです。";
-     $errflg = 1;
- }
-
-
 //名前
- $EMnamae = "";
+ $EMmem_name_kanji = "";
 
- if($namae == ""){
-     $EMnamae = "未入力です。";
+ if($mem_name_kanji == ""){
+     $EMmem_name_kanji = "未入力です。";
      $errflg = 1;
- }else if(mb_strlen($namae) > 10){
-     $EMnamae = "10文字までです。";
+ }else if(mb_strlen($mem_name_kanji) > 20){
+     $EMmem_name_kanji = "20文字までです";
      $errflg = 1;
  }
 
 
 //名前（フリガナ）
-$EMnamae_huri = "";
+ $EMmem_name_furigana = "";
+ $match_string3 = "/[^ァ-ヶー^\s　]/u";
 
- if($namae_huri == ""){
-     $EMnamae_huri = "未入力です。";
+ if($mem_name_furigana == ""){
+     $EMmem_name_furigana = "未入力です。";
      $errflg = 1;
- }else if(preg_match($match_string3,$namae_huri)){
-     $EMnamae_huri = "全角カタカナのみです。";
+ }else if(preg_match($match_string3,$mem_name_furigana)){
+     $EMmem_name_furigana = "全角カタカナのみです。";
      $errflg = 1;
- }else if(mb_strlen($namae_huri) > 10){
-     $EMnamae_huri = "10文字までです。";
+ }else if(mb_strlen($mem_name_furigana) > 20){
+     $EMmem_name_furigana = "20文字までです。";
      $errflg = 1;
  }
 
@@ -251,7 +231,7 @@ if($denwa == ""){
 
  if($errflg == 1){
  
- header("Location: /halcinema/user/KAIINNhenkou_mypage.php?mail=".$mail."&pass=".$pass."&myouji=".$myouji."&myouji_huri=".$myouji_huri."&namae=".$namae."&namae_huri=".$namae_huri."&yuubinn1=".$yuubinn1."&yuubinn2=".$yuubinn2."&ken=".$ken."&tyou=".$tyou."&banchi=".$banchi."&denwa=".$denwa."&EMmail=".$EMmail."&EMpass=".$EMpass."&EMmyouji=".$EMmyouji."&EMmyouji_huri=".$EMmyouji_huri."&EMnamae=".$EMnamae."&EMnamae_huri=".$EMnamae_huri."&EMyuubinn=".$EMyuubinn."&EMken=".$EMken."&EMtyou=".$EMtyou."&EMbanchi=".$EMbanchi."&EMdenwa=".$EMdenwa);
+ header("Location: /halcinema/user/KAIINNhenkou_mypage.php?mail=".$mail."&pass=".$pass."&mem_name_kanji=".$mem_name_kanji."&mem_name_furigana=".$mem_name_furigana."&yuubinn1=".$yuubinn1."&yuubinn2=".$yuubinn2."&ken=".$ken."&tyou=".$tyou."&banchi=".$banchi."&denwa=".$denwa."&EMmail=".$EMmail."&EMpass=".$EMpass."&EMmem_name_kanji=".$EMmem_name_kanji."&EMmem_name_furigana=".$EMmem_name_furigana."&EMyuubinn=".$EMyuubinn."&EMken=".$EMken."&EMtyou=".$EMtyou."&EMbanchi=".$EMbanchi."&EMdenwa=".$EMdenwa);
  exit;
  
  }else{
@@ -280,7 +260,7 @@ if(!mysqli_select_db($Link,$DB)){
         $DB);
 }
 //  クエリー送信(選択クエリー)
-$SQL = "update t_member set mem_mail='".$mail."', mem_pass='".$pass."', mem_fk='".$myouji."', mem_gk='".$namae."', mem_ff='".$myouji_huri."', mem_gf='".$namae_huri."', mem_post='".$yuubinn."', mem_pref='".$ken."', mem_city='".$tyou."', mem_add='".$banchi."', mem_tel='".$denwa."'";
+$SQL = "update t_member set mem_mail='".$mail."', mem_pass='".$pass."', mem_name_kanji='".$mem_name_kanji."' , mem_name_furigana='".$mem_name_furigana."' , mem_post='".$yuubinn."', mem_pref='".$ken."', mem_city='".$tyou."', mem_add='".$banchi."', mem_tel='".$denwa."'";
 $SQL .= " where mem_mail = '".$MemMail."'";
 
 if(!$SqlRes = mysqli_query($Link,$SQL)){
@@ -298,7 +278,7 @@ if(!mysqli_close($Link)){
 
 session_unset();
 $_SESSION["MemMail"] = $mail;
-$_SESSION["MemName"] = $myouji.$namae;
+$_SESSION["MemName"] = $mem_name_kanji;
 header("Location: /halcinema/user/KAIINNhenkouOK_mypage.php");
 exit;
 
