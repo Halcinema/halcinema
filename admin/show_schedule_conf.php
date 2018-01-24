@@ -52,7 +52,7 @@ if(!mysqli_select_db($Link,$DB)){
         $DB);
 }
 //  クエリー送信(選択クエリー)
-$SQL = "select * from t_theater where the_num =".$show['select_theater'];
+$SQL = "select * from t_theater where the_num =".$AdminTheNum;
 if(!$SqlRes = mysqli_query($Link,$SQL)){
   //  クエリー送信失敗
   exit("MySQLクエリー送信エラー<br />" .
@@ -119,8 +119,6 @@ $addDatetime = date("Y/m/d H:i:s", strtotime($formatDatetime."+".$RowAry3[0]["mo
       <?php include("common.php"); ?>
         <div id="main">
           <h3 class="admin-heading-1">入力情報確認</h3>
-              <h4 class="admin-heading-2">劇場</h4>
-              <span class="show"><?= $RowAry[0]['the_name'] ?></span></br>
               <h4 class="admin-heading-2">スクリーン</h4>
               <span><?= $RowAry2[0]['scr_name']?></span></br>
               <h4 class="admin-heading-2">上映映画</h4>
@@ -132,12 +130,11 @@ $addDatetime = date("Y/m/d H:i:s", strtotime($formatDatetime."+".$RowAry3[0]["mo
               <h4 class="admin-heading-2">上映終了時間</h4>
               <span><?= $addDatetime ?></span></br>
           <form class="" action="ins_show.php" method="post">
-              <input type="hidden" name="select_theater" value="<?=  $show['select_theater'] ?>">
               <input type="hidden" name="select_screen" value="<?= $show['select_screen']  ?>">
               <input type="hidden" name="select_movie" value="<?= $show['select_movie']  ?>">
               <input type="hidden" name="select_date" value="<?= $show['select_date']  ?>">
               <input type="hidden" name="showtime-start" value="<?=$show['showtime-start'] ?>">
-              <input type="hidden" name="showtime-end" value="">
+              <input type="hidden" name="showtime-end" value="<?= $addDatetime ?>">
               <p class="center"><input type="submit" name="" value="登録"></p>
           </form>
         </div>

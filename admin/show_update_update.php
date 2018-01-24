@@ -7,15 +7,20 @@
   更新履歴  :
 -----------------------------------------------------------------------------*/
 //  HTTPヘッダーで文字コードを指定
-//header("Content-Type:text/html; charset=UTF-8");
-
+header("Content-Type:text/html; charset=UTF-8");
+// header('location: index.php');
 //処理部
 $PageTitle = "ページ名";
 $show = $_POST;
-//$showidStart = date('H:i:s',strtotime($show['showtime-start']);
 
-//echo $showid;
 $a = "00:10";
+
+//上映開始日時データフォーマット処理
+$replaceDatetime = str_replace('-', '', $show['select_date']);
+$replaceDatetime .= str_replace(':', '', $show['showtime-start']);
+$formatDatetime = date('Y/m/d H:i:s', strtotime($replaceDatetime));
+
+
 $showid = $show['select_date'].$show['showtime-start'].$show['select_screen'];
 
 $showid = str_replace(('-'),'', $showid);
@@ -28,11 +33,9 @@ $entertime = date('Y-m-d H:i:s', strtotime($entertime));
 $starttime = $show['select_date'].$show['showtime-start'];
 $starttime = date('Y-m-d H:i:s', strtotime($starttime));
 
-$endtime = $show['showtime-end'];
-// $endtime = $show['select_date'].$endtime;
-// $endtime = date('Y-m-d H:i:s', strtotime($endtime));
-//.$show['showtime-end']
-
+echo $showid.'<br>';
+echo $entertime.'<br>';
+echo $starttime.'<br>';
 
 //時間を引き算する関数
 function diffTime($start,$end) {
@@ -46,6 +49,9 @@ function diffTime($start,$end) {
 
 }
 
+?>
+
+<?php
 //  MySQL関連変数を外部ファイルで持たせる
 //  外部ファイルの読み込み
 include("mysqlenv.php");
@@ -72,9 +78,43 @@ if(!mysqli_select_db($Link,$DB)){
   exit("MySQLデータベース選択エラー<br />" .
         $DB);
 }
+
+
+$SQL3 = "select * from t_movie";
+
+if(!$SqlRes = mysqli_query($Link,$SQL3)){
+  //  クエリー送信失敗
+  exit("MySQLクエリー送信エラー<br />" .
+        mysqli_error($Link) . "<br />" .
+        $SQL3);
+}
+
+while($Row = mysqli_fetch_array($SqlRes)){
+  //  データが存在する間処理される
+  $RowAry3[] = $Row;
+}
+
+$NumRows3 = mysqli_num_rows($SqlRes);
+
+//  MySQLのメモリ解放(selectの時のみ)
+mysqli_free_result($SqlRes);
+
+
+$endtime = date("Y/m/d H:i:s", strtotime($formatDatetime."+".$RowAry3[0]["movie_st"]."minute"));
+
+
 //  クエリー送信(選択クエリー)
-$SQL = "insert into t_show (show_id,movie_num,scr_id,show_enter,show_start,show_finish)";
-$SQL .= " values('".$showid."', ' ".$show['select_movie']." ',' ".$show['select_screen']." ',' ".$entertime." ',' ".$starttime." ',' ".$endtime." ')";
+$SQL = "update t_show set show_id = '".$showid."',";
+$SQL .= " movie_num = '".$show['select_movie']."' ,";
+$SQL .= " scr_id =".$show['select_screen'].",";
+$SQL .= " show_enter = '".$entertime."',";
+$SQL .= " show_start = '".$starttime."',";
+$SQL .= " show_finish = '".$endtime."'";
+// $SQL .= " movie_cast = '".$movie['movie_cast']."' ,";
+// $SQL .= " movie_start = '".$movie['movie_start']."' ,";
+// $SQL .= " movie_finish = '".$movie['movie_finish']."' ";
+$SQL .= " where show_id = ".$show['get_showid'];
+
 if(!$SqlRes = mysqli_query($Link,$SQL)){
   //  クエリー送信失敗
   exit("MySQLクエリー送信エラー<br />" .
@@ -82,31 +122,13 @@ if(!$SqlRes = mysqli_query($Link,$SQL)){
         $SQL);
 }
 
-$insConSql = "insert into t_scon values(
-'".$showid."',
-'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',
-'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',
-'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',
-'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',
-'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',
-'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',
-'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',
-'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',
-'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0',
-'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'
-)";
-
-if(!$SqlRes = mysqli_query($Link,$insConSql)){
-  exit("MySQLクエリー送信エラー<br />".mysqli_error($Link)."<br />".$insConSql);
-}
-//mysql_insert_id
-//move_uploaded_file($_FILES['movie_img']['tmp_name'],"./images/".$_FILES['movie_img']['name']);
-
 //  MySQLとの切断
 if(!mysqli_close($Link)){
   exit("MySQL切断エラー");
 }
 
-header('Location: show_schedule_add.php');
-//echo $_FILES['movie_img']['name'];
+
+exit();//←忘れずに！
+
 ?>
+

@@ -10,6 +10,7 @@ if(isset($_SESSION["admin"])){
     $AdminNum = $_SESSION["admin"]["adminNum"];
     $AdminName = $_SESSION["admin"]["adminName"];
     $AdminTheName = $_SESSION["admin"]["adminTheName"];
+    $AdminTheNum = $_SESSION["admin"]["adminTheNum"];
 }else{
     header("Location: /halcinema/admin/account/login/");
 }

@@ -69,17 +69,18 @@ if(!mysqli_close($Link)){
               <?php if($NumRows != "0"){ ?>
                   <table class="show-table">
                 <?php for($i=0; $i<$NumRows; $i++) { ?>
-                    <th>映画番号</th><th>映画名</th><th>上映開始日</th><th>上映終了日</th><!--<th>ストーリー</th>--><th>上映時間</th><th>映画監督</th><th>キャスト</th><th>mgenre_num</th>
+                    <th>映画番号</th><th>映画名</th><th>上映開始日</th><th>上映終了日</th><!--<th>ストーリー</th>--><th>上映時間</th><th>映画監督</th><th>キャスト</th><th>更新</th><th>削除</th>
                     <tr>
                       <td><?php echo $RowAry[$i]['movie_num']; ?></td>
                       <td><?php echo $RowAry[$i]['movie_name']; ?></td>
                       <td><?php echo $RowAry[$i]['movie_start']; ?></td>
                       <td><?php echo $RowAry[$i]['movie_finish']; ?></td>
                       <!--<td><?php //echo $RowAry[$i]['movie_story']; ?></td>-->
-                      <td><?php echo $RowAry[$i]['movie_st']; ?></td>
+                      <td><?php echo $RowAry[$i]['movie_st']; ?>分</td>
                       <td><?php echo $RowAry[$i]['movie_sc']; ?></td>
-                      <td><?php echo $RowAry[$i]['movie_sc']; ?></td>
-                      <td><?php echo $RowAry[$i]['mgenre_num']; ?></td>
+                      <td><?php echo $RowAry[$i]['movie_cast']; ?></td>
+                      <td><a href="movie_update.php?id=<?=$RowAry[$i]['movie_num'];?>">更新</a></td>
+                      <td><a href="movie_delete.php?id=<?=$RowAry[$i]['movie_num'];?>">削除</td>
                     </tr>
                 <?php } ?>
                   </table><!--ストーリ抜き　-->
