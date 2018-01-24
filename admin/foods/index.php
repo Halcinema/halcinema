@@ -104,8 +104,10 @@ if(!mysqli_close($Link)){
                         <?php print $FoRowAry[$i]["foods_price"] ?>
                     </p>
                     
-                    <img src="thumbnail/t_<?php print $FoRowAry[$i]["foods_img"] ?>" width="150px" height="150px">
-                    <!--<?php print $FoRowAry[$i]["movie_num"] ?>-->
+                    <div class="admin_foods_img" style="background-image: url(upload/<?php print $FoRowAry[$i]["foods_img"] ?>);">
+                    </div><!--
+                    <img src="upload/<?php print $FoRowAry[$i]["foods_img"] ?>" width="150px" height="150px">
+                    <?php print $FoRowAry[$i]["movie_num"] ?>-->
                     <p>
                 <a href="update/index.php?num=<?php print $FoRowAry[$i]["foods_num"] ?>">
                     編集
@@ -124,6 +126,16 @@ if(!mysqli_close($Link)){
 </body>
 </html>
 <style>
+    .admin_foods_img{
+        background-size: auto 150px;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 150px;
+        height: 150px;
+    }
+    .admin_foods_img:hover{
+        background-size: 150px auto; 
+    }
     .goods_index ul{
         display: flex;
         flex-wrap: wrap;
