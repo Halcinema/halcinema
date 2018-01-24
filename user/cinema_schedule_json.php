@@ -6,9 +6,9 @@ $RowAry = array();
 if(isset($_GET["the_num"])){
     $theNum = $_GET["the_num"];
 }
-//if(isset($_GET["date"])){
+if(isset($_GET["date"])){
     $date = $_GET["date"];
-//}
+}
 
 include("mysqlenv.php");
 
@@ -25,8 +25,12 @@ if(!mysqli_select_db($Link,$DB)){
     exit("MySQLDB選択エラー<br />".$DB);
 }
 
-$SQL = "select * from t_theater, t_screen, t_show, t_movie";
-$SQL .= " where t_theater.the_num = '".$theNum."' AND t_show.show_id like '%".$theNum."__' AND t_show.show_start like '".$date."%' AND t_show.movie_num = t_movie.movie_num AND t_show.scr_id = t_screen.scr_id";
+$SQL = " select * from t_theater, t_screen, t_show, t_movie ";
+$SQL .= " where t_theater.the_num = '".$theNum."' ";
+$SQL .= " AND t_show.show_id like '%".$theNum."__' ";
+$SQL .= " AND t_show.show_start like '".$date."%' ";
+$SQL .= " AND t_show.movie_num = t_movie.movie_num AND t_show.scr_id = t_screen.scr_id ";
+$SQL .= " order by t_show.movie_num, t_show.scr_id ";
 if(!$SqlRes = mysqli_query($Link,$SQL)){
     exit("MySQLクエリー送信エラー<br />".mysqli_error($Link) . "<br />" .$SQL);
 }
