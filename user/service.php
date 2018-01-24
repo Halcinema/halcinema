@@ -160,65 +160,7 @@ if(!mysqli_close($Link)){
 <div id="food_list_frame">
     <h3>商品一覧</h3>
 <ul id="foods_list">
-    <li aria-haspopup="true">
-        <div class="message-function">
-        <div class="message">
-            <!--<?php print $GoRowAry[$i]["goods_detail"]; ?>-->
-            人気商品です<br>
-            Rサイズ/Lサイズから選べます。
-        </div>
-        <img src="images/food/cola.jpg">
-        </div>
-        <h4>
-            <!--<?php print $GoRowAry[$i]["goods_name"]; ?>-->コーラ
-        </h4>
-        <div>
-            <!--<?php print $GoRowAry[$i]["goods_detail"]; ?>-->値段
-        </div>
-        <div>
-            <!--<?php print $GoRowAry[$i]["goods_detail"]; ?>-->Rサイズ/Lサイズ
-        </div>
-    </li>
-    <li aria-haspopup="true">
-        <div class="message-function">
-        <div class="message">
-            定番の商品です<br>
-            Rサイズ、Lサイズから選べます。
-        </div>
-        <img src="images/food/popcorn.jpg">
-        </div>
-        <h4>
-            <!--<?php print $GoRowAry[$i]["goods_name"]; ?>-->ポップコーン
-        </h4>
-        <!--<?php print $GoRowAry[$i]["goods_detail"]; ?>-->値段
-    </li>
-    <li aria-haspopup="true">
-        <div class="message-function">
-        <div class="message">
-            定番の商品です<br>
-            ホットとアイスがあります。
-        </div>
-        <img src="images/food/coffee.jpg">
-        </div>
-        <h4>
-            <!--<?php print $GoRowAry[$i]["goods_name"]; ?>-->コーヒー
-        </h4>
-        <!--<?php print $GoRowAry[$i]["goods_detail"]; ?>-->値段
-    </li>
-    <li aria-haspopup="true">
-        
-        <div class="message-function">
-        <div class="message">
-            甘くておいしいお菓子です。<br>
-            プレーンとチョコがあります。
-        </div>
-        <img src="images/food/tyurosu.jpg">
-        </div>
-        <h4>
-            <!--<?php print $GoRowAry[$i]["goods_name"]; ?>-->チュロス
-        </h4>
-        <!--<?php print $GoRowAry[$i]["goods_detail"]; ?>-->値段
-    </li>
+
     <?php for($i=0;$i<$FoNumRows;$i++){ ?>
     <li aria-haspopup="true">
         
@@ -233,6 +175,9 @@ if(!mysqli_close($Link)){
         </h4>
         <?php print $FoRowAry[$i]["foods_price"]; ?>円
     </li>
+    <?php } ?>
+    <?php if($FoNumRows == 0){ ?>
+        現在販売を停止しております。
     <?php } ?>
     <!--<p class="shohin_more"><a href="#">商品をもっと見る</a></p>-->
 </ul>
@@ -351,7 +296,10 @@ if(!mysqli_close($Link)){
         
         
         <?php for($i=0;$i<$GoNumRows;$i++){ ?>
-        <li aria-haspopup="true"><img src="../admin/goods/upload/<?php print $GoRowAry[$i]["goods_img"]; ?>" style="max-width:480px;height:300px;vertical-align: bottom;"><h3><?php print $GoRowAry[$i]["goods_name"]; ?></h3>&nbsp;&nbsp;値段<?php print $GoRowAry[$i]["goods_price"]; ?>円
+        <li aria-haspopup="true">
+            <div class="goods_img_box" style="background-image: url(../admin/goods/upload/<?php print $GoRowAry[$i]["goods_img"]; ?>);">
+            
+            </div><!--<img src="../admin/goods/upload/<?php print $GoRowAry[$i]["goods_img"]; ?>" style="">--><h3><?php print $GoRowAry[$i]["goods_name"]; ?></h3>&nbsp;&nbsp;値段<?php print $GoRowAry[$i]["goods_price"]; ?>円
             <a href="#"><div class="shohin_shosai" aria-haspopup="false">詳細を見る</div></a></li>
         <?php } ?>
     </ul>
