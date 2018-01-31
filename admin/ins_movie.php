@@ -7,16 +7,16 @@
   更新履歴  :
 -----------------------------------------------------------------------------*/
 //  HTTPヘッダーで文字コードを指定
+include('login_session.php');
 header("Content-Type:text/html; charset=UTF-8");
-header('location: index.php');
+// header('location: index.php');
 //処理部
 $PageTitle = "ページ名";
 $movie = $_POST;
-?>
 
-<?php
-//  MySQL関連変数を外部ファイルで持たせる
-//  外部ファイルの読み込み
+ // MySQL関連変数を外部ファイルで持たせる
+ // 外部ファイルの読み込み
+
 include("mysqlenv.php");
 
 //  MySQLとの接続開始
@@ -42,25 +42,44 @@ if(!mysqli_select_db($Link,$DB)){
         $DB);
 }
 //  クエリー送信(選択クエリー)
-$SQL = "insert into t_movie (movie_name,movie_start,movie_finish,movie_story,movie_st,movie_sc,movie_cast,mgenre_num)";
-// $SQL .= " ('" . $movie[movie_title]. "','" . $movie[movie_story]. "','" . $movie[movie_sc]. "','" . $movie[running]. "','" . $movie['aa']. "','" . $buid . "','" . $buid . "')";
-// $SQL .= " vlues('" . $movie['movie_title']. "'," . $movie['movie_title']. "')";
-
-$SQL .= " values(' ".$movie['movie_title']." ', ' ".$movie['starttime']." ',' ".$movie['endtime']." ',' ".$movie['movie_story']." ',".$movie['runningtime'].",' ".$movie['movie_sc']." ',' ".$movie['movie_cast']." ','1')";
+$SQL = " insert into t_movie ";
+$SQL .= "(movie_name, movie_start, movie_finish, movie_story, movie_st, movie_sc, movie_cast, mgenre_num, movie_file)";
+$SQL .= " values( ";
+$SQL .= " '".$movie['movie_title']."', ";
+$SQL .= " '".$movie['starttime']."', ";
+$SQL .= " '".$movie['endtime']."', ";
+$SQL .= " '".$movie['movie_story']."', ";
+$SQL .= $movie['runningtime'].", ";
+$SQL .= " '".$movie['movie_sc']."',";
+$SQL .= " '".$movie['movie_cast']."', ";
+$SQL .= " '1', ";
+$SQL .= " '".$_SESSION["createMenu"]["fileNextName"].$_SESSION["createMenu"]["fileEx"]."' ";
+$SQL .= " ) ";
 if(!$SqlRes = mysqli_query($Link,$SQL)){
   //  クエリー送信失敗
   exit("MySQLクエリー送信エラー<br />" .
         mysqli_error($Link) . "<br />" .
         $SQL);
 }
-//mysql_insert_id
-//move_uploaded_file($_FILES['movie_img']['tmp_name'],"./images/".$_FILES['movie_img']['name']);
 
 //  MySQLとの切断
 if(!mysqli_close($Link)){
   exit("MySQL切断エラー");
 }
 
-exit();//←忘れずに！
+
+//画像処理
+
+//tmpディレクトリ
+$tmpDir = $_SESSION["createMenu"]["tmpDir"];
+//拡張子
+$fileName = $_SESSION["createMenu"]["fileNextName"].$_SESSION["createMenu"]["fileEx"];
+//移動先ディレクトリ
+$imagesDir = "./images/";
+
+if(!rename($tmpDir.$fileName, $imagesDir.$fileName)){
+    print "ファイルの移動に失敗しました。";
+}
+header('Location:add_movie.php');
 ?>
 

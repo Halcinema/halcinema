@@ -1,5 +1,7 @@
 <?php
+
 include('login_session.php');
+
 /*-----------------------------------------------------------------------------
   概要      :
             :
@@ -11,41 +13,17 @@ include('login_session.php');
 header("Content-Type:text/html; charset=UTF-8");
 //処理部
 $pageTitle = "ページ名";
-//$_SESSION = $_FILES['movie_img'];
-//echo $_SESSION ['movie_img'];
 $movie = $_POST;
+$file_name = $_SESSION["admin"]["adminNum"].'_'.date("YmdHis");
+$upFileName = $_FILES["movie_img"]["name"];
+$fileEx = substr($upFileName, strrpos($upFileName, "."));
 
-$rpos = strpos($_FILES["movie_img"]["name"],'.');//左から数えてn番目のピリオド
-$ex_name = substr($_FILES["movie_img"]["name"],$rpos);//n番目以降の文字を抜き出す
-$file_name = $_POST['imgname'].$ex_name;
-$updir = "./images/";
-$file_name;
+$updir = "./tmp/";
+move_uploaded_file($_FILES["movie_img"]["tmp_name"], $updir.$file_name.$fileEx);
 
-$updir.=$file_name;
-//  処理部
-move_uploaded_file
-($_FILES["movie_img"]["tmp_name"],
-$updir);
-
-//画像処理
-//大きさを求める
-$imginfo = getimagesize("{$updir}");
-//取り込み
-$img_input = imagecreatefromjpeg("{$updir}");
-//出力
-$img_output = imagecreatetruecolor(1000, 1000);
-imagecopy($img_output,$img_input,0,0,0,0,300,300);
-
-$img_input2 = imagecreatefromjpeg("{$updir}");
-$input_width = imagesx($img_input2);
-$input_height = imagesy($img_input2);
-$output_width = $input_width *1.0;
-$output_height = $input_height *1.0;
-$img_sum1 = imagecreatetruecolor($output_width, $output_height);
-imagecopyresized($img_sum1, $img_input,0,0,0,0,$output_width,$output_height,$input_width, $input_height);
-imagejpeg($img_sum1,"{$updir}",100);
-
-
+$_SESSION["createMenu"]["tmpDir"] = $updir;
+$_SESSION["createMenu"]["fileNextName"] = $file_name;
+$_SESSION["createMenu"]["fileEx"] = $fileEx;
 ?>
 <!DOCTYPE html>
 <?php include("../head.php"); ?>
@@ -69,7 +47,7 @@ imagejpeg($img_sum1,"{$updir}",100);
               <h4 class="admin-heading-2">キャスト</h4>
               <span><?= $movie['movie_cast'] ?></span><br>
               <h4 class="admin-heading-2">イメージ</h4>
-              <span><img src="images/<?php echo $file_name; ?>" alt=""></span><br>
+              <span><img src="<?php print $updir.$file_name.$fileEx;?>" alt=""></span><br>
           <form class="" action="ins_movie.php" method="post">
               <input type="hidden" name="movie_title" value="<?=  $movie['movie_title'] ?>">
               <input type="hidden" name="movie_story" value="<?= $movie['movie_story'] ?>">
