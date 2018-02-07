@@ -39,18 +39,18 @@
     
 <h2 class="contents_name" id="ticket-oshirase">お知らせ</h2>
   <div class="sale_info" style="padding-bottom:85px">
-    <p style="width:650px;float:left">チケットとグッズをセットで買うと割引！<br>
-    チケットとグッズをセットで購入すると料金が割引されます。</p>
-      <img src="images/set_price.png" style="float:right" height="75px">
+    <img src="images/set_price.png" style="float:right" height="75px">チケットとグッズをセットで買うと割引！<br>
+    チケットとグッズをセットで購入すると料金が割引されます。
+      
   </div>
   <div class="sale_info" style="padding-bottom:85px">
-    <p style="width:650px;float:left">3D、4DX、DOLBYでの観賞は各々で追加料金を頂いております。<br>
-    4DXについて詳しくは<a href="4dx.php">こちら</a></p>
-      <img src="images/4dx.png" style="float:right;" height="75px">
+    <img src="images/4dx.png" style="float:right;" height="75px">3D、4DX、DOLBYでの観賞は各々で追加料金を頂いております。<br>
+    4DXについて詳しくは<a href="4dx.php">こちら</a>
+      
   </div>
   <div class="sale_info" style="padding-bottom:85px">
-    <p style="width:650px;float:left">3D映画視聴後、3D眼鏡はお持ち帰りいただけます。<br>3D眼鏡をお持ち込みいただくと、メガネの料金100円が割引されます。</p>
-      <img src="images/glasses.jpg" style="float:right;" height="75px"><p></p>
+    <img src="images/glasses.jpg" style="float:right;" height="75px">3D映画視聴後、3D眼鏡はお持ち帰りいただけます。<br>3D眼鏡をお持ち込みいただくと、メガネの料金100円が割引されます。
+      <p></p>
   </div>
 <h2 class="contents_name" id="ticket-ryokin">料金の情報</h2>
 <div id="ticket_box_back">
