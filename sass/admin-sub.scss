@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+//変数定義
+/* ヘッダーの高さ */ $adminHeaderHeight: 80px;
+/* ベースカラー */ $baseColor: #222222;
+/* アクセントカラー */ $accentColor: crimson;
+/* ベーステキストカラー */ $baseTextColor: #222222;
+/* アクセントテキストカラー */ $accentTextColor: crimson;
+a,p,h1,h2,h3,h4,label,input,select,td,th,li{
+    font-family: YuGothic,'Yu Gothic',sans-serif!important;
+    line-height: 1.5;
+    letter-spacing:0.05rem;
+}
