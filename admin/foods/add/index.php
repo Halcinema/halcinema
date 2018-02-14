@@ -79,11 +79,15 @@ if(!mysqli_close($Link)){
             <form action="/halcinema/admin/foods/add/ex.php" method="post"
 enctype="multipart/form-data">
                 <!--ここにグッズ追加フォームを表示-->
+                <div class="form-box">
                   <h4 class="admin-heading-2">フード名</h4>
                   <input type="text" name="name" value=""><br>
                   <!-- <h4>映画のストーリ</h4> -->
+                </div>
+                <div class="form-box">
                   <h4 class="admin-heading-2">フード価格</h4>
                   <input type="number" name="price" value="">円<br>
+                </div>
                 <!--
                   <h4 class="admin-heading-2">関連映画番号</h4>
                   <select name="movie" name="movie">
@@ -93,12 +97,16 @@ enctype="multipart/form-data">
                   </select><br>
                 -->
                     <!-- アップロード -->
+                <div class="form-box">
                 <h4 class="admin-heading-2">アップロード</h4>
                 <input type="file" name="updata" />
                 <br />
+                </div>
+                <div class="form-box">
                 <h4 class="admin-heading-2">保存ファイル名</h4>
                 <input type="text" name="savename" /><br>
                   <p class="center"><input type="submit" name="" value="追加" ></p>
+                </div>
 
             </form>
         </div>

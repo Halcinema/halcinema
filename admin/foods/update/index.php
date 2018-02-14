@@ -79,11 +79,14 @@ if(!mysqli_close($Link)){
 enctype="multipart/form-data">
                 <!--ここにグッズ修正フォームを表示-->
                 <input type="hidden" value="<?php print $num ?>" name="num">
+                <div class="form-box">
                   <h4 class="admin-heading-2">グッズ名</h4>
                   <input type="text" name="name" value="<?php print $Row["foods_name"]; ?>"><br>
-                  <!-- <h4>映画のストーリ</h4> -->
+                </div>
+                <div class="form-box">
                   <h4 class="admin-heading-2">グッズ価格</h4>
                   <input type="number" name="price" value="<?php print $Row["foods_price"]; ?>">円<br>
+                </div>
                 <!--
                   <h4 class="admin-heading-2">関連映画番号</h4>
                   <select name="movie" name="movie">
@@ -96,18 +99,22 @@ enctype="multipart/form-data">
                 <?php } ?>
                   </select><br>
                 -->
+                <div class="form-box">
                     <!-- アップロード -->
                     <img src="../upload/<?php print $Row["foods_img"] ?>" width="200px">
                     現在の画像
                     <input type="hidden" value="<?php print $Row["foods_img"] ?>" name="img">
+                </div>
                 <div>
                     <?php print $Row["foods_img"] ?>
                 </div>
+                <div class="form-box">
                     <h4 class="admin-heading-2">アップロード</h4>
                     <input type="file" name="updata" />
                     <br />
                     <h4 class="admin-heading-2">保存画像名</h4>
                     <input type="text" name="savename" class="savename_form" disabled><br>
+                </div>
                   <p class="center"><input type="submit" name="" value="変更" ></p>
             </form>
         </div>
