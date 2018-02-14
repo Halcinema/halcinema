@@ -7,6 +7,10 @@
  	$show_id  = $_GET["show_id"];
  }
  
+ if(isset($_GET["res_num"])){
+ 	$res_num  = $_GET["res_num"];
+ }
+ 
  //  MySQL関連変数を外部ファイルで持たせる
  //  外部ファイルの読み込み
  include("mysqlenv.php");
@@ -96,7 +100,7 @@ $NumRows = mysqli_num_rows($SqlRes);
           }
 
           if($flg == 3){
-           $url = "Location: /halcinema/user/YYKdel_mypage.php?show_id=".$show_id;
+           $url = "Location: /halcinema/user/YYKdel_mypage.php?res_num=".$res_num;
            header($url);
            exit();
           }
