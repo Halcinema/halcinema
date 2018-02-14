@@ -156,7 +156,6 @@ if(!mysqli_close($Link)){
     
     
 <h2 class="contents_name" id="service-food">フード</h2>
-画像にマウスカーソルを合わせるかタッチをすると説明が表示されます。
 <div id="food_list_frame">
     <h3>商品一覧</h3>
 <ul id="foods_list">
@@ -164,12 +163,11 @@ if(!mysqli_close($Link)){
     <?php for($i=0;$i<$FoNumRows;$i++){ ?>
     <li aria-haspopup="true">
         
-        <div class="message-function">
-        <div class="message">
-           説明が入ります
-        </div>
+            <div style="background-image:url(../admin/foods/upload/<?php print $FoRowAry[$i]["foods_img"]; ?>);" class="foods_img_box">
+            
+            </div><!--
         <img src="../admin/foods/upload/<?php print $FoRowAry[$i]["foods_img"]; ?>">
-        </div>
+        </div>-->
         <h4>
             <?php print $FoRowAry[$i]["foods_name"]; ?>
         </h4>
