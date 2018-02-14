@@ -161,7 +161,7 @@ $_SESSION["ticket_status"] = $arrTicketStatus;
                     <iframe src="terms.html" width="700" height="200"></iframe>
                 </div>
                     <input type="hidden" name="the_num" value="<?php print $_SESSION["ticket_status"]["the_num"]; ?>">
-                    <input id="next" class="go_select_ticket" type="submit" name="next" value="利用規約に同意して次へ" />
+                    <input id="next" class="ticket-form__submit ticket-form__submit--blue go_select_ticket" type="submit" name="next" value="利用規約に同意して次へ" />
                     <input id="back" class="transition_cinema_schedule" type="submit" name="back" value="時間指定画面へ戻る" />
                 </form>
             </div>

@@ -55,7 +55,7 @@ $pageTitle = "お支払い情報の入力 | 予約";
                     </section>
                     <input type="hidden" name="the_num" value="<?php print $_SESSION["ticket_status"]["the_num"]; ?>">
                     <p class="pay_info_form_btn">
-                        <input class="pay_info_form_btn_red" type="submit" name="next" value="次へ">
+                        <input class="ticket-form__submit ticket-form__submit--blue" type="submit" name="next" value="次へ">
                     </p>
                     <p class="pay_info_form_btn">
                         <input class="pay_info_form_btn_gray transition_select_ticket" type="submit" name="back" value="戻る">

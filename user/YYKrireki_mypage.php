@@ -47,6 +47,7 @@ if(!mysqli_select_db($Link,$DB)){
 ***********************************************************************************/
 
 $SQL =  " select res_num,t_reservation.show_id,movie_name,the_name,show_start,show_finish,scr_name,res_seat";
+
 $SQL .= " from";
 $SQL .= " (((t_reservation inner join t_show on t_reservation.show_id = t_show.show_id)";
 $SQL .= " inner join t_movie on t_show.movie_num = t_movie.movie_num)";
@@ -73,6 +74,7 @@ while($Row = mysqli_fetch_array($SqlRes)){
 
 $RowAry[0]["res_num"]
 $RowAry[0]["show_id"]
+$RowAry[0]["res_seat"]
 $RowAry[0]["movie_name"]
 $RowAry[0]["the_name"]
 $RowAry[0]["show_start"]

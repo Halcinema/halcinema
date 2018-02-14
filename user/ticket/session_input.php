@@ -56,7 +56,7 @@ if(isset($_POST["login"])){
     if($NumRow != 0){
         if($Row["mem_pass"]==$MemPass){
             $_SESSION["MemMail"] = $Row["mem_mail"];
-            $_SESSION["MemName"] = $Row["mem_fk"].$Row["mem_gk"];
+            $_SESSION["MemName"] = $Row["mem_name_kanji"];
             header("Location: pay_info.php");
             exit();
         }else{

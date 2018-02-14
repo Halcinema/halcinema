@@ -163,11 +163,11 @@ if(!mysqli_close($Link)){
                         <h3><?php print $MemName; ?>さん、すでにログインされています。</h3>
                         <h3>このアカウントで購入する。</h3>
                         <div id="text_align">
-                            <input class="ticket_accent_btn" type="submit" name="loginBuy" value="次へ">
+                            <input class="ticket-form__submit ticket-form__submit--blue" type="submit" name="loginBuy" value="次へ">
                         </div>
                         <h3>このアカウントでは購入しない。</h3>
                         <div id="text_align">
-                            <input class="ticket_accent_btn" type="submit" name="logout" value="ログアウト">
+                            <input class="ticket-form__submit ticket-form__submit--blue" type="submit" name="logout" value="ログアウト">
                   </div>
                   <?php } ?>
                 </div>
