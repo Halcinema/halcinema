@@ -3,7 +3,7 @@
   if(isset($_GET["msg"])){
   	$msg = $_GET["msg"];
   }
-  $show_id  = $_GET["show_id"];
+  $res_num  = $_GET["res_num"];
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +40,7 @@
  <p id="msg"><?php if(isset($msg)){ print $msg; } ?></p>
  <input type="password" id="pass" name="pass" value="" />
  <input type="hidden" name="flg" value="3" />
- <input type="hidden" name="show_id" value="<?php print $show_id; ?>" />
+ <input type="hidden" name="res_num" value="<?php print $res_num; ?>" />
  <input type="submit" id="txtsubmit" value="確認" />
  </form>
  
