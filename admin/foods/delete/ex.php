@@ -7,8 +7,6 @@ $pageTitle = "管理／グッズ管理／グッズ削除／完了";
 //  処理部
 //  データの受信（今回はエラー処理なし）
   $num = $_POST["num"];
-
-print $num;
 //  MySQL定数の組み込み
 include("../../../user/mysqlenv.php");
 
