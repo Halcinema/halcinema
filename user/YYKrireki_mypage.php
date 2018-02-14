@@ -3,7 +3,6 @@
 //  MySQL関連変数を外部ファイルで持たせる
 //  外部ファイルの読み込み
 include("mysqlenv.php");
-
 //  MySQLとの接続開始
 if(!$Link = mysqli_connect
             ($HOST,$USER,$PASS)){
@@ -11,7 +10,6 @@ if(!$Link = mysqli_connect
   exit("MySQL接続エラー<br />" . 
     mysqli_connect_error());
 }
-
 //  クエリー送信(文字コード)
 $SQL = "set names utf8";
 if(!mysqli_query($Link,$SQL)){
@@ -19,7 +17,6 @@ if(!mysqli_query($Link,$SQL)){
   exit("MySQLクエリー送信エラー<br />" .
         $SQL);
 }
-
 //  MySQLデータベース選択
 if(!mysqli_select_db($Link,$DB)){
   //  MySQLデータベース選択失敗
@@ -27,7 +24,6 @@ if(!mysqli_select_db($Link,$DB)){
         $DB);
 }
 //  クエリー送信(選択クエリー)
-
 /**********************************************************************************
 [テーブル結合]
  
@@ -45,33 +41,26 @@ if(!mysqli_select_db($Link,$DB)){
  上映スクリーン：[t_screen scr_name]
  予約席:[t_reservation res_seat]
 ***********************************************************************************/
-
 $SQL =  " select res_num,t_reservation.show_id,movie_name,the_name,show_start,show_finish,scr_name,res_seat";
-
 $SQL .= " from";
 $SQL .= " (((t_reservation inner join t_show on t_reservation.show_id = t_show.show_id)";
 $SQL .= " inner join t_movie on t_show.movie_num = t_movie.movie_num)";
 $SQL .= " inner join t_screen on t_show.scr_id = t_screen.scr_id)";
 $SQL .= " inner join t_theater on t_screen.the_num = t_theater.the_num";
 $SQL .= " where mem_mail = '". $MemMail ."'";
-
-
 if(!$SqlRes = mysqli_query($Link,$SQL)){
   //  クエリー送信失敗
   exit("MySQLクエリー送信エラー<br />" .
         mysqli_error($Link) . "<br />" .
         $SQL);
 }
-
 //  連想配列への抜出（全件配列に格納）
 while($Row = mysqli_fetch_array($SqlRes)){
   //  データが存在する間処理される
   $RowAry[] = $Row;
 }
-
 /*********************************
 抜き出された連想配列(二次元配列)
-
 $RowAry[0]["res_num"]
 $RowAry[0]["show_id"]
 $RowAry[0]["res_seat"]
@@ -83,18 +72,14 @@ $RowAry[0]["scr_name"]
 $RowAry[0]["res_seat"]
 ...
 **********************************/
-
 //  抜き出されたレコード件数を求める
 $NumRows = mysqli_num_rows($SqlRes);
-
 //  MySQLのメモリ解放(selectの時のみ)
 mysqli_free_result($SqlRes);
-
 //  MySQLとの切断
 if(!mysqli_close($Link)){
   exit("MySQL切断エラー");
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
