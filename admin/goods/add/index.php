@@ -77,11 +77,16 @@ if(!mysqli_close($Link)){
             <form action="/halcinema/admin/goods/add/ex.php" method="post"
 enctype="multipart/form-data">
                 <!--ここにグッズ追加フォームを表示-->
+                <div class="form-box">
                   <h4 class="admin-heading-2">グッズ名</h4>
-                  <input type="text" name="name" value="" required><br>
+                  <input type="text" name="name" value="" class="textform" required><br>
+                </div>
                   <!-- <h4>映画のストーリ</h4> -->
+                <div class="form-box">
                   <h4 class="admin-heading-2">グッズ価格</h4>
-                  <input type="number" name="price" value="" required>円<br>
+                  <input type="number" name="price" value="" class="textform" required>円<br>
+                </div>
+                <div class="form-box">
                   <h4 class="admin-heading-2">関連映画番号</h4>
                   <select name="movie" name="movie" required>
                   <option value="">選んでください</option>
@@ -89,13 +94,18 @@ enctype="multipart/form-data">
                   <option value="<?php print $MoRowAry[$i]["movie_num"]; ?>"><?php print $MoRowAry[$i]["movie_name"]; ?></option>
                 <?php } ?>
                   </select><br>
+                </div>
                     <!-- アップロード -->
+                <div class="form-box">
                 <h4 class="admin-heading-2">アップロード</h4>
                 <input type="file" name="updata" required>
                 <br />
+                </div>
+                <div class="form-box">
                 <h4 class="admin-heading-2">保存ファイル名</h4>
-                <input type="text" name="savename" required><br>
+                <input type="text" name="savename" class="textform" required><br>
                   <p class="center"><input type="submit" name="" value="追加" ></p>
+                </div>
 
             </form>
         </div>

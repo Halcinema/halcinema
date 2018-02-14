@@ -76,11 +76,15 @@ if(!mysqli_close($Link)){
 enctype="multipart/form-data">
                 <!--ここにグッズ修正フォームを表示-->
                 <input type="hidden" value="<?php print $num ?>" name="num">
+                <div class="form-box">
                   <h4 class="admin-heading-2">グッズ名</h4>
-                  <input type="text" name="name" value="<?php print $Row["goods_name"]; ?>"><br>
-                  <!-- <h4>映画のストーリ</h4> -->
+                  <input type="text" name="name" value="<?php print $Row["goods_name"]; ?>" class="textform"><br>
+                </div>
+                <div class="form-box">
                   <h4 class="admin-heading-2">グッズ価格</h4>
                   <input type="number" name="price" value="<?php print $Row["goods_price"]; ?>">円<br>
+                </div>
+                <div class="form-box">
                   <h4 class="admin-heading-2">関連映画番号</h4>
                   <select name="movie" name="movie">
                 <?php for($i=0;$i<$NumRows;$i++){ ?>
@@ -91,18 +95,23 @@ enctype="multipart/form-data">
                       <?php } ?>
                 <?php } ?>
                   </select><br>
+                </div>
+                <div class="form-box">
                     <!-- アップロード -->
                     <img src="../upload/<?php print $Row["goods_img"] ?>" width="200px">
                     現在の画像
                     <input type="hidden" value="<?php print $Row["goods_img"] ?>" name="img"><br>
+                </div>
                 <div>
                     <?php print $Row["goods_img"] ?>
                 </div>
                     <h4 class="admin-heading-2">アップロード</h4>
                     <input type="file" name="updata" class="up_img"/>
                     <br />
+                <div class="form-box">
                     <h4 class="admin-heading-2">保存画像名</h4>
-                    <input type="text" name="savename" class="savename_form" disabled><br>
+                    <input type="text" name="savename" class="savename_form textform" disabled><br>
+                </div>
                   <p class="center"><input type="submit" name="" value="変更" ></p>
             </form>
         </div>
