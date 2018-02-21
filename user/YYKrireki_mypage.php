@@ -27,7 +27,7 @@ if(!mysqli_select_db($Link,$DB)){
 /**********************************************************************************
 [テーブル結合]
  
- select res_num, t_show.show_id, movie_name, the_name, show_start, show_finish, scr_name ,res_seat
+ select res_num, t_show.show_id, movie_name, the_name, show_start, show_finish, scr_name
  from 
  (((t_reservation inner join t_show on t_reservation.show_id = t_show.show_id)
  inner join t_movie on t_show.movie_num = t_movie.movie_num)
@@ -41,7 +41,7 @@ if(!mysqli_select_db($Link,$DB)){
  上映スクリーン：[t_screen scr_name]
  予約席:[t_reservation res_seat]
 ***********************************************************************************/
-$SQL =  " select res_num,t_reservation.show_id,movie_name,the_name,show_start,show_finish,scr_name,res_seat";
+$SQL =  " select res_num,t_reservation.show_id,movie_name,the_name,show_start,show_finish,scr_name";
 $SQL .= " from";
 $SQL .= " (((t_reservation inner join t_show on t_reservation.show_id = t_show.show_id)";
 $SQL .= " inner join t_movie on t_show.movie_num = t_movie.movie_num)";
@@ -147,7 +147,6 @@ if(!mysqli_close($Link)){
   <p>上映場所：HALシネマ<?php print htmlspecialchars($RowAry[$i]["the_name"]); ?></p>
   <p>上映日時：<?php echo date('Y',strtotime($RowAry[$i]["show_start"]))."年".date('m',strtotime($RowAry[$i]["show_start"]))."月".date('d',strtotime($RowAry[$i]["show_start"]))."日　".date('H',strtotime($RowAry[$i]["show_start"]))."時".date('i',strtotime($RowAry[$i]["show_start"]))."分～".date('H',strtotime($RowAry[$i]["show_finish"]))."時".date('i',strtotime($RowAry[$i]["show_finish"]))."分"; ?></p>
   <p>上映スクリーン：<?php print htmlspecialchars($RowAry[$i]["scr_name"]); ?></p>
-  <p>予約席：<?php print htmlspecialchars($RowAry[$i]["res_seat"]); ?></p>
 	  <div id="syousai_miru"><p><a href="YYKsyousai_mypage.php?res_num=<?php print $RowAry[$i]["res_num"]; ?>">詳細を見る</a></p></div>
   </div>
   

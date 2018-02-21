@@ -33,7 +33,7 @@ if(!mysqli_select_db($Link,$DB)){
 /**********************************************************************************
 [テーブル結合]
  
- select res_num, t_show.show_id, movie_name, the_name, show_start, show_finish, scr_name, res_seat, t_ticket.ticket_price
+ select res_num, t_show.show_id, movie_name, the_name, show_start, show_finish, scr_name,
  from 
  ((((t_reservation inner join t_show on t_reservation.show_id = t_show.show_id)
  inner join t_movie on t_show.movie_num = t_movie.movie_num)
@@ -43,13 +43,12 @@ if(!mysqli_select_db($Link,$DB)){
  where mem_mail = 'test@hal.ac.jp' and t_reservation.res_num = '1';
 ***********************************************************************************/
 
-$SQL =  " select res_num,t_reservation.show_id,movie_name,the_name,show_start,show_finish,scr_name,res_seat,t_ticket.ticket_price";
+$SQL =  " select res_num,t_reservation.show_id,movie_name,the_name,show_start,show_finish,scr_name";
 $SQL .= " from";
-$SQL .= " ((((t_reservation inner join t_show on t_reservation.show_id = t_show.show_id)";
+$SQL .= " (((t_reservation inner join t_show on t_reservation.show_id = t_show.show_id)";
 $SQL .= " inner join t_movie on t_show.movie_num = t_movie.movie_num)";
 $SQL .= " inner join t_screen on t_show.scr_id = t_screen.scr_id)";
-$SQL .= " inner join t_theater on t_screen.the_num = t_theater.the_num)";
-$SQL .= " inner join t_ticket on t_ticket.ticket_num = t_reservation.ticket_num";
+$SQL .= " inner join t_theater on t_screen.the_num = t_theater.the_num";
 $SQL .= " where mem_mail = '". $MemMail ."' and t_reservation.res_num = '". $res_num ."' ";
 
 
@@ -84,6 +83,52 @@ $RowAry[0]["ticket_price"]
 //  抜き出されたレコード件数を求める
 $NumRows = mysqli_num_rows($SqlRes);
 
+
+
+
+//予約した席のデータの取り出し
+//  クエリー送信(選択クエリー)
+/**********************************************************************************
+[テーブル結合]
+ select *
+ from 
+ (t_reservation inner join t_reservation_ticket on t_reservation.res_num = t_reservation_ticket.res_num)
+ inner join t_ticket on t_reservation_ticket.ticket_num = t_ticket.ticket_num
+ where mem_mail = 'test@hal.ac.jp' and t_reservation.res_num = '1';
+***********************************************************************************/
+
+$SQL =  " select *";
+$SQL .= " from";
+$SQL .= " (t_reservation inner join t_reservation_ticket on t_reservation.res_num = t_reservation_ticket.res_num)";
+$SQL .= " inner join t_ticket on t_reservation_ticket.ticket_num = t_ticket.ticket_num";
+$SQL .= " where mem_mail = '". $MemMail ."' and t_reservation.res_num = '". $res_num ."' ";
+
+if(!$SqlRes = mysqli_query($Link,$SQL)){
+  //  クエリー送信失敗
+  exit("MySQLクエリー送信エラー<br />" .
+        mysqli_error($Link) . "<br />" .
+        $SQL);
+}
+
+//  連想配列への抜出（全件配列に格納）
+while($Row = mysqli_fetch_array($SqlRes)){
+  //  データが存在する間処理される
+  $RowAry2[] = $Row;
+}
+
+/*********************************
+抜き出された連想配列(二次元配列)
+
+$RowAry2[0]["res_num"]
+$RowAry2[0]["res_seat"]
+$RowAry2[0]["ticket_name"]
+$RowAry2[0]["ticket_price"]
+...
+**********************************/
+
+//  抜き出されたレコード件数を求める
+$NumRows2 = mysqli_num_rows($SqlRes);
+
 //  MySQLのメモリ解放(selectの時のみ)
 mysqli_free_result($SqlRes);
 
@@ -94,8 +139,9 @@ if(!mysqli_close($Link)){
 
 //合計金額の計算
 $goukei = 0;
-$goukei = $goukei + $RowAry[0]["ticket_price"];
-
+for($i=0;$i<$NumRows2;$i++){
+$goukei = $goukei + $RowAry2[$i]["ticket_price"];
+}
 
 ?>
 <!DOCTYPE html>
@@ -153,7 +199,11 @@ $goukei = $goukei + $RowAry[0]["ticket_price"];
    <tr>
     <td id="hutoi">予約した席記号</td>
     <td>
-    <?php print htmlspecialchars($RowAry[0]["res_seat"]); ?>
+    <?php
+    for($i=0;$i<$NumRows2;$i++){
+		print htmlspecialchars($RowAry2[$i]["res_seat"])."（".$RowAry2[$i]["ticket_name"]."　".$RowAry2[$i]["ticket_price"]."円）<br />";
+	}
+    ?>
     </td>
     
    </tr>
