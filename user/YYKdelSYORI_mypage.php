@@ -2,6 +2,7 @@
 <?php
 
 $res_num = $_GET["res_num"];
+$show_id = $_GET["show_id"];
 
 //処理部
 //  MySQL関連変数を外部ファイルで持たせる
@@ -32,7 +33,7 @@ if(!mysqli_select_db($Link,$DB)){
 }
 
 //予約しているデータの抽出
-$SQL  = "select * from t_reservation where res_num =".$res_num;
+$SQL  = "select * from t_reservation_ticket where res_num =".$res_num;
 if(!$SqlRes = mysqli_query($Link,$SQL)){
   //  クエリー送信失敗
   exit("MySQLクエリー送信エラー<br />" .
@@ -54,8 +55,12 @@ mysqli_free_result($SqlRes);
 
 
 //予約している席データを0にする
-$SQL = "update t_scon set ".$RowAry[0]["res_seat"]." = 0 ";
-$SQL .= "where res_num = '".$res_num."'";
+$SQL = "update t_scon set ";
+$SQL .= $RowAry[0]["res_seat"]." = 0";
+for($i=1;$i<$NumRows;$i++){
+$SQL .= ",".$RowAry[$i]["res_seat"]." = 0";
+}
+$SQL .= " where show_id = '". $show_id ."'";
 
 if(!$SqlRes = mysqli_query($Link,$SQL)){
   //  クエリー送信失敗
@@ -64,9 +69,17 @@ if(!$SqlRes = mysqli_query($Link,$SQL)){
         $SQL);
 }
 
-
-//予約データの削除
+//予約データ(t_reservation)の削除
 $SQL = "delete from t_reservation where res_num = '".$res_num."'";
+if(!$SqlRes = mysqli_query($Link,$SQL)){
+  //  クエリー送信失敗
+  exit("MySQLクエリー送信エラー<br />" .
+        mysqli_error($Link) . "<br />" .
+        $SQL);
+}
+
+//予約データ(t_reservation_ticket)の削除
+$SQL = "delete from t_reservation_ticket where res_num = '".$res_num."'";
 if(!$SqlRes = mysqli_query($Link,$SQL)){
   //  クエリー送信失敗
   exit("MySQLクエリー送信エラー<br />" .
