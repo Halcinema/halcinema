@@ -67,6 +67,7 @@ if(!mysqli_close($Link)){
      <?php include($_SERVER['DOCUMENT_ROOT']."/halcinema/admin/common.php"); ?>
         <div id="main">
               <h3 class="admin-heading-1">会員一覧</h3>
+              <a href="/halcinema/admin/pdf-list.php" target="_blank">PDF出力</a>
               <?php if($NumRows != "0"){ ?>
                   <table class="show-table">
                 <?php for($i=0; $i<$NumRows; $i++) { ?>
