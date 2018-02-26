@@ -58,29 +58,30 @@ $(function(){
     });
 
     //オンライン予約パンくずリスト
-    if(location.href.indexOf("select_seat") != -1){
-        $(".ticket_header_breadcrumbs_list1").addClass("ticket_header_breadcrumbs_now");
+    const ticBreadNow = 'ticket-header-breadcrumbs__now';
+    if(location.href.indexOf('select_seat') != -1){
+        $('.ticket-header-breadcrumbs__text1').addClass(ticBreadNow);
     }
-    if(location.href.indexOf("select_ticket") != -1){
-        $(".ticket_header_breadcrumbs_list1").addClass("ticket_header_breadcrumbs_now");
+    if(location.href.indexOf('select_ticket') != -1){
+        $('.ticket-header-breadcrumbs__text1').addClass(ticBreadNow);
     }
-    if(location.href.indexOf("user_info") != -1){
-        $(".ticket_header_breadcrumbs_list2").addClass("ticket_header_breadcrumbs_now");
+    if(location.href.indexOf('user_info') != -1){
+        $('.ticket-header-breadcrumbs__text2').addClass(ticBreadNow);
     }
-    if(location.href.indexOf("pay_info") != -1){
-        $(".ticket_header_breadcrumbs_list3").addClass("ticket_header_breadcrumbs_now");
+    if(location.href.indexOf('pay_info') != -1){
+        $('.ticket-header-breadcrumbs__text3').addClass(ticBreadNow);
     }
-    if(location.href.indexOf("chk") != -1){
-        $(".ticket_header_breadcrumbs_list4").addClass("ticket_header_breadcrumbs_now");
+    if(location.href.indexOf('chk') != -1){
+        $('.ticket-header-breadcrumbs__text4').addClass(ticBreadNow);
     }
-    if(location.href.indexOf("ex") != -1){
-        $(".ticket_header_breadcrumbs_list5").addClass("ticket_header_breadcrumbs_now");
+    if(location.href.indexOf('ex') != -1){
+        $('.ticket-header-breadcrumbs__text5').addClass(ticBreadNow);
     }
 
     //劇場コード取得
     theNum = $(".cinema_schedule_ttl_num").text();
 
-    var yb=["日","月","火","水","木","金","土"];
+    const yb=['日', '月', '火', '水', '木', '金', '土'];
 
     today = new Date();
 

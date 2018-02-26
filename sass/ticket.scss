@@ -29,6 +29,13 @@
  }
 
 .ticket-form {
+    &__text {
+        @include formInput(#fff, (solid 1px #808080), 500px, 50px, 2em, #808080, 1em);
+        &:hover {
+            @include formInput(#fff, (solid 1px #808080), 500px, 50px, 2em, #808080, 1em);
+        }
+        margin-bottom: 20px;
+    }
     &__submit {
         &--blue {
             @include formInput(#34495e, none, 500px, 50px, 2em, #fff, none);
@@ -90,36 +97,44 @@
 }
 
 //ヘッダー
-.ticket_header {
+.ticket-header {
     background-color: #222;
     margin-bottom: 50px;
     width: 100%;
     height: 100px;
-    &_top {
+    &-top {
         display: flex;
         width: 1000px;
         height: 50px;
         margin: 0 auto;
-        line-height: 50px;
-        &_ttl {
+        &__ttl {
+            line-height: 50px;
             margin-right: auto;
             color: #fff;
         }
-        &_user {
+        &__user {
+            line-height: 50px;
             color: #fff;
         }
     }
     //パンくずリスト
-    &_breadcrumbs {
+    &-breadcrumbs {
+        display: flex;
+        align-items: center;
         width: 1000px;
         height: 50px;
         margin: 0 auto;
-        line-height: 50px;
-        &_list {
-            color: #fff;
-            padding: 0 10px;
+        &__item {
+            &:not(:last-child)::after {
+                content: '\03e';
+                padding: 0 10px;
+                color: #fff;
+            }
         }
-        &_now {
+        &__text {
+            color: #fff;
+        }
+        &__now {
             color: #FF0000;
         }
     }
