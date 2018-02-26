@@ -1,19 +1,25 @@
-<header class="ticket_header">
-    <div class="ticket_header_top">
-        <h1 class="ticket_header_top_ttl">halcinema / オンライン予約</h1>
-        <?php if($MemMail != ""): ?>
-        <p class="ticket_header_top_user"><?php print $MemName; ?>さんでログイン中</p>
+<header class="ticket-header">
+    <div class="ticket-header-top">
+        <h1 class="ticket-header-top__ttl">halcinema / オンライン予約</h1>
+        <?php if($MemMail != ''): ?>
+        <p class="ticket-header-top__user"><?= $MemName ?>さんでログイン中</p>
         <?php endif; ?>
     </div>
-    <p class="ticket_header_breadcrumbs">
-        <span class="ticket_header_breadcrumbs_list ticket_header_breadcrumbs_list1">座席・チケット選択</span>
-        <span >&gt;</span>
-        <span class="ticket_header_breadcrumbs_list ticket_header_breadcrumbs_list2">ご購入者情報の入力</span>
-        <span>&gt;</span>
-        <span class="ticket_header_breadcrumbs_list ticket_header_breadcrumbs_list3">お支払情報の入力</span>
-        <span>&gt;</span>
-        <span class="ticket_header_breadcrumbs_list ticket_header_breadcrumbs_list4">購入内容の確認</span>
-        <span>&gt;</span>
-        <span class="ticket_header_breadcrumbs_list ticket_header_breadcrumbs_list5">購入完了</span>
-    </p>
+    <ul class="ticket-header-breadcrumbs">
+        <li class="ticket-header-breadcrumbs__item">
+            <span class="ticket-header-breadcrumbs__text ticket-header-breadcrumbs__text1">座席・チケット選択</span>
+        </li>
+        <li class="ticket-header-breadcrumbs__item">
+            <span class="ticket-header-breadcrumbs__text ticket-header-breadcrumbs__text2">ご購入者情報の入力</span>
+        </li>
+        <li class="ticket-header-breadcrumbs__item">
+            <span class="ticket-header-breadcrumbs__text ticket-header-breadcrumbs__text3">お支払情報の入力</span>
+        </li>
+        <li class="ticket-header-breadcrumbs__item">
+            <span class="ticket-header-breadcrumbs__text ticket-header-breadcrumbs__text4">購入内容の確認</span>
+        </li>
+        <li class="ticket-header-breadcrumbs__item">
+            <span class="ticket-header-breadcrumbs__text ticket-header-breadcrumbs__text5">購入完了</span>
+        </li>
+    </ul>
 </header>
