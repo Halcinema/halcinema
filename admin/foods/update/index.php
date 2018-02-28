@@ -2,9 +2,7 @@
 include($_SERVER['DOCUMENT_ROOT']."/halcinema/admin/login_session.php");
 header("Content-Type:text/html; charset=UTF-8");
 $pageTitle = "管理／グッズ管理／グッズ修正／入力";
-
 $num = $_GET["num"];
-
 //  MySQL関連変数を外部ファイルで持たせる
 //  外部ファイルの読み込み
 include("../../../user/mysqlenv.php");
@@ -39,7 +37,6 @@ if(!$GoSqlRes = mysqli_query($Link,$GO)){
 }
 //  連想配列への抜出（全件配列に格納）
 $Row = mysqli_fetch_array($GoSqlRes);
-
 //  クエリー送信(選択クエリー)
 /*
 $MO = "select * from t_movie";
@@ -56,17 +53,13 @@ while($MoRow = mysqli_fetch_array($MoSqlRes)){
 }
 //  抜き出されたレコード件数を求める
 $NumRows = mysqli_num_rows($MoSqlRes);
-
 */
-
 //  MySQLのメモリ解放(selectの時のみ)
 mysqli_free_result($GoSqlRes);
-
 //  MySQLとの切断
 if(!mysqli_close($Link)){
   exit("MySQL切断エラー");
 }
-
 ?>
 <!DOCTYPE html>
 <?php include($_SERVER['DOCUMENT_ROOT']."/halcinema/head.php"); ?>
@@ -79,11 +72,14 @@ if(!mysqli_close($Link)){
 enctype="multipart/form-data">
                 <!--ここにグッズ修正フォームを表示-->
                 <input type="hidden" value="<?php print $num ?>" name="num">
+                <div class="form-box">
                   <h4 class="admin-heading-2">グッズ名</h4>
                   <input type="text" name="name" value="<?php print $Row["foods_name"]; ?>"><br>
-                  <!-- <h4>映画のストーリ</h4> -->
+                </div>
+                <div class="form-box">
                   <h4 class="admin-heading-2">グッズ価格</h4>
                   <input type="number" name="price" value="<?php print $Row["foods_price"]; ?>">円<br>
+                </div>
                 <!--
                   <h4 class="admin-heading-2">関連映画番号</h4>
                   <select name="movie" name="movie">
@@ -96,18 +92,22 @@ enctype="multipart/form-data">
                 <?php } ?>
                   </select><br>
                 -->
+                <div class="form-box">
                     <!-- アップロード -->
                     <img src="../upload/<?php print $Row["foods_img"] ?>" width="200px">
                     現在の画像
                     <input type="hidden" value="<?php print $Row["foods_img"] ?>" name="img">
+                </div>
                 <div>
                     <?php print $Row["foods_img"] ?>
                 </div>
+                <div class="form-box">
                     <h4 class="admin-heading-2">アップロード</h4>
                     <input type="file" name="updata" />
                     <br />
                     <h4 class="admin-heading-2">保存画像名</h4>
                     <input type="text" name="savename" class="savename_form" disabled><br>
+                </div>
                   <p class="center"><input type="submit" name="" value="変更" ></p>
             </form>
         </div>
