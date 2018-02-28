@@ -12,13 +12,10 @@ $pageTitle = "管理／グッズ管理／グッズ登録／入力";
   更新履歴  :
 -----------------------------------------------------------------------------*/
 //  HTTPヘッダーで文字コードを指定
-
 //処理部
-
 /*
 if(isset($_POST["house_num"])){
     $house_num = $_POST["house_num"];
-
 */
 //  MySQL関連変数を外部ファイルで持たせる
 //  外部ファイルの読み込み
@@ -59,10 +56,8 @@ while($MoRow = mysqli_fetch_array($MoSqlRes)){
 }
 //  抜き出されたレコード件数を求める
 $NumRows = mysqli_num_rows($MoSqlRes);
-
 //  MySQLのメモリ解放(selectの時のみ)
 mysqli_free_result($MoSqlRes);
-
 //  MySQLとの切断
 if(!mysqli_close($Link)){
   exit("MySQL切断エラー");
@@ -79,11 +74,15 @@ if(!mysqli_close($Link)){
             <form action="/halcinema/admin/foods/add/ex.php" method="post"
 enctype="multipart/form-data">
                 <!--ここにグッズ追加フォームを表示-->
+                <div class="form-box">
                   <h4 class="admin-heading-2">フード名</h4>
                   <input type="text" name="name" value=""><br>
                   <!-- <h4>映画のストーリ</h4> -->
+                </div>
+                <div class="form-box">
                   <h4 class="admin-heading-2">フード価格</h4>
                   <input type="number" name="price" value="">円<br>
+                </div>
                 <!--
                   <h4 class="admin-heading-2">関連映画番号</h4>
                   <select name="movie" name="movie">
@@ -93,12 +92,16 @@ enctype="multipart/form-data">
                   </select><br>
                 -->
                     <!-- アップロード -->
+                <div class="form-box">
                 <h4 class="admin-heading-2">アップロード</h4>
                 <input type="file" name="updata" />
                 <br />
+                </div>
+                <div class="form-box">
                 <h4 class="admin-heading-2">保存ファイル名</h4>
                 <input type="text" name="savename" /><br>
                   <p class="center"><input type="submit" name="" value="追加" ></p>
+                </div>
 
             </form>
         </div>
