@@ -120,7 +120,7 @@ if(!mysqli_close($Link)){
       <?php for($i=0;$i<$GuNumRows;$i++){ ?>
       
     <div class="movie_block" aria-haspopup="true">
-      <div class="movie_gazou"> <img src="images/hoshi.jpg" width="250px"> </div>
+      <div class="movie_gazou"> <img src="../admin/images/<?php print $GuRowAry[$i]["movie_file"]; ?>" width="200px"> </div>
       <div class="movie_text">
         <h2 class="movie_contents"><?php print $GuRowAry[$i]["movie_name"]; ?></h2>
         <ul class="info_movie">
