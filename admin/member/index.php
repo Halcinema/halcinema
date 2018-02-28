@@ -70,8 +70,8 @@ if(!mysqli_close($Link)){
               <a href="/halcinema/admin/member/pdf-list.php" target="_blank">PDF出力</a>
               <?php if($NumRows != "0"){ ?>
                   <table class="show-table">
-                <?php for($i=0; $i<$NumRows; $i++) { ?>
                     <th>メールアドレス</th><th>名前</th><th>詳細</th>
+                <?php for($i=0; $i<$NumRows; $i++) { ?>
                     <tr>
                       <td><?php echo $RowAry[$i]['mem_mail']; ?></td>
                       <td><?php echo $RowAry[$i]['mem_name_kanji']; ?></td>
