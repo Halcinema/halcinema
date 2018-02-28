@@ -210,7 +210,7 @@ function formCheck(){
 <h1 class="movie_name"><?php print $GuRow["movie_name"]; ?></h1>
 <section class="clearfix">
   <div id="movies">
-    <div id="movie_img"> <img src="images/hoshi.jpg" width="300px"> </div>
+    <div id="movie_img"> <img src="../admin/images/<?php print $GuRow["movie_file"]; ?>" width="300px"> </div>
     <div id="movie_detail"><?php print $GuRow["movie_story"]; ?>
       <ul class="info_movie">
         <li class="info_left">監督</li>
